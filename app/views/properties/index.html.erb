@@ -1,17 +1,21 @@
 <%- model_class = Property -%>
 
 <div class="page-header">
-  <h1>Properties</h1>
+  <h1 style="width:50;float:left">Listings</h1>
+<div style="width:50%; float:left; margin-top:20px">
+	<a href="/properties/new" class="btn" style="float:right">Create New Listing</a>
 </div>
 
 
-
+</div>
+<div class="search-box">
 <%= form_tag properties_path, :method => 'get' do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
     <%= submit_tag "Search", :name => nil %>
   </p>
 <% end %>
+</div>
 
 
 <table class="table table-striped">
@@ -55,3 +59,4 @@
     <% end %>
   </tbody>
 </table>
+
