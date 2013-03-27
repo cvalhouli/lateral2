@@ -1,0 +1,57 @@
+<%- model_class = Property -%>
+
+<div class="page-header">
+  <h1>Properties</h1>
+</div>
+
+
+
+<%= form_tag properties_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+	<th></th>    
+	  <th><%= model_class.human_attribute_name(:property_type) %></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th><%= model_class.human_attribute_name(:marketvalue) %></th>
+      <th><%= model_class.human_attribute_name(:entry_type) %></th>
+      
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @properties.each do |property| %>
+      <tr>
+      	<td><a href="/properties/<%=property.id%>"><%= image_tag property.photo.url(:thumb) %></a></td>
+		<td><%= property.property_type %><br/><%if !property.sqft.blank?%><%= property.sqft %> sq.ft.<%end%></td>
+        <td><%= property.address1 %><%if !property.address2.blank?%>,<%end%> &nbsp;<%= property.address2 %><br/><%= property.city %>, <%= property.state %> <%= property.zipcode %></td>
+        <td></td>
+        <td><br/></td>
+        <td></td>
+		<td></td>        
+		<td><%= property.marketvalue %></td>
+        <td><%= property.entry_type %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_property_path(property), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      property_path(property),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
