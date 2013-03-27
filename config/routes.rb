@@ -1,4 +1,7 @@
 Mortgage::Application.routes.draw do
+  resources :pictures
+
+
   get "site/about_us"
 
   get "site/asset_classes"

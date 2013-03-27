@@ -1,8 +1,10 @@
-<%= form_for @property, :html => { :class => 'form-horizontal' } do |f| %>
+<%= form_for @property, :html => { :multipart => true } do |f| %>
+   <%=f.file_field :photo %>
+
   <div class="control-group">
-    <%= f.label :property_type, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :property_type, :class => 'text_field' %>
+	 <label>Listing Type</label>
+ <div class="controls">
+      <%= f.select :property_type, ["","Residential for sale","Residential for rent","Commercial for sale", "Commercial for rent", "Occupied residential properties", "Farm", "Industrial", "Restaurant", "Mixed use", "Tenancy-in-common", "Permitted properties", "Parking", "Pop-up shop", "School loan debt", "Assumable mortgage ", "Hydropower rights"].sort, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
@@ -65,7 +67,7 @@
   <div class="control-group">
     <%= f.label :mortgagetype, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :mortgagetype, :class => 'text_field' %>
+      <%= f.select :mortgagetype, ["","Adjustable", "Fixed, 30 year", "Fixed, 15 year", "Other"].sort,:class => 'text_field' %>
     </div>
   </div>
 

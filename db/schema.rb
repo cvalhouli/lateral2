@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130317184313) do
+ActiveRecord::Schema.define(:version => 20130327172831) do
+
+  create_table "pictures", :force => true do |t|
+    t.integer  "property_id"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+  end
 
   create_table "properties", :force => true do |t|
     t.string   "property_type"
@@ -35,6 +45,8 @@ ActiveRecord::Schema.define(:version => 20130317184313) do
     t.float    "latitude"
     t.float    "longitude"
     t.string   "sqft"
+    t.boolean  "gmaps"
+    t.string   "mortgage_type"
   end
 
 end

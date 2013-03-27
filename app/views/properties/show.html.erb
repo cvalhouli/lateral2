@@ -25,7 +25,54 @@
 <div style="float:left;width:100%">
 
 <div style="float:left">
-<%= image_tag @property.photo.url, :width=>'400px' %>
+	
+	<%@pictures=@property.pictures %>
+	
+	<div id="myCarousel" class="carousel slide">
+		
+	      
+    <ol class="carousel-indicators">
+	
+	 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+	<%counter=1%>
+    <%for picture in @pictures%>
+    
+    <li data-target="#myCarousel" data-slide-to="<%=counter%>"></li>
+     <%counter=counter+1%>
+    <%end%>
+
+    </ol>
+
+
+    <!-- Carousel items -->
+    <div class="carousel-inner">
+	
+	
+    <div class="active item"><%= image_tag @property.photo.url, :width=>'400px' %></div>
+
+	<%for picture in @pictures%>
+    
+    <div class="item"><%= image_tag picture.photo.url, :width=>'400px' %></div>
+   
+    <%end%>
+
+
+    </div>
+    <!-- Carousel nav -->
+    <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+    <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+    </div>
+	
+	
+	
+	
+	
+	
+	
+	
+
+<br/>
+<%= link_to 'New Picture', new_picture_path(:q=>@property.id) %>
 </div>
 <%= gmaps("markers" => {"data" => @json}, "map_options" => {"processing" => "json", "auto_adjust" => true, "auto_zoom" => false, "zoom" => 16}) %>
 
