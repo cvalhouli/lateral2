@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130327172831) do
+ActiveRecord::Schema.define(:version => 20130328231909) do
 
   create_table "pictures", :force => true do |t|
     t.integer  "property_id"
@@ -34,8 +34,8 @@ ActiveRecord::Schema.define(:version => 20130327172831) do
     t.string   "mortgageamount"
     t.string   "mortgageAPR"
     t.string   "mortgagetype"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
@@ -47,6 +47,13 @@ ActiveRecord::Schema.define(:version => 20130327172831) do
     t.string   "sqft"
     t.boolean  "gmaps"
     t.string   "mortgage_type"
+    t.string   "Annual_Real_Estate_Taxes"
+    t.string   "Exposures"
+    t.string   "Year_Built"
+    t.string   "Zoning"
+    t.string   "Floor"
+    t.string   "Asking_Price"
+    t.string   "Parking_Spaces"
   end
 
 end

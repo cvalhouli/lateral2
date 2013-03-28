@@ -1,86 +1,136 @@
 <%= form_for @property, :html => { :multipart => true } do |f| %>
-   <%=f.file_field :photo %>
 
-  <div class="control-group">
-	 <label>Listing Type</label>
- <div class="controls">
-      <%= f.select :property_type, ["","Residential for sale","Residential for rent","Commercial for sale", "Commercial for rent", "Occupied residential properties", "Farm", "Industrial", "Restaurant", "Mixed use", "Tenancy-in-common", "Permitted properties", "Parking", "Pop-up shop", "School loan debt", "Assumable mortgage ", "Hydropower rights"].sort, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :address1, :class => 'control-label' %>
-    <div class="controls">
+<div class="custom_width">Listing type:</div>
+<div class="custom_width">
+
+      <%= f.select :property_type, ["Occupied residential properties", "Farmland", "Industrial", "Restaurant", "Mixed use", "Tenancy-in-common", "Permitted properties", "Parking",  "School loan debt",  "Single family house", "Multifamily house", "Condominium", "Co-op","Hydropower rights"].sort, :class => 'text_field' %>
+</div>
+ Entry type:
+      <%= f.select :entry_type, ["Assumable mortgage exchange","Residential for sale","Residential for rent","Commercial for sale", "Commercial for lease", "Pop-up shop"].sort, :class => 'text_field' %>
+   <br/>
+      Address1:
       <%= f.text_field :address1, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :address2, :class => 'control-label' %>
-    <div class="controls">
+      Address2:
       <%= f.text_field :address2, :class => 'text_field' %>
-    </div>
-  </div>
+  <br/>
   <div class="control-group">
-    <%= f.label :city, :class => 'control-label' %>
-    <div class="controls">
+      City:
       <%= f.text_field :city, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :state, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :state, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :zipcode, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :zipcode, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :marketvalue, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :marketvalue, :class => 'text_field' %>
-    </div>
+      State:
+      <%= f.select :state, states = Array[ ["AK", "Alaska"],
+	["AL", "Alabama"],
+	["AR", "Arkansas"],
+	["AS", "American Samoa"],
+	["AZ", "Arizona"],
+	["CA", "California"],
+	["CO", "Colorado"],
+	["CT", "Connecticut"],
+	["DC", "District of Columbia"],
+	["DE", "Delaware"],
+	["FL", "Florida"],
+	["GA", "Georgia"],
+	["GU", "Guam"],
+	["HI", "Hawaii"],
+	["IA", "Iowa"],
+	["ID", "Idaho"],
+	["IL", "Illinois"],
+	["IN", "Indiana"],
+	["KS", "Kansas"],
+	["KY", "Kentucky"],
+	["LA", "Louisiana"],
+	["MA", "Massachusetts"],
+	["MD", "Maryland"],
+	["ME", "Maine"],
+	["MI", "Michigan"],
+	["MN", "Minnesota"],
+	["MO", "Missouri"],
+	["MS", "Mississippi"],
+	["MT", "Montana"],
+	["NC", "North Carolina"],
+	["ND", "North Dakota"],
+	["NE", "Nebraska"],
+	["NH", "New Hampshire"],
+	["NJ", "New Jersey"],
+	["NM", "New Mexico"],
+	["NV", "Nevada"],
+	["NY", "New York"],
+	["OH", "Ohio"],
+	["OK", "Oklahoma"],
+	["OR", "Oregon"],
+	["PA", "Pennsylvania"],
+	["PR", "Puerto Rico"],
+	["RI", "Rhode Island"],
+	["SC", "South Carolina"],
+	["SD", "South Dakota"],
+	["TN", "Tennessee"],
+	["TX", "Texas"],
+	["UT", "Utah"],
+	["VA", "Virginia"],
+	["VI", "Virgin Islands"],
+	["VT", "Vermont"],
+	["WA", "Washington"],
+	["WI", "Wisconsin"],
+	["WV", "West Virginia"],
+	["WY", "Wyoming"] ], :class => 'custom_size' %>
+      Zip Code:
+      <%= f.text_field :zipcode, :class => 'text_field custom_size' %>
+    
+</div>
+
+<div class="control-group">
+   Asking Price
+     <%= f.text_field :Asking_Price, :class => 'text_field' %>
+   Approx. Sq. Ft.
+     <%= f.text_field :sqft, :class => 'text_field' %>
+ </div>
+
+
+ <div class="control-group">
+    Parking:
+      <%= f.text_field :Parking_Spaces, :class => 'text_field' %>
+    Floor:
+      <%= f.text_field :Floor, :class => 'text_field' %>
   </div>
 
-  <div class="control-group">
-    <%= f.label :sqft, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :sqft, :class => 'text_field' %>
-    </div>
-  </div>
+<%if 1==2%>
+
+ <div class="control-group">
+   <%#= f.label :marketvalue, :class => 'control-label' %>
+   <div class="controls">
+     <%#= f.text_field :marketvalue, :class => 'text_field' %>
+   </div>
+ </div>
 
 
   <div class="control-group">
-    <%= f.label :mortgageamount, :class => 'control-label' %>
+    <%#= f.label :mortgageamount, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :mortgageamount, :class => 'text_field' %>
+      <%#= f.text_field :mortgageamount, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :mortgageAPR, :class => 'control-label' %>
+    <%#= f.label :mortgageAPR, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :mortgageAPR, :class => 'text_field' %>
+      <%#= f.text_field :mortgageAPR, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :mortgagetype, :class => 'control-label' %>
+    <%#= f.label :mortgagetype, :class => 'control-label' %>
     <div class="controls">
       <%= f.select :mortgagetype, ["","Adjustable", "Fixed, 30 year", "Fixed, 15 year", "Other"].sort,:class => 'text_field' %>
     </div>
   </div>
 
-  <div class="control-group">
-    <%= f.label :entry_type, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :entry_type, :class => 'text_field' %>
-    </div>
-  </div>
+<%end%>
+
+Upload photo:
+   <%=f.file_field :photo %>
+<br/>
+
   <div class="control-group">
     <%= f.label :description, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_area :description, :class => 'text_area' %>
+      <%= f.text_area :description, :class => 'text_area custom_description' %>
     </div>
   </div>
 
