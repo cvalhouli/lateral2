@@ -6,7 +6,7 @@ class PropertiesController < ApplicationController
       if params[:search]==nil
          @properties = Property.all
         else
-         @properties = Property.near(params[:search], params[:zip])
+         @properties = Property.near(params[:search],"10")
       end
 
     respond_to do |format|
