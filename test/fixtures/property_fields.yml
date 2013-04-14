@@ -1,0 +1,53 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  zoning: MyString
+  year_built: MyString
+  exposure: MyString
+  pets: MyString
+  unit_placement: MyString
+  price_per_sqft: MyString
+  when_available: MyString
+  smoking: MyString
+  Clear_Height: MyString
+  Cap_Rate: MyString
+  Roof: MyString
+  Electrical_Service: MyString
+  KWatt_Hours_Annually: MyString
+  Volume_Water: MyString
+  Height_Of_Drop: MyString
+  Efficiency_of_HydroEquipment: MyString
+  FAR: MyString
+  Sewer: MyString
+  Load_Capacity: MyString
+  Loading_Docks: MyString
+  Special_Permit: MyString
+  Construction_Docs_Ready: MyString
+  City_Water: MyString
+  Zoning_Permit: MyString
+
+two:
+  zoning: MyString
+  year_built: MyString
+  exposure: MyString
+  pets: MyString
+  unit_placement: MyString
+  price_per_sqft: MyString
+  when_available: MyString
+  smoking: MyString
+  Clear_Height: MyString
+  Cap_Rate: MyString
+  Roof: MyString
+  Electrical_Service: MyString
+  KWatt_Hours_Annually: MyString
+  Volume_Water: MyString
+  Height_Of_Drop: MyString
+  Efficiency_of_HydroEquipment: MyString
+  FAR: MyString
+  Sewer: MyString
+  Load_Capacity: MyString
+  Loading_Docks: MyString
+  Special_Permit: MyString
+  Construction_Docs_Ready: MyString
+  City_Water: MyString
+  Zoning_Permit: MyString

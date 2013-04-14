@@ -1,12 +1,13 @@
 class PropertiesController < ApplicationController
   # GET /properties
   # GET /properties.json
+    before_filter :authenticate_user!
   def index
       @title="Lateralmarket"
       if params[:search]==nil
          @properties = Property.all
         else
-         @properties = Property.near(params[:search],"10")
+         @properties = Property.near(params[:search],"10").where("entry_type LIKE ?", params[:temp_search])
       end
 
     respond_to do |format|
@@ -49,7 +50,7 @@ class PropertiesController < ApplicationController
 
     respond_to do |format|
       if @property.save
-        format.html { redirect_to @property, notice: 'Property was successfully created.' }
+          format.html { redirect_to new_property_field_path(:q=>@property.id), notice: 'Property was successfully created.' }
         format.json { render json: @property, status: :created, location: @property }
       else
         format.html { render action: "new" }

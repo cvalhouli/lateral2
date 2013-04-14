@@ -3,15 +3,25 @@
 <div class="page-header">
   <h1 style="width:50;float:left">Listings</h1>
 <div style="width:50%; float:left; margin-top:20px">
-	<a href="/properties/new" class="btn" style="float:right">Create New Listing</a>
+	<a href="/properties/new" class="btn btn-primary" style="float:right">Create New Listing</a>
 </div>
 
 
 </div>
 <div class="search-box">
 <%= form_tag properties_path, :method => 'get' do %>
-  <p>
+<br>
+<p>
+<select id="temp_search" name="temp_search">
+<option value="Assumable mortgage exchange">Assumable mortgage exchange</option>
+<option value="Residential for sale">Residential for sale</option>
+<option value="Residential for rent">Residential for rent</option>
+<option value="Commercial for sale">Commercial for sale</option>
+<option value="Commercial for lease">Commercial for lease</option>
+<option value="Pop-up shop">Pop-up shop</option></select>
+  
     <%= text_field_tag :search, params[:search] %>
+<%#= select_tag :entry_type, ["Assumable mortgage exchange","Residential for sale","Residential for rent","Commercial for sale", "Commercial for lease", "Pop-up shop"].sort, params[:entry_type],:class => 'text_field' %>
     <%= submit_tag "Search", :name => nil %>
   </p>
 <% end %>
@@ -28,24 +38,68 @@
       <th></th>
       <th></th>
       <th></th>
-      <th><%= model_class.human_attribute_name(:marketvalue) %></th>
-      <th><%= model_class.human_attribute_name(:entry_type) %></th>
+      <th></th>
+      <th></th>
       
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
     <% @properties.each do |property| %>
       <tr>
       	<td><a href="/properties/<%=property.id%>"><%= image_tag property.photo.url(:thumb) %></a></td>
-		<td><%= property.property_type %><br/><%if !property.sqft.blank?%><%= property.sqft %> sq.ft.<%end%></td>
-        <td><%= property.address1 %><%if !property.address2.blank?%>,<%end%> &nbsp;<%= property.address2 %><br/><%= property.city %>, <%= property.state %> <%= property.zipcode %></td>
+		<td><b><%= property.address1 %><%if !property.address2.blank?%>,<%end%> &nbsp;<%= property.address2 %><br/><%= property.city %>, <%= property.state %> <%= property.zipcode %></b><br/><%= property.property_type %>; <%= property.entry_type %><br/> <%if !property.property_fields.try(:first).try(:bedrooms).blank?%><%= property.property_fields.try(:first).bedrooms %>BR<%end%> <%if !property.property_fields.try(:first).try(:full_bath).blank?%> | <%= property.property_fields.try(:first).full_bath %> full<%end%> <%if !property.property_fields.try(:first).try(:half_bath).blank?%> | <%= property.property_fields.try(:first).half_bath %> half | <%end%> 
+			
+			
+			<%if !property.sqft.blank?%> <%= property.sqft %> <%if property.entry_type=="Commercial for lease" %>sq.ft., <%else%> sq. ft. <%end%><%end%> <%if property.entry_type=="Commercial for lease" %> sub-dividable 
+			<%end%>
+			<%if property.entry_type!="Assumable mortgage exchange" %>
+			<br><b>Asking price: <%= property.Asking_Price %></b>
+			<%end%>
+			</td>
+        <td>	<%if property.entry_type=="Assumable mortgage exchange" %>
+	
+	          <b>Approx market value:</b> <%=property.try(:property_fields).try(:first).try(:marketvalue)%><br/>
+	          <b>Mortgage amount:</b> <%=property.try(:property_fields).try(:first).try(:mortgageamount)%><br/>
+	          <b>Mortgage APR:</b> <%=property.try(:property_fields).try(:first).try(:mortgageAPR)%><br/>
+	
+	          <b>Mortgage type:</b> <%=property.try(:property_fields).try(:first).try(:mortgagetype)%><br/>
+	
+	   <%end%>
+	   	<%if property.property_type=="Hydropower rights" %>
+	
+	          <b>KWatt hours annually:</b> <%=property.try(:property_fields).try(:first).try(:KWatt_Hours_Annually)%><br/>
+	          <b>Volume of water:</b> <%=property.try(:property_fields).try(:first).try(:Volume_Water)%><br/>
+	          <b>Height of drop:</b> <%=property.try(:property_fields).try(:first).try(:Height_Of_Drop)%><br/>
+	
+	          <b>Efficiency of hydroEquipment:</b> <%=property.try(:property_fields).try(:first).try(:Efficiency_of_HydroEquipment)%><br/>
+	
+	   <%end%>
+	<%if property.entry_type=="Residential for rent" ||  property.entry_type=="Commercial for lease" || property.entry_type=="Pop-up shop"%>
+	
+	<b>Available date:</b> <%=property.try(:property_fields).try(:first).try(:available)%><br/>
+    <%if property.entry_type=="Residential for rent" %>
+	
+
+    <b>Pets:</b> <%=property.try(:property_fields).try(:first).try(:pets)%><br/>
+    <b>Smoking:</b> <%=property.try(:property_fields).try(:first).try(:smoking)%><br/>
+  <%end%>
+
+
+
+	<%end%>
+	
+	
+	
+	
+	
+		</td>
         <td></td>
         <td><br/></td>
         <td></td>
 		<td></td>        
-		<td><%= property.marketvalue %></td>
-        <td><%= property.entry_type %></td>
+		<td></td>
+        <td></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_property_path(property), :class => 'btn btn-mini' %>

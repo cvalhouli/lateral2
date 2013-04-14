@@ -1,12 +1,35 @@
 <%= form_for @property, :html => { :multipart => true } do |f| %>
 
-<div class="custom_width">Listing type:</div>
-<div class="custom_width">
+<div class="custom_width2">Entry type <br/>
 
-      <%= f.select :property_type, ["Occupied residential properties", "Farmland", "Industrial", "Restaurant", "Mixed use", "Tenancy-in-common", "Permitted properties", "Parking",  "School loan debt",  "Single family house", "Multifamily house", "Condominium", "Co-op","Hydropower rights"].sort, :class => 'text_field' %>
-</div>
- Entry type:
+
       <%= f.select :entry_type, ["Assumable mortgage exchange","Residential for sale","Residential for rent","Commercial for sale", "Commercial for lease", "Pop-up shop"].sort, :class => 'text_field' %>
+ 
+</div>
+    Listing type 
+
+<div id="property_type">
+<%= f.select :property_type, ["Architectural salvage & antiques", "Cell tower leasing", "Occupied residential properties", "Farmland", "Industrial", "Restaurant", "Mixed use", "Tenancy-in-common", "Permitted properties", "Parking",  "School loan debt",  "Single family house", "Multifamily house", "Condominium", "Co-op","Hydropower rights"].sort, :class => 'text_field' %>
+</div>
+<div id="property_type_assumable">
+<%= f.select :property_type, ["Single family house", "Multifamily house", "Condominium", "Co-op"].sort, :class => 'text_field' %>
+</div>
+<div id="property_type_residential_for_rent">
+<%= f.select :property_type, ["Single family house", "Multifamily house", "Condominium", "Co-op"].sort, :class => 'text_field' %>
+</div>
+<div id="property_type_residential_for_sale">
+<%= f.select :property_type, ["Single family house", "Multifamily house", "Condominium", "Co-op", "Occupied residential properties",].sort, :class => 'text_field' %>
+</div>
+<div id="property_type_commercial_for_sale">
+<%= f.select :property_type, ["Farmland", "Industrial", "Restaurant", "Mixed use", "Tenancy-in-common", "Permitted properties", "Parking", "Hydropower rights"].sort, :class => 'text_field' %>
+</div>
+<div id="property_type_commercial_for_lease">
+<%= f.select :property_type, ["Cell tower leasing", "Farmland", "Industrial", "Restaurant", "Mixed use", "Tenancy-in-common", "Permitted properties", "Parking", "Hydropower rights"].sort, :class => 'text_field' %>
+</div>
+
+<div id="property_type2">
+<%= f.select :property_type, ["Architectural salvage & antiques", "Cell tower leasing", "Occupied residential properties", "Farmland", "Industrial", "Restaurant", "Mixed use", "Tenancy-in-common", "Permitted properties", "Parking",  "School loan debt",  "Single family house", "Multifamily house", "Condominium", "Co-op","Hydropower rights"].sort, :class => 'text_field' %>
+</div>
    <br/>
       Address1:
       <%= f.text_field :address1, :class => 'text_field' %>
@@ -78,50 +101,53 @@
 </div>
 
 <div class="control-group">
-   Asking Price
-     <%= f.text_field :Asking_Price, :class => 'text_field' %>
-   Approx. Sq. Ft.
-     <%= f.text_field :sqft, :class => 'text_field' %>
- </div>
-
-
- <div class="control-group">
-    Parking:
-      <%= f.text_field :Parking_Spaces, :class => 'text_field' %>
-    Floor:
-      <%= f.text_field :Floor, :class => 'text_field' %>
+  <%= f.label :sqft, :class => 'control-label' %>
+  <div class="controls">
+    <%= f.text_field :sqft, :class => 'text_field' %>
   </div>
+</div>
 
-<%if 1==2%>
+<div id="layout_select1">
+
+</div>
+<div id="layout_select2">
+
 
  <div class="control-group">
-   <%#= f.label :marketvalue, :class => 'control-label' %>
+   <%= f.label :marketvalue, :class => 'control-label' %>
    <div class="controls">
-     <%#= f.text_field :marketvalue, :class => 'text_field' %>
+     <%= f.text_field :marketvalue, :class => 'text_field' %>
    </div>
  </div>
-
-
   <div class="control-group">
-    <%#= f.label :mortgageamount, :class => 'control-label' %>
+    <%= f.label :mortgageamount, :class => 'control-label' %>
     <div class="controls">
-      <%#= f.text_field :mortgageamount, :class => 'text_field' %>
+      <%= f.text_field :mortgageamount, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%#= f.label :mortgageAPR, :class => 'control-label' %>
+    <%= f.label :mortgageAPR, :class => 'control-label' %>
     <div class="controls">
-      <%#= f.text_field :mortgageAPR, :class => 'text_field' %>
+      <%= f.text_field :mortgageAPR, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%#= f.label :mortgagetype, :class => 'control-label' %>
+    <%= f.label :mortgagetype, :class => 'control-label' %>
     <div class="controls">
-      <%= f.select :mortgagetype, ["","Adjustable", "Fixed, 30 year", "Fixed, 15 year", "Other"].sort,:class => 'text_field' %>
+      <%= f.select :mortgagetype, ["","Adjustable rate mortgage", "Fixed, 30 year", "Fixed, 15 year", "Other"].sort,:class => 'text_field' %>
     </div>
   </div>
 
-<%end%>
+</div>
+<div id="salvage_type">
+	 <%= f.select :salvage_type, ["Doors", "Windows", "Fireplace mantels", "Fireplace mantle accessories", "Hardware", "Stair parts", "Cabinetry", "Millwork", "Kitchen & bath",  "Sinks",  "Marble sinks", "Bathtubs", "Lighting", "Ironwork","Reclaimed lumber", "Fixtures & fittings", "Floor grates", "Brick & granite", "Stained glass", "Furniture"].sort, :class => 'text_field' %>
+</div>
+
+<div id="celltower_type">
+	 <%= f.select :celltower_type, ["Church steeple", "Rooftop cellular antenna", "Guyed cell tower", "Stealth cell tower"].sort, :class => 'text_field' %>
+</div>
+
+
 
 Upload photo:
    <%=f.file_field :photo %>
@@ -134,9 +160,89 @@ Upload photo:
     </div>
   </div>
 
+
   <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+<input class="btn btn-primary" id="new_property" name="commit" type="submit" value="Create Property" />    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 properties_path, :class => 'btn' %>
   </div>
 <% end %>
+
+<script>
+$(document).ready(function(){
+   $("#property_property_type").trigger('change');
+});
+    $("#property_property_type").change(function() {
+	
+       if ($(this).val() != "Architectural salvage & antiques" && $(this).val() != "Farmland"  && $(this).val() != "Tenancy-in-common"  && $(this).val() != "Permitted properties"  && $(this).val() != "Parking"  && $(this).val() != "School loan debt"  && $(this).val() != "Hydropower rights"  && $(this).val() != "Cell tower leasing") 
+            {
+            $("#layout_select1").html("Asking Price<input class='text_field' id='property_Asking_Price' name='property[Asking_Price]' size='30' type='text' /><br/>Parking <input class='text_field' id='property_Parking_Spaces' name='property[Parking_Spaces]' size='30' type='text' />"); 
+            }
+           else
+            {
+            $("#layout_select1").html("Asking Price<input class='text_field' id='property_Asking_Price' name='property[Asking_Price]' size='30' type='text' />");
+            }
+
+	       if ($(this).val() == "Architectural salvage & antiques") 
+	            {
+	            $("#salvage_type").show(); 
+	            }
+	           else
+	            {
+	            $("#salvage_type").hide();
+	            }
+
+               if ($(this).val() == "Cell tower leasing") 
+		            {
+		            $("#celltower_type").show(); 
+		            }
+		           else
+		            {
+		            $("#celltower_type").hide();
+		            }  
+    });
+
+
+	$(document).ready(function(){
+	   $("#property_entry_type").trigger('change');
+	});
+
+  $("#property_entry_type").change(function() {
+
+
+	       if ($(this).val() == "Assumable mortgage exchange") 
+	            {
+	            $("#layout_select2").show(); 
+	            $("#property_type").hide(); 
+	            $("#property_type_assumable").show(); 
+	            
+	            }
+	           else
+	            {
+	            $("#layout_select2").hide();
+	            $("#property_type").show(); 
+				$("#property_type_assumable").hide(); 
+	            }
+
+		       if ($(this).val() == "Commercial for sale") 
+		            {
+		            $("#layout_select2").hide(); 
+		            $("#property_type").hide(); 
+		            $("#property_type_assumable").hide(); 
+		            $("#property_type_residential_for_rent").hide(); 
+		            $("#property_type_residential_for_sale").hide(); 
+		            $("#property_type_commercial_for_sale").show();
+		            $("#property_type_commercial_for_sale").hide();
+		
+		            }
+		           else
+		            {
+		            $("#layout_select2").hide();
+		            $("#property_type").show(); 
+					$("#property_type_assumable").hide(); 
+		            }
+
+    });
+
+
+</script>
+

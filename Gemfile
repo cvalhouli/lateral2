@@ -8,6 +8,9 @@ gem 'gmaps4rails'
 
 gem 'paperclip'
 
+gem 'devise'
+gem 'stripe'
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
@@ -29,7 +32,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
-
+gem 'jquery-ui-rails'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

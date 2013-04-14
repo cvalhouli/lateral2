@@ -1,0 +1,258 @@
+<%= form_for(@property_field) do |f| %>
+  <% if @property_field.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@property_field.errors.count, "error") %> prohibited this property_field from being saved:</h2>
+
+
+
+      <ul>
+      <% @property_field.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<%= f.hidden_field :property_id, :value=>params[:q] %>
+<%@property=Property.find(params[:q])%>
+<%if @property.property_type=="Hydropower rights"%>
+
+<div class="field">
+  <%= f.label :KWatt_Hours_Annually %><br />
+  <%= f.text_field :KWatt_Hours_Annually %>
+</div>
+<div class="field">
+  <%= f.label :Volume_Water %><br />
+  <%= f.text_field :Volume_Water %>
+</div>
+<div class="field">
+  <%= f.label :Height_Of_Drop %><br />
+  <%= f.text_field :Height_Of_Drop %>
+</div>
+<div class="field">
+  <%= f.label :Efficiency_of_HydroEquipment %><br />
+  <%= f.text_field :Efficiency_of_HydroEquipment %>
+</div>
+<% end %>
+
+<%if @property.entry_type=="Residential for rent" ||  @property.entry_type=="Commercial for lease" || @property.entry_type=="Pop-up shop"%>
+
+<div class="field">
+  <label>Available beginning:</label><br />
+  <%= f.text_field :available %>
+</div>
+<%if @property.entry_type=="Residential for rent" %>
+
+<div class="field">
+  <%= f.label :pets %><br />
+  <%= f.select :pets, ["Any", "None", "Cats only", "Dogs only"] %>
+</div>
+<div class="field">
+  <%= f.label :smoking %><br />
+  <%= f.select :smoking, ["Yes","No"] %>
+</div>
+<%end%>
+
+
+<% end %>
+
+
+<%if @property.property_type=="Single family house" or @property.property_type=="Multifamily house" or @property.property_type=="Condominium" or @property.property_type=="Co-op"%>
+
+  <div class="field">
+    <%= f.label :year_built %><br />
+    <%= f.text_field :year_built %>
+  </div>
+  <div class="field">
+    <%= f.label :exposure %><br />
+    <%= f.text_field :exposure %>
+  </div>
+  <div class="field">
+    <%= f.label :total_rooms %><br />
+    <%= f.text_field :total_rooms %>
+  </div>
+  <div class="field">
+    <%= f.label :bedrooms %><br />
+    <%= f.text_field :bedrooms %>
+  </div>
+  <div class="field">
+    <%= f.label :full_bath %><br />
+    <%= f.text_field :full_bath %>
+  </div>
+  <div class="field">
+    <%= f.label :half_bath %><br />
+    <%= f.text_field :half_bath %>
+  </div>
+  <div class="field">
+    <%= f.label :quater_bath %><br />
+    <%= f.text_field :quarter_bath %>
+  </div>
+  <div class="field">
+    <%= f.label :elevator %><br />
+    <%= f.text_field :elevator %>
+  </div>
+  <div class="field">
+    <%= f.label :outdoor_space %><br />
+    <%= f.text_field :outdoor_space %>
+  </div>
+  <div class="field">
+    <%= f.label :maintenance_fee %><br />
+    <%= f.text_field :maintenance_fee %>
+  </div>
+  <div class="field">
+    <%= f.label :pets %><br />
+    <%= f.text_field :pets %>
+  </div>
+  <div class="field">
+    <%= f.label :unit_placement %><br />
+    <%= f.text_field :unit_placement %>
+  </div>
+  <div class="field">
+    <%= f.label :price_per_sqft %><br />
+    <%= f.text_field :price_per_sqft %>
+  </div>
+  <div class="field">
+    <%= f.label :when_available %><br />
+    <%= f.text_field :when_available %>
+  </div>
+  <div class="field">
+    <%= f.label :smoking %><br />
+    <%= f.text_field :smoking %>
+  </div>
+  <div class="field">
+    <%= f.label :Clear_Height %><br />
+    <%= f.text_field :Clear_Height %>
+  </div>
+<div class="field">
+  <%= f.label :Electrical_Service %><br />
+  <%= f.text_field :Electrical_Service %>
+</div>
+
+  <div class="field">
+    <%= f.label :Roof %><br />
+    <%= f.text_field :Roof %>
+  </div>
+
+  <div class="field">
+    <%= f.label :FAR %><br />
+    <%= f.text_field :FAR %>
+  </div>
+  <div class="field">
+    <%= f.label :Sewer %><br />
+    <%= f.text_field :Sewer %>
+  </div>
+
+  <div class="field">
+    <%= f.label :City_Water %><br />
+    <%= f.text_field :City_Water %>
+  </div>
+<%end%>
+
+
+<%if @property.entry_type=="Commercial for sale" or @property.entry_type=="Commercial for lease" or @property.entry_type=="Pop-up shop"%>
+
+  <div class="field">
+    <%= f.label :zoning %><br />
+    <%= f.text_field :zoning %>
+  </div>
+  <div class="field">
+    <%= f.label :year_built %><br />
+    <%= f.text_field :year_built %>
+  </div>
+  <div class="field">
+    <%= f.label :unit_placement %><br />
+    <%= f.text_field :unit_placement %>
+  </div>
+  <div class="field">
+    <%= f.label :price_per_sqft %><br />
+    <%= f.text_field :price_per_sqft %>
+  </div>
+  <div class="field">
+    <%= f.label :when_available %><br />
+    <%= f.text_field :when_available %>
+  </div>
+  <div class="field">
+    <%= f.label :Clear_Height %><br />
+    <%= f.text_field :Clear_Height %>
+  </div>
+<div class="field">
+  <%= f.label :Electrical_Service %><br />
+  <%= f.text_field :Electrical_Service %>
+</div>
+  <div class="field">
+    <%= f.label :Sewer %><br />
+    <%= f.text_field :Sewer %>
+  </div>
+  <div class="field">
+    <%= f.label :Load_Capacity %><br />
+    <%= f.text_field :Load_Capacity %>
+  </div>
+  <div class="field">
+    <%= f.label :Loading_Docks %><br />
+    <%= f.text_field :Loading_Docks %>
+  </div>
+<%end%>
+
+<%if @property.entry_type=="Commercial for sale"%>
+
+<div class="field">
+  <%= f.label :Cap_Rate %><br />
+  <%= f.text_field :Cap_Rate %>
+</div>
+<div class="field">
+  <%= f.label :FAR %><br />
+  <%= f.text_field :FAR %>
+</div>
+<div class="field">
+  <%= f.label :Roof %><br />
+  <%= f.text_field :Roof %>
+</div>
+<%end%>
+
+<%if @property.entry_type=="Assumable mortgage exchange"%>
+
+<div class="control-group">
+  <%= f.label :marketvalue, :class => 'control-label' %>
+  <div class="controls">
+    <%= f.text_field :marketvalue, :class => 'text_field' %>
+  </div>
+</div>
+ <div class="control-group">
+   <%= f.label :mortgageamount, :class => 'control-label' %>
+   <div class="controls">
+     <%= f.text_field :mortgageamount, :class => 'text_field' %>
+   </div>
+ </div>
+ <div class="control-group">
+   <%= f.label :mortgageAPR, :class => 'control-label' %>
+   <div class="controls">
+     <%= f.text_field :mortgageAPR, :class => 'text_field' %>
+   </div>
+ </div>
+ <div class="control-group">
+   <%= f.label :mortgagetype, :class => 'control-label' %>
+   <div class="controls">
+     <%= f.select :mortgagetype, ["","Adjustable rate mortgage", "Fixed, 30 year", "Fixed, 15 year", "Other"].sort,:class => 'text_field' %>
+   </div>
+ </div>
+<%end%>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+
+
+<% end %>
+<script>
+$(function() {
+  $('#property_field_available').datepicker(	{
+	showOn: "button",
+	buttonImage: "/calendar.gif",
+	buttonImageOnly: true
+	});
+});
+</script>
+
+
+

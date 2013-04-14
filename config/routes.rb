@@ -1,4 +1,9 @@
 Mortgage::Application.routes.draw do
+  devise_for :users
+
+  resources :property_fields
+
+
   resources :pictures
 
 

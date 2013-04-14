@@ -84,18 +84,44 @@
   <dd><%= @property.sqft %></dd>
   <dt><strong><%= model_class.human_attribute_name(:marketvalue) 
 %>:</strong></dt>
-  <dd><%= @property.marketvalue %></dd>
+  <dd><%= @property.property_fields.try(:first).try(:marketvalue) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:mortgageamount) %>:</strong></dt>
-  <dd><%= @property.mortgageamount %></dd>
+  <dd><%= @property.property_fields.try(:first).try(:mortgageamount) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:mortgageAPR) %>:</strong></dt>
-  <dd><%= @property.mortgageAPR %></dd>
+  <dd><%= @property.property_fields.try(:first).try(:mortgageAPR) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:mortgagetype) %>:</strong></dt>
-  <dd><%= @property.mortgagetype %></dd>
- 
+  <dd><%= @property.property_fields.try(:first).try(:mortgagetype) %></dd>
 
 
-  <dt><strong><%= model_class.human_attribute_name(:entry_type) %>:</strong></dt>
+<dt><strong><%= model_class.human_attribute_name(:entry_type) %>:</strong></dt>
   <dd><%= @property.entry_type %></dd>
+ <dt><strong>Total Rooms:</strong></dt>
+  <dd><%= @property.property_fields.try(:first).try(:total_rooms) %></dd>
+<dt><strong>Bedrooms:</strong></dt>
+  <dd><%= @property.property_fields.try(:first).try(:bedrooms) %></dd>
+
+<dt><strong>Full Bath:</strong></dt>
+  <dd><%= @property.property_fields.try(:first).try(:full_bath) %></dd>
+
+
+<dt><strong>Half Bath:</strong></dt>
+  <dd><%= @property.property_fields.try(:first).try(:half_bath) %></dd>
+
+
+<dt><strong>Quarter Bath:</strong></dt>
+  <dd><%= @property.property_fields.try(:first).try(:quarter_bath) %></dd>
+
+
+<dt><strong>Outdoor Space:</strong></dt>
+  <dd><%= @property.property_fields.try(:first).try(:outdoor_space) %></dd>
+
+<dt><strong>Elevator:</strong></dt>
+  <dd><%= @property.property_fields.try(:first).try(:elevator) %></dd>
+
+<dt><strong>Maintenance fee</strong></dt>
+  <dd><%= @property.property_fields.try(:first).try(:maintenance_fee) %></dd>
+
+  
   <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
   <dd><%= @property.description %></dd>
 </dl>

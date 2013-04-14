@@ -1,0 +1,69 @@
+<h1>Listing property_fields</h1>
+
+<table>
+  <tr>
+    <th>Zoning</th>
+    <th>Year built</th>
+    <th>Exposure</th>
+    <th>Pets</th>
+    <th>Unit placement</th>
+    <th>Price per sqft</th>
+    <th>When available</th>
+    <th>Smoking</th>
+    <th>Clear height</th>
+    <th>Cap rate</th>
+    <th>Roof</th>
+    <th>Electrical service</th>
+    <th>Kwatt hours annually</th>
+    <th>Volume water</th>
+    <th>Height of drop</th>
+    <th>Efficiency of hydroequipment</th>
+    <th>Far</th>
+    <th>Sewer</th>
+    <th>Load capacity</th>
+    <th>Loading docks</th>
+    <th>Special permit</th>
+    <th>Construction docs ready</th>
+    <th>City water</th>
+    <th>Zoning permit</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @property_fields.each do |property_field| %>
+  <tr>
+    <td><%= property_field.zoning %></td>
+    <td><%= property_field.year_built %></td>
+    <td><%= property_field.exposure %></td>
+    <td><%= property_field.pets %></td>
+    <td><%= property_field.unit_placement %></td>
+    <td><%= property_field.price_per_sqft %></td>
+    <td><%= property_field.when_available %></td>
+    <td><%= property_field.smoking %></td>
+    <td><%= property_field.Clear_Height %></td>
+    <td><%= property_field.Cap_Rate %></td>
+    <td><%= property_field.Roof %></td>
+    <td><%= property_field.Electrical_Service %></td>
+    <td><%= property_field.KWatt_Hours_Annually %></td>
+    <td><%= property_field.Volume_Water %></td>
+    <td><%= property_field.Height_Of_Drop %></td>
+    <td><%= property_field.Efficiency_of_HydroEquipment %></td>
+    <td><%= property_field.FAR %></td>
+    <td><%= property_field.Sewer %></td>
+    <td><%= property_field.Load_Capacity %></td>
+    <td><%= property_field.Loading_Docks %></td>
+    <td><%= property_field.Special_Permit %></td>
+    <td><%= property_field.Construction_Docs_Ready %></td>
+    <td><%= property_field.City_Water %></td>
+    <td><%= property_field.Zoning_Permit %></td>
+    <td><%= link_to 'Show', property_field %></td>
+    <td><%= link_to 'Edit', edit_property_field_path(property_field) %></td>
+    <td><%= link_to 'Destroy', property_field, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Property field', new_property_field_path %>

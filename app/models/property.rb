@@ -1,8 +1,18 @@
 class Property < ActiveRecord::Base
-    attr_accessible :entry_type, :photo, :address1, :address2, :city, :sqft, :marketvalue, :mortgageAPR, :mortgageamount, :mortgagetype, :property_type, :state, :zipcode, :description,   :latitude, :longitude, :Annual_Real_Estate_Taxes, :Exposures, :Year_Built, :Zoning, :Floor, :Asking_Price, :Parking_Spaces 
+    attr_accessible :entry_type, :photo, :address1, :address2, :city, :sqft, :marketvalue, :mortgageAPR, :mortgageamount, :mortgagetype, :property_type, :state, :zipcode, :description,   :latitude, :longitude, :Annual_Real_Estate_Taxes, :Exposures, :Year_Built, :Zoning, :Floor, :Asking_Price, :Parking_Spaces, :salvage_type, :celltower_type,     :total_rooms,
+    :bedrooms,
+    :full_bath,
+    :half_bath,
+    :quarter_bath,
+    :outdoor_space,
+    :elevator,
+    :smoking,
+    :pets,
+    :maintenance_fee
   has_many :pictures
+  has_many :property_fields
     
-    
+
   has_attached_file :photo, :styles => { :medium => "300x300>", :thumb => "100x100#" }, :default_url => "/images/:style/missing.png"
     
     geocoded_by :full_address
