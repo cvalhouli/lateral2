@@ -21,11 +21,39 @@
 <option value="Pop-up shop">Pop-up shop</option></select>
   
     <%= text_field_tag :search, params[:search] %>
-<%#= select_tag :entry_type, ["Assumable mortgage exchange","Residential for sale","Residential for rent","Commercial for sale", "Commercial for lease", "Pop-up shop"].sort, params[:entry_type],:class => 'text_field' %>
+radius in miles   : <input id="zip" name="zip" class="sliderValue" type="text" />
+Price: <input id="price" name="price" class="sliderValue" type="text" />
+<div id="slider"></div>
     <%= submit_tag "Search", :name => nil %>
   </p>
 <% end %>
 </div>
+
+
+
+
+
+<script>
+                 document.getElementById('zip').value = 10;
+$("#slider").slider({
+    min: 0,
+    max: 100,
+    step: 1,
+    values: [10],
+    slide: function(event, ui) {
+        for (var i = 0; i < ui.values.length; ++i) {
+            $("#zip").val(ui.values[i]);
+        }
+    }
+});
+
+$("#zip").change(function() {
+    var $this = $(this);
+    $("#slider").slider("values", $this.data("index"), $this.val());
+});
+
+</script>
+
 
 
 <table class="table table-striped">

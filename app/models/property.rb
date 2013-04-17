@@ -1,5 +1,5 @@
 class Property < ActiveRecord::Base
-    attr_accessible :entry_type, :photo, :address1, :address2, :city, :sqft, :marketvalue, :mortgageAPR, :mortgageamount, :mortgagetype, :property_type, :state, :zipcode, :description,   :latitude, :longitude, :Annual_Real_Estate_Taxes, :Exposures, :Year_Built, :Zoning, :Floor, :Asking_Price, :Parking_Spaces, :salvage_type, :celltower_type,     :total_rooms,
+    attr_accessible :entry_type, :photo, :address1, :address2, :city, :sqft, :marketvalue, :mortgageAPR, :mortgageamount, :mortgagetype, :property_type, :state, :zipcode, :description,   :latitude, :longitude, :Annual_Real_Estate_Taxes, :Exposures, :Year_Built, :Zoning, :Floor, :Asking_Price, :Parking_Spaces, :salvage_type, :celltower_type,     :total_rooms, :hoa,
     :bedrooms,
     :full_bath,
     :half_bath,
@@ -26,7 +26,9 @@ class Property < ActiveRecord::Base
        end
     end
     
-    
+    def cost_to_i
+        self.delete('$,').to_i
+    end
     def gmaps4rails_address
         #describe how to retrieve the address from your model, if you use directly a db column, you can dry your code, see wiki
         "#{self.address1} #{self.address2} , #{self.city}, #{self.state}  #{self.zipcode}"

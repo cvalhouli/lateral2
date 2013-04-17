@@ -55,8 +55,17 @@
 
 
 <% end %>
+<%if @property.property_type=="Condominium" or @property.property_type=="Co-op"%>
+<div class="field">
+    <label>Homeowner association fee</label><br />
+    <%= f.text_field :hoa %>
+  </div>
+ <div class="field">
+    <%= f.label :Annual_real_estate_tax %><br />
+    <%= f.text_field :Annual_real_estate_tax %>
+  </div>
 
-
+<%end%>
 <%if @property.property_type=="Single family house" or @property.property_type=="Multifamily house" or @property.property_type=="Condominium" or @property.property_type=="Co-op"%>
 
   <div class="field">

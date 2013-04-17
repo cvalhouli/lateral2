@@ -1,0 +1,90 @@
+<%- model_class = Property -%>
+
+<div class="page-header">
+  <h1 style="width:50;float:left">Listings</h1>
+<div style="width:50%; float:left; margin-top:20px">
+	<a href="/properties/new" class="btn" style="float:right">Create New Listing</a>
+</div>
+
+
+</div>
+<div class="search-box">
+<%= form_tag properties_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+radius in miles   : <input id="zip" name="zip" class="sliderValue" type="text" />
+<div id="slider"></div>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+</div>
+
+
+
+
+
+<script>
+                 document.getElementById('zip').value = 5;
+$("#slider").slider({
+    min: 0,
+    max: 100,
+    step: 1,
+    values: [10],
+    slide: function(event, ui) {
+        for (var i = 0; i < ui.values.length; ++i) {
+            $("input.sliderValue[data-index=" + i + "]").val(ui.values[i]);
+        }
+    }
+});
+
+$("input.sliderValue").change(function() {
+    var $this = $(this);
+    $("#slider").slider("values", $this.data("index"), $this.val());
+});
+
+</script>
+
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+	<th></th>    
+	  <th><%= model_class.human_attribute_name(:property_type) %></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th><%= model_class.human_attribute_name(:marketvalue) %></th>
+      <th><%= model_class.human_attribute_name(:entry_type) %></th>
+      
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @properties.each do |property| %>
+      <tr>
+      	<td><a href="/properties/<%=property.id%>"><%= image_tag property.photo.url(:thumb) %></a></td>
+		<td><%= property.property_type %><br/><%if !property.sqft.blank?%><%= property.sqft %> sq.ft.<%end%></td>
+        <td><%= property.address1 %><%if !property.address2.blank?%>,<%end%> &nbsp;<%= property.address2 %><br/><%= property.city %>, <%= property.state %> <%= property.zipcode %></td>
+        <td></td>
+        <td><br/></td>
+        <td></td>
+		<td></td>        
+		<td><%= property.marketvalue %></td>
+        <td><%= property.entry_type %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_property_path(property), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      property_path(property),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

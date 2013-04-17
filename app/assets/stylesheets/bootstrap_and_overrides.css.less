@@ -1,7 +1,6 @@
 @import "twitter/bootstrap/bootstrap";
-@import "twitter/bootstrap/responsive";
 
-body { padding-top: 40px; font-family:Helvetica}
+body { padding-top: 40px; font-family:Helvetica; min-width:1000px}
 .navbar-inner, .navbar .btn-navbar {
     background: #A2D2F5; /* Old browsers */
     /* IE9 SVG, needs conditional override of 'filter' to 'none' */
@@ -24,7 +23,11 @@ body { padding-top: 40px; font-family:Helvetica}
  .navbar-fixed-top .brand {
     color: #000;color: #000;
     }
+#page_layout {
+overflow:hidden;
+width:1000px;
 
+}
 .dl-horizontal > dd:after {
   display: table;
   content: "";
@@ -58,12 +61,16 @@ input, textarea, .uneditable-input {
 font-family:Helvetica;
 font-size:30px;
 padding-bottom:5px;}
+#SmallText {
+font-family:Helvetica;
+font-size:13px;}
+
 
 #AddressHeader {
 font-family:Helvetica;
 font-size:18px;
+width:900px;overflow:hidden;height:92px;padding-top:20px}
 
-}
 .dl-horizontal dt{
 text-align:left;
 
