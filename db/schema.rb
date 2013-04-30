@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130414213355) do
+ActiveRecord::Schema.define(:version => 20130430161451) do
 
   create_table "pictures", :force => true do |t|
     t.integer  "property_id"
@@ -107,6 +107,10 @@ ActiveRecord::Schema.define(:version => 20130414213355) do
     t.date     "start_date"
     t.float    "hoa"
     t.float    "Annual_real_estate_tax"
+    t.string   "north"
+    t.string   "south"
+    t.string   "east"
+    t.string   "west"
   end
 
   create_table "users", :force => true do |t|

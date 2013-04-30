@@ -76,7 +76,18 @@ $("#zip").change(function() {
     <% @properties.each do |property| %>
       <tr>
       	<td><a href="/properties/<%=property.id%>"><%= image_tag property.photo.url(:thumb) %></a></td>
-		<td><b><%= property.address1 %><%if !property.address2.blank?%>,<%end%> &nbsp;<%= property.address2 %><br/><%= property.city %>, <%= property.state %> <%= property.zipcode %></b><br/><%= property.property_type %>; <%= property.entry_type %><br/> <%if !property.property_fields.try(:first).try(:bedrooms).blank?%><%= property.property_fields.try(:first).bedrooms %>BR<%end%> <%if !property.property_fields.try(:first).try(:full_bath).blank?%> | <%= property.property_fields.try(:first).full_bath %> full<%end%> <%if !property.property_fields.try(:first).try(:half_bath).blank?%> | <%= property.property_fields.try(:first).half_bath %> half | <%end%> 
+		<td><b><%= property.address1 %><%if !property.address2.blank?%>,<%end%> &nbsp;<%= property.address2 %><br/><%= property.city %>, <%= property.state %> <%= property.zipcode %></b><br/><%= property.property_type %>; <%= property.entry_type %><br/> 
+			
+			
+			<%if !property.property_fields.try(:first).try(:bedrooms).blank?%>
+				
+				<% if property.property_fields.try(:first).bedrooms != "0" %>
+				<%= property.property_fields.try(:first).bedrooms %>BR
+				<%else%>
+				  Studio
+				<%end%>
+				
+				<%end%> <%if !property.property_fields.try(:first).try(:full_bath).blank?%> | <%= property.property_fields.try(:first).full_bath %> full<%end%> <%if !property.property_fields.try(:first).try(:half_bath).blank?%> | <%= property.property_fields.try(:first).half_bath %> half | <%end%> 
 			
 			
 			<%if !property.sqft.blank?%> <%= property.sqft %> <%if property.entry_type=="Commercial for lease" %>sq.ft., <%else%> sq. ft. <%end%><%end%> <%if property.entry_type=="Commercial for lease" %> sub-dividable 
@@ -87,20 +98,27 @@ $("#zip").change(function() {
 			</td>
         <td>	<%if property.entry_type=="Assumable mortgage exchange" %>
 	
-	          <b>Approx market value:</b> <%=property.try(:property_fields).try(:first).try(:marketvalue)%><br/>
+	          <b>Approx. market value:</b> <%=property.try(:property_fields).try(:first).try(:marketvalue)%><br/>
 	          <b>Mortgage amount:</b> <%=property.try(:property_fields).try(:first).try(:mortgageamount)%><br/>
 	          <b>Mortgage APR:</b> <%=property.try(:property_fields).try(:first).try(:mortgageAPR)%><br/>
 	
 	          <b>Mortgage type:</b> <%=property.try(:property_fields).try(:first).try(:mortgagetype)%><br/>
 	
 	   <%end%>
+	
+		<%if property.entry_type=="Commercial for sale" && property.property_type!="Hydropower rights" %>
+	       	 <b> Gross revenue:</b> <%=property.try(:property_fields).try(:first).try(:gross_income)%><br/>
+	          <b>Cap. rate:</b> <%=property.try(:property_fields).try(:first).try(:Cap_Rate)%><br/>
+	          <b>GRM:</b> <%=property.try(:property_fields).try(:first).try(:GRM)%><br/>
+	    <%end%>
+	
 	   	<%if property.property_type=="Hydropower rights" %>
 	
 	          <b>KWatt hours annually:</b> <%=property.try(:property_fields).try(:first).try(:KWatt_Hours_Annually)%><br/>
 	          <b>Volume of water:</b> <%=property.try(:property_fields).try(:first).try(:Volume_Water)%><br/>
 	          <b>Height of drop:</b> <%=property.try(:property_fields).try(:first).try(:Height_Of_Drop)%><br/>
 	
-	          <b>Efficiency of hydroEquipment:</b> <%=property.try(:property_fields).try(:first).try(:Efficiency_of_HydroEquipment)%><br/>
+	          <b>Efficiency of hydroequipment:</b> <%=property.try(:property_fields).try(:first).try(:Efficiency_of_HydroEquipment)%><br/>
 	
 	   <%end%>
 	<%if property.entry_type=="Residential for rent" ||  property.entry_type=="Commercial for lease" || property.entry_type=="Pop-up shop"%>
