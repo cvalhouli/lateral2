@@ -1,3 +1,4 @@
+
 <div id="page_layout">
 
 <%- model_class = Property -%>
@@ -6,9 +7,9 @@
 
 <div id="AddressHeader">
 
-<div style="float:left;width:420px;">
+<div style="float:left;width:520px;">
 <div id="LargerText">
-<%= @property.address1 %>, 
+<%= @property.address1 %><%if !@property.address2.blank?%>, <%end%>
 <%= @property.address2 %>
 </div>
 <div id="SmallText">
@@ -70,24 +71,23 @@ Partial BA
 
 </div>
 </div>
-<div style="float:right;width:150px;font-size:10px;line-height:15px;text-align:right">
-<%=link_to "FAVORITE"%><br/>
-<%=link_to "PRINT"%><br/>
-<%=link_to "SHARE"%><br/>
-<%=link_to "DON'T SHOW"%><br/>
-<%=link_to "REPORT AN ISSUE"%>
-</div>
-</div>
-
 
 </div>
 
 
 
+</div>
 
-<div style="float:left;width:1000px">
+<div style="font-size:10px;margin-top:5px;font-weight:bold;padding-top:20px;padding-bottom:15px;float:right;padding-right:203px;margin-top:-20px">
+	
+<span style="padding-right:2px"><%=link_to "FAVORITE"%></span> | <span style="padding-left:2px;padding-right:4px"><%=link_to "PRINT"%></span>|<span style="padding-left:4px;padding-right:4px"><%=link_to "SHARE"%></span>|<span style="padding-left:4px;padding-right:4px"><%=link_to "HIDE"%></span>|<span style="padding-left:4px;padding-right:4px"><%=link_to "REPORT AN ISSUE"%></span>
+</div>
 
-<div style="float:left;background:#f0f0f0;height:400px;width:400px;">
+
+
+<div style="float:left;width:1200px">
+
+<div style="float:left;background:#f0f0f0;height:400px;width:470px;">
 	
 	<%@pictures=@property.pictures %>
 	
@@ -111,11 +111,11 @@ Partial BA
     <div class="carousel-inner">
 	
 	
-    <div class="active item"><%= image_tag @property.photo.url, :width=>'400px' %></div>
+    <div class="active item"><%= image_tag @property.photo.url, :width=>'480px' %></div>
 
 	<%for picture in @pictures%>
     
-    <div class="item"><%= image_tag picture.photo.url, :width=>'400px' %></div>
+    <div class="item"><%= image_tag picture.photo.url, :class=>'slider' %></div>
    
     <%end%>
 
@@ -138,34 +138,17 @@ Partial BA
 <%= link_to 'Add Image', new_picture_path(:q=>@property.id) %>
 </div>
 
-<div style="width:400px;margin-right:179px;float:right;overflow:hidden">
+<div style="width:400px;margin-right:280px;float:right;overflow:hidden">
 	
-	<div id="map-canvas"></div>
-	<div id="map-canvas2"></div>
-    
-	<%#= gmaps4rails(@json) %>
+	<div id="map_canvas"></div>
+    <div id="map_canvas2"></div>
 	
-	<%#= gmaps("markers" => {"data" => @json}, "map_options" => {"processing" => "json", "id"=>"second_map","auto_adjust" => true, "auto_zoom" => false, "zoom" => 16}) %>
-	
-<%if 1==2%>	
-	
-<div class="map_container"> 
-  <div id="second_map" class="gmaps4rails_map"></div>
-</div>
-<div class="map_container" style="margin-top:20px"> 
-  <div id="map" class="gmaps4rails_map"></div>
-</div>
 </div>
 
-<%end%>
-<div style="float:left;background:#f0f0f0;margin-top:20px;padding: 10px 10px 10px 10px; height:380px;width:380px;">
+<div style="float:left;background:#fff;margin-top:20px;padding: 10px 10px 10px 0px; height:380px;width:480px;">
 	<b>DESCRIPTION</b><br/>
 	<%=@property.description%>
 </div>
-
-</div>
-
-
 
 
 
@@ -240,17 +223,32 @@ Partial BA
 function initialize() {
   var myLatlng = new google.maps.LatLng(<%=@property.latitude%>,<%=@property.longitude%>);
   var mapOptions = {
+    zoom: 12,
+    center: myLatlng,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  }
+
+ var mapOptions2 = {
     zoom: 16,
     center: myLatlng,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   }
-  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+  var map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+  var map2 = new google.maps.Map(document.getElementById('map_canvas2'), mapOptions2);
 
   var marker = new google.maps.Marker({
       position: myLatlng,
       map: map,
       title: 'Hello World!'
   });
+
+ var marker2 = new google.maps.Marker({
+      position: myLatlng,
+      map: map2,
+      title: 'Hello World!'
+  });
+
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);

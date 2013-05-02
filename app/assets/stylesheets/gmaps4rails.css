@@ -1,4 +1,12 @@
-
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('/fontawesome-webfont.eot?v=3.0.1');
+  src: url('/fontawesome-webfont.eot?#iefix&v=3.0.1') format('embedded-opentype'),
+    url('/fontawesome-webfont.woff?v=3.0.1') format('woff'),
+   url('/fontawesome-webfont.ttf?v=3.0.1') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 .map_container {
   padding: 0px;
@@ -29,7 +37,7 @@ float:right;
 
 #map-canvas, #map_canvas {
   height: 400px;
-  width:400px;
+  width:350px;
 }
 
 @media print {
@@ -39,13 +47,17 @@ float:right;
 
   #map_canvas {
     height: 400px;
-    width: 400px;
+    width: 350px;
   }
 }
-
+IMG.slider{
+	max-height:380px;
+    max-width:480px;
+	margin:0px auto;
+}
  #map_canvas2 {
     height: 400px;
-    width: 400px;
+    width: 350px;
     margin-top:20px;
   }
 }
