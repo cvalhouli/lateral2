@@ -89,6 +89,8 @@ Partial BA
 
 <div style="float:left;background:#f0f0f0;height:400px;width:470px;">
 	
+	
+	<% if 1==1 %>
 	<%@pictures=@property.pictures %>
 	
 	<div id="myCarousel" class="carousel slide">
@@ -105,13 +107,21 @@ Partial BA
     <%end%>
 
     </ol>
+   <%end%>
 
 
+<%if 1==1 %>
     <!-- Carousel items -->
     <div class="carousel-inner">
 	
 	
-    <div class="active item"><%= image_tag @property.photo.url, :width=>'480px' %></div>
+    <div class="active item">
+<% end %>
+    <%= image_tag @property.photo.url, :width=>'480px' %>
+
+<% if 1==1%>
+
+     </div>
 
 	<%for picture in @pictures%>
     
@@ -131,11 +141,11 @@ Partial BA
 	
 	
 	
-	
+	<%end %>
 	
 
 <br/>
-<%= link_to 'Add Image', new_picture_path(:q=>@property.id) %>
+<%#= link_to 'Add Image', new_picture_path(:q=>@property.id) %>
 </div>
 
 <div style="width:400px;margin-right:280px;float:right;overflow:hidden">

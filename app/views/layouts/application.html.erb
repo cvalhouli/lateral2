@@ -15,21 +15,44 @@
 
   <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 
-
+<script>
+$(function() {
+    $('.carousel').each(function(){
+        $(this).carousel({
+            interval: false
+        });
+    });
+});​
+</script>
 </head>
 <body>
 
 <div id="header">
-
-	      <a href="/">Lateralmarket</a>
-	
+<div style="margin-left:35px;margin-top:-30px;font-size:30px">
+	      <a href="/"><Lateralmarket><img src="/Lateralmarket-logo-black.jpg" height=100% /></a>
+</div>	
 </div>
 
 
       <div id="header2">
-          <%= link_to "About Us", site_about_us_url %>   <%= link_to "Asset Classes", site_asset_classes_url %>     <%= link_to "How It Works", site_how_it_works_url %> <%= link_to "Contact Us", site_contact_us_url %>
+
+		<div style="float:right;padding-left:10px;margin-top:5px;overflow:hidden">
+		  <a href="#">
+		<img src="http://cdn3.iconfinder.com/data/icons/picons-social/57/55-tumblr-128.png" border=0 width="32px" height="32" />
+		  </a>
+		</div>
+
+		<div style="float:right;overflow:hidden;margin-top:5px">
+		  <a href="#">
+		<img src="http://cdn3.iconfinder.com/data/icons/picons-social/57/46-facebook-128.png" border=0 width="32px" height="32" />
+		  </a>
+		</div>
+		
+		<div style="text-transform:uppercase;margin-top:19px">
+         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  <%= link_to "About Us", site_about_us_url %>  &nbsp;   &nbsp; &nbsp; &nbsp;  &nbsp;  &nbsp; <%= link_to "Asset Classes", site_asset_classes_url %>  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; <%= link_to "How It Works", site_how_it_works_url %> &nbsp;  &nbsp; &nbsp;  &nbsp;  &nbsp; &nbsp; <%= link_to "Contact Us", site_contact_us_url %>
         </div>
 
+</div>
 
 
 	<div class="container">
