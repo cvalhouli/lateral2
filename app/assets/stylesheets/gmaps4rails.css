@@ -8,6 +8,26 @@
   font-style: normal;
 }
 
+#property_field_pets
+{
+width:105px;
+margin-right:50px;
+}
+
+
+#property_field_smoking
+{
+width:80px;
+margin-right:50px;
+
+}
+
+#property_field_laundry
+{
+width:145px;
+}
+
+
 .map_container {
   padding: 0px;
   border-width: 0px;
