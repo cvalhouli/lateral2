@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130505203721) do
+ActiveRecord::Schema.define(:version => 20130506161809) do
 
   create_table "pictures", :force => true do |t|
     t.integer  "property_id"
@@ -121,6 +121,13 @@ ActiveRecord::Schema.define(:version => 20130505203721) do
     t.string   "basement"
     t.string   "other_placement"
     t.string   "laundry"
+    t.string   "private_balcony"
+    t.string   "private_roof_deck"
+    t.string   "common_roof_deck"
+    t.string   "common_garden"
+    t.string   "indoor_swimming_pool"
+    t.string   "outdoor_swimming_pool"
+    t.string   "other_outdoor_space"
   end
 
   create_table "users", :force => true do |t|

@@ -123,6 +123,7 @@ Annual Real Estate Tax
 <div style="float:left;width:100%;height:50px">
 
 <b>Unit Placement: </b>
+
 <%=f.check_box :corner_unit%> Corner Unit <%=f.check_box :front_of_building%> Front of building  
 <%=f.check_box :rear_of_building%> Rear of building <%=f.check_box :street_level %> Street Level 
 <%=f.check_box :basement %> Basement <%=f.check_box :other_placement %> Other 
@@ -133,6 +134,17 @@ Annual Real Estate Tax
 <div class="narrow_box">
 <b>  Unit Floor: </b>
   <%= f.text_field :unit_floor %>
+&nbsp; &nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+&nbsp;
+&nbsp;
+&nbsp;
+
 
   <b>      Elevator: </b>
     <% [ 'Yes', 'No'].each do |theme| %>
@@ -180,14 +192,55 @@ Annual Real Estate Tax
 
 
 
+<div style="float:left;width:100%;">
+<div style="float:left">
+<b>Outdoor Space: </b>
+</div>
 
+<table style="float:left;margin-left:50px">
+	
+	<tr>
+		<td>
+<%=f.check_box :private_balcony %> Private balcony 
+</td>
+<td>
+<%=f.check_box :private_roof_deck%> 
+
+Private roof deck  
+</td>
+
+<td>
+<%=f.check_box :other_outdoor_space %> Other 
+</td>
+</tr>
+
+<tr>
+<td>
+<%=f.check_box :common_roof_deck %> Common roof deck 
+</td>
+<td>
+<%=f.check_box :common_garden %> Common garden/courtyard  
+<td>
+<td></td>
+</tr>
+
+<tr>
+	<td>
+<%=f.check_box :indoor_swimming_pool %> Swimming pool, indoor </td><td><%=f.check_box :outdoor_swimming_pool %> Swimming pool, outdoor </td><td></td>
+</tr>
+
+</table>
+</div>
+
+</div>
+
+<% if 1==3%>
   <div class="field">
     <%= f.label :outdoor_space %><br />
     <%= f.text_field :outdoor_space %>
   </div>
-
-
-<div class="control-group">
+<% end %>
+<div style="width:100%;float:left;margin-left:20px">
     <b>Video Link</b>
     <%= f.text_field :video_link, :class => 'text_field' %>
 
@@ -229,12 +282,12 @@ Annual Real Estate Tax
   </div>
 <% end %>
 
-
+<% if 1==2 %>
   <div class="field">
     <%= f.label :City_Water %><br />
     <%= f.text_field :City_Water %>
   </div>
-
+<% end %>
 
 <%end%>
 
@@ -333,7 +386,7 @@ Annual Real Estate Tax
 
 
 
-  <div class="actions">
+  <div class="actions"style="margin-left:20px">
     <%= f.submit %>
   </div>
 

@@ -30,9 +30,13 @@ Price: <input id="price" name="price" class="sliderValue" type="text" />
 </div>
 
 
+<%if params[:search]%>
 
-
-
+<div style"width:100px">
+  <h1>	<%=@properties.size%> Properties found </h1>
+	
+</div>
+<%end%>
 <script>
                  document.getElementById('zip').value = 10;
 $("#slider").slider({
