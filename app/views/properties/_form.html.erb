@@ -3,26 +3,44 @@
 <div class="custom_width2">Entry type <br/>
 
 
-      <%= f.select :entry_type, ["Architectural salvage & antiques", "Assumable mortgage exchange","Residential for sale","Residential for rent","Commercial for sale", "Commercial for lease", "Pop-up shop"].sort, :class => 'text_field' %>
+      <%= f.select :entry_type, ["Architectural salvage and antiques", "Assumable mortgage exchange","Residential for sale","Residential for rent","Commercial for sale", "Commercial for lease", "Pop-up shop"].sort, :class => 'text_field' %>
  
 </div>
     Listing type 
 
+
 <div id="property_type">
+	
+</div>
+
+
+
+<% if 1==2 %>
+
+
+<div id="property_type22">
 <%= f.select :property_type, ["Cell tower leasing", "Occupied residential properties", "Farmland", "Industrial", "Restaurant", "Mixed use", "Tenancy-in-common", "Permitted properties", "Parking",  "School loan debt",  "Single family house", "Multifamily house", "Condominium", "Co-op","Hydropower rights"].sort, :class => 'text_field' %>
 </div>
+
 <div id="property_type_assumable">
+
 <%= f.select :property_type, ["Single family house", "Multifamily house", "Condominium", "Co-op"].sort, :class => 'text_field' %>
+
 </div>
+
 <div id="property_type_residential_for_rent">
 <%= f.select :property_type, ["Single family house", "Multifamily house", "Condominium", "Co-op"].sort, :class => 'text_field' %>
+
 </div>
+
 <div id="property_type_residential_for_sale">
 <%= f.select :property_type, ["Single family house", "Multifamily house", "Condominium", "Co-op", "Occupied residential properties",].sort, :class => 'text_field' %>
 </div>
+
 <div id="property_type_commercial_for_sale">
 <%= f.select :property_type, ["Farmland", "Industrial", "Restaurant", "Mixed use", "Tenancy-in-common", "Permitted properties", "Parking", "Hydropower rights"].sort, :class => 'text_field' %>
 </div>
+
 <div id="property_type_commercial_for_lease">
 <%= f.select :property_type, ["Cell tower leasing", "Farmland", "Industrial", "Restaurant", "Mixed use", "Tenancy-in-common", "Permitted properties", "Parking", "Hydropower rights"].sort, :class => 'text_field' %>
 </div>
@@ -30,6 +48,16 @@
 <div id="property_type2">
 <%= f.select :property_type, ["Cell tower leasing", "Occupied residential properties", "Farmland", "Industrial", "Restaurant", "Mixed use", "Tenancy-in-common", "Permitted properties", "Parking",  "School loan debt",  "Single family house", "Multifamily house", "Condominium", "Co-op","Hydropower rights"].sort, :class => 'text_field' %>
 </div>
+
+
+<% end %>
+
+
+
+
+
+
+
    <br/>
       Address1:
       <%= f.text_field :address1, :class => 'text_field' %>
@@ -108,8 +136,8 @@
 </div>
 
 <div id="layout_select1">
-
 </div>
+
 <div id="layout_select2">
 
 
@@ -139,11 +167,13 @@
   </div>
 
 </div>
+
+
 <div id="salvage_type">
 	 <%= f.select :salvage_type, ["Doors", "Windows", "Fireplace mantels", "Fireplace mantle accessories", "Hardware", "Stair parts", "Cabinetry", "Millwork", "Kitchen & bath",  "Sinks",  "Marble sinks", "Bathtubs", "Lighting", "Ironwork","Reclaimed lumber", "Fixtures & fittings", "Floor grates", "Brick & granite", "Stained glass", "Furniture"].sort, :class => 'text_field' %>
 </div>
 
-<div id="celltower_type">
+<div id="celltower_type" style="display:none">
 	 <%= f.select :celltower_type, ["Church steeple", "Rooftop cellular antenna", "Guyed cell tower", "Stealth cell tower"].sort, :class => 'text_field' %>
 </div>
 
@@ -168,14 +198,21 @@ Upload photo:
 <% end %>
 
 <script>
+
+
+
+
 $(document).ready(function(){
    $("#property_property_type").trigger('change');
 });
     $("#property_property_type").change(function() {
 	
+	
+	   alert('test');
+ 	
        if ($(this).val() != "Architectural salvage & antiques" && $(this).val() != "Farmland"  && $(this).val() != "Tenancy-in-common"  && $(this).val() != "Permitted properties"  && $(this).val() != "Parking"  && $(this).val() != "School loan debt"  && $(this).val() != "Hydropower rights"  && $(this).val() != "Cell tower leasing") 
             {
-            $("#layout_select1").html("Asking Price<input class='text_field' id='property_Asking_Price' name='property[Asking_Price]' size='30' type='text' /><br/>Parking <input class='text_field' id='property_Parking_Spaces' name='property[Parking_Spaces]' size='30' type='text' />"); 
+            $("#layout_select1").html("Asking Price<input class='text_field' id='property_Asking_Price' name='property[Asking_Price]' size='30' type='text' /><br/>Parking<input class='text_field' id='property_Parking_Spaces' name='property[Parking_Spaces]' size='30' type='text' />"); 
             }
            else
             {
@@ -209,37 +246,115 @@ $(document).ready(function(){
   $("#property_entry_type").change(function() {
 
 
+      if ($(this).val() == "Architectural salvage and antiques") 
+           {
+           $("#layout_select2").hide(); 
+           $("#salvage_type").hide();
+	  	   $("#property_type").html("<select id='property_salvage_type' name='property[salvage_type]'><option value='Bathtubs'>Bathtubs</option><option value='Brick &amp; granite'>Brick &amp; granite</option><option value='Cabinetry'>Cabinetry</option><option value='Doors'>Doors</option><option value='Fireplace mantels'>Fireplace mantels</option><option value='Fireplace mantle accessories'>Fireplace mantle accessories</option><option value='Fixtures &amp; fittings'>Fixtures &amp; fittings</option><option value='Floor grates'>Floor grates</option><option value='Furniture'>Furniture</option><option value='Hardware'>Hardware</option><option value='Ironwork'>Ironwork</option><option value='Kitchen &amp; bath'>Kitchen &amp; bath</option><option value='Lighting'>Lighting</option><option value='Marble sinks'>Marble sinks</option><option value='Millwork'>Millwork</option><option value='Reclaimed lumber'>Reclaimed lumber</option><option value='Sinks'>Sinks</option><option value='Stained glass'>Stained glass</option><option value='Stair parts'>Stair parts</option><option value='Windows'>Windows</option></select>");
+           }
+          else
+           {
+           $("#salvage_type").hide();
+           $("#layout_select2").hide(); 
+
+           }
+
+
 	       if ($(this).val() == "Assumable mortgage exchange") 
 	            {
 	            $("#layout_select2").show(); 
-	            $("#property_type").hide(); 
-	            $("#property_type_assumable").show(); 
-	            
+	            $("#salvage_type").hide();
+	            $("#property_type").html("<select id='property_property_type' name='property[property_type]'><option value='Co-op'>Co-op</option><option value='Condominium'>Condominium</option><option value='Multifamily house'>Multifamily house</option><option value='Single family house'>Single family house</option></select>"); 
 	            }
 	           else
 	            {
-	            $("#layout_select2").hide();
-	            $("#property_type").show(); 
-				$("#property_type_assumable").hide(); 
+	            $("#layout_select2").hide(); 
+	            $("#salvage_type").hide();
+
 	            }
+
+
+		       if ($(this).val() == "Pop-up shop") 
+		            {
+		            $("#layout_select2").hide(); 
+		            $("#salvage_type").hide();
+		            $("#property_type").html("<select id='property_property_type' name='property[property_type]'><option value='Retail'>Retail</option><option value='Restaurant'>Restaurant</option><option value='Industrial'>Industrial</option><option value='Outdoor'>Outdoor</option></select>"); 
+		            }
+		           else
+		            {
+		            $("#layout_select2").hide(); 
+		            $("#salvage_type").hide();
+
+		            }
+
 
 		       if ($(this).val() == "Commercial for sale") 
 		            {
 		            $("#layout_select2").hide(); 
-		            $("#property_type").hide(); 
-		            $("#property_type_assumable").hide(); 
-		            $("#property_type_residential_for_rent").hide(); 
-		            $("#property_type_residential_for_sale").hide(); 
-		            $("#property_type_commercial_for_sale").show();
-		            $("#property_type_commercial_for_sale").hide();
+					$("#property_type").html("<select id='property_property_type' name='property[property_type]'><option value='Farmland'>Farmland</option><option value='Hydropower rights'>Hydropower rights</option><option value='Industrial'>Industrial</option><option value='Mixed use'>Mixed use</option><option value='Parking'>Parking</option><option value='Permitted properties'>Permitted properties</option><option value='Restaurant'>Restaurant</option><option value='Tenancy-in-common'>Tenancy-in-common</option></select>");
+		            $("#salvage_type").hide();
 		
 		            }
 		           else
 		            {
 		            $("#layout_select2").hide();
-		            $("#property_type").show(); 
-					$("#property_type_assumable").hide(); 
+		            $("#salvage_type").hide();
+
 		            }
+		
+		
+			       if ($(this).val() == "Commercial for lease") 
+			            {
+			            $("#layout_select2").hide();
+		                $("#property_type").html("<select id='property_property_type' name='property[property_type]'><option value='Cell tower leasing'>Cell tower leasing</option><option value='Farmland'>Farmland</option><option value='Hydropower rights'>Hydropower rights</option><option value='Industrial'>Industrial</option><option value='Mixed use'>Mixed use</option><option value='Parking'>Parking</option><option value='Permitted properties'>Permitted properties</option><option value='Restaurant'>Restaurant</option><option value='Tenancy-in-common'>Tenancy-in-common</option></select>");
+			            $("#salvage_type").hide();
+		
+		             }
+		
+		           else
+		            {
+		            $("#layout_select2").hide();
+		            $("#salvage_type").hide();
+
+		            }
+		
+	
+			       if ($(this).val() == "Residential for rent") 
+			            {
+			            $("#layout_select2").hide(); 
+			            $("#salvage_type").hide();
+			
+			            $("#property_type").html("<select id='property_property_type' name='property[property_type]'><option value='Co-op'>Co-op</option><option value='Condominium'>Condominium</option><option value='Multifamily house'>Multifamily house</option><option value='Single family house'>Single family house</option></select>"); 
+			            }
+			           else
+			            {
+				            $("#salvage_type").hide();
+			            $("#layout_select2").hide(); 
+
+			            }
+
+
+				       if ($(this).val() == "Residential for sale") 
+				            {
+				            $("#layout_select2").hide(); 
+				            $("#salvage_type").hide();
+				
+				            $("#property_type").html("<select id='property_property_type' name='property[property_type]'><option value='Co-op'>Co-op</option><option value='Condominium'>Condominium</option><option value='Multifamily house'>Multifamily house</option><option value='Occupied residential properties'>Occupied residential properties</option><option value='Single family house'>Single family house</option></select>"); 
+				            }
+				           else
+				            {
+				            $("#layout_select2").hide(); 
+				            $("#salvage_type").hide();
+
+				            }
+
+
+
+
+
+	
+		
+		
 
     });
 

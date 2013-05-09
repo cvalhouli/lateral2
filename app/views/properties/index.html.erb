@@ -2,9 +2,6 @@
 
 <div class="page-header">
   <h1 style="width:50;float:left">Listings</h1>
-<div style="width:50%; float:left; margin-top:20px">
-	<a href="/properties/new" class="btn btn-primary" style="float:right">Create New Listing</a>
-</div>
 
 
 </div>
@@ -12,6 +9,7 @@
 <%= form_tag properties_path, :method => 'get' do %>
 <br>
 <p>
+<div style="float:left">
 <select id="temp_search" name="temp_search">
 <option value="Assumable mortgage exchange">Assumable mortgage exchange</option>
 <option value="Residential for sale">Residential for sale</option>
@@ -19,12 +17,19 @@
 <option value="Commercial for sale">Commercial for sale</option>
 <option value="Commercial for lease">Commercial for lease</option>
 <option value="Pop-up shop">Pop-up shop</option></select>
-  
-    <%= text_field_tag :search, params[:search] %>
-radius in miles   : <input id="zip" name="zip" class="sliderValue" type="text" />
-Price: <input id="price" name="price" class="sliderValue" type="text" />
-<div id="slider" style="width:220px;margin-bottom:20px"></div>
+  </div>
+<div style="float:left;margin-left:10px">
+
+    <input id="search" name="search" placeholder="Address, City, State, Zip" type="text" />
+
+radius in miles   : <input id="zip" name="zip" class="sliderValue" style="width:50px" type="text" />
+</div>
+<div id="slider" style="width:60px;float:left;margin-left:10px;margin-top:15px"></div>
+<div style="float:left;margin-left:10px">
+
+Price: <input id="price" style="width:100px" name="price" class="sliderValue" type="text" />
     <%= submit_tag "Search", :name => nil %>
+</div>
   </p>
 <% end %>
 </div>

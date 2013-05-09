@@ -40,7 +40,7 @@
 <%if @property.entry_type=="Residential for rent" ||  @property.entry_type=="Commercial for lease" || @property.entry_type=="Pop-up shop"%>
 
 <div class="field">
-  <label>Available beginning:</label><br />
+  <b>Available beginning:</b>
   <%= f.text_field :available %>
 </div>
 
@@ -50,9 +50,9 @@
 <%if (@property.property_type=="Condominium" or @property.property_type=="Co-op") and @property.entry_type!="Residential for rent" %>
   <div class="medium_box">
    
-    Annual Real Estate Tax
+    <b>Annual Real Estate Tax</b>
     <%= f.text_field :Annual_real_estate_tax %>
- Homeowner association fee:
+    <b>Homeowner association fee: </b>
 
     <%= f.text_field :hoa %>
   </div>
@@ -61,35 +61,35 @@
 <div style="width:100%">
 <div style="float:left;width:120px">
   <div class="box_width narrow_box">
-	Total Rooms
+	<b>Total Rooms </b>
     <%= f.text_field :total_rooms %>
   </div>
 </div>
-<div style="float:left;width:100px">
+<div style="float:left;width:110px">
  <div class="box_width narrow_box">
-   Bedrooms <input id="property_field_bedrooms" name="property_field[bedrooms]" size="10" type="text" />
+  <b> Bedrooms </b><input id="property_field_bedrooms" name="property_field[bedrooms]" size="10" type="text" />
   </div>
  </div>
 
  <div style="float:left;width:100px">
  <div class="box_width narrow_box">
-   Full bath
+  <b> Full Bath </b>
    <input id="property_field_full_bath" name="property_field[full_bath]" size="10" type="text" />
  </div>
  </div>
 
  <div style="float:left;width:100px">
  <div class="box_width narrow_box">
-   Half bath
+   <b>Half Bath </b>
    <input id="property_field_half_bath" name="property_field[half_bath]" size="10" type="text" />
  </div>
  </div>
 
 
 
- <div style="float:left;width:120px">	
+ <div style="float:left;width:140px">	
 	<div class="narrow_box">
-    quarter bath:      <%= f.text_field :quarter_bath %>
+   <b> Quarter Bath:  </b>    <%= f.text_field :quarter_bath %>
    </div>
  </div>
 <br/><br/><br/>
@@ -112,43 +112,13 @@
 
 <%end%>
 
-<div style="float:left;width:100%;overflow:hidden;padding-bottom:20px">
-<div style="float:left">
-
-<b>Unit Placement: </b>
-</div>
-
-<table style="float:left;margin-left:50px;">
-
-<tr>
-<td>
-<%=f.check_box :corner_unit%> Corner Unit 
-</td>
-<td>
-<%=f.check_box :front_of_building%> Front of building  
-</td>
-<td>
-<%=f.check_box :rear_of_building%> Rear of building 
-</td>
-</tr>
-<tr>
-	<td>
-<%=f.check_box :street_level %> Street Level 
-    </td>
-<td>
-<%=f.check_box :basement %> Basement 
-</td>
-<td>
-<%=f.check_box :other_placement %> Other 
-</td>
-</tr>
 
 
-</table>
 
-</div>
 
 <div class="narrow_box">
+	
+  <div style="float:left;overflow:hidden">
 <b>  Unit Floor: </b>
   <%= f.text_field :unit_floor %>
 &nbsp; &nbsp;
@@ -168,61 +138,12 @@
       <%= radio_button 'theme', theme, @theme == theme %>
       <%= theme.humanize %>
     <% end %>
-   </div>
-
-
-<% end %>
-
-
-
-<div class="field">
-
- <b> Exposure: </b>
-
- <%= f.check_box :north %> <span id="paddingtop">North</span> 
- <%= f.check_box :south %> <span id="paddingtop">South </span>
- <%= f.check_box :east %> <span id="paddingtop">East </span>
- <%= f.check_box :west %> <span id="paddingtop">West </span>
-
-
 </div>
-
-
-<%if @property.entry_type == "Commercial for sale" %>
-Annual Real Estate Tax
-<%= f.text_field :Annual_real_estate_tax %>
-<% end %>
-
-<%if @property.property_type=="Single family house" or @property.property_type=="Multifamily house" or @property.property_type=="Condominium" or @property.property_type=="Co-op" %>
-
- 
-<%if 1==2%>
-<div class="medium_box">
-   <%= f.label :year_built %><br />
-   <%= f.text_field :year_built %>
+<div style="float:left;margin-left:62px;">
+	<b>Fireplace:</b>
+	  <%= f.select :fireplace, ["Wood-burning fireplace", "Gas Fireplace", "Wood/pellet stove"] %>
  </div>
-<%end%>
-
-
- 
-
-  
-<% if 1==2%>
-<div style="float:left;width:200px">
-	<div class="narrow_box">
-      Elevator: 
-    <% [ 'Yes', 'No'].each do |theme| %>
-      <%= radio_button 'theme', theme, @theme == theme %>
-      <%= theme.humanize %>
-    <% end %>
-   </div>
-  </div><br/><br/>
-<%end%>
-
-
-
-
-
+</div>
 
 
 <div style="float:left;width:100%;overflow:hidden;padding-bottom:20px">
@@ -230,7 +151,7 @@ Annual Real Estate Tax
 <b>Outdoor Space: </b>
 </div>
 
-<table style="float:left;margin-left:50px;">
+<table id="sample" style="float:left;margin-left:50px;">
 	
 	<tr>
 		<td>
@@ -267,13 +188,124 @@ Private roof deck
 
 </div>
 
+
+
+
+
+
+
+<div style="float:left;width:100%;margin-left:20px;overflow:hidden;padding-bottom:20px">
+<div style="float:left">
+
+<b>Unit Placement: </b>
+</div>
+
+<table id="sample" style="float:left;margin-left:50px;">
+
+<tr>
+<td>
+<%=f.check_box :corner_unit%> Corner unit 
+</td>
+<td>
+<%=f.check_box :front_of_building%> Front of building  
+</td>
+<td>
+<%=f.check_box :rear_of_building%> Rear of building 
+</td>
+
+</tr>
+<tr>
+	<td>
+<%=f.check_box :street_level %> Street level 
+    </td>
+<td>
+	<%=f.check_box :raised_ground_floor%> Raised ground floor 
+
+</td>
+
+<td>
+	<%=f.check_box :basement %> Basement 
+	
+</td>
+
+</tr>
+
+
+</table>
+
+</div>
+
+<div class="field" style="margin-left:20px">
+
+ <b> Exposure: </b>
+ <di style="margin-left:82px">
+ <%= f.check_box :north %> <span id="paddingtop">North</span> 
+ <%= f.check_box :south %> <span id="paddingtop">South </span>
+ <%= f.check_box :east %> <span id="paddingtop">East </span>
+ <%= f.check_box :west %> <span id="paddingtop">West </span
+</div>
+
+
+</div>
+
+
+
+
+
+<% end %>
+
+
+
+
+
+
+
+<%if @property.entry_type == "Commercial for sale" %>
+<b>Annual Real Estate Tax </b>
+<%= f.text_field :Annual_real_estate_tax %>
+<% end %>
+
+<%if @property.property_type=="Single family house" or @property.property_type=="Multifamily house" or @property.property_type=="Condominium" or @property.property_type=="Co-op" %>
+
+ 
+<%if 1==2%>
+<div class="medium_box">
+   <%= f.label :year_built %><br />
+   <%= f.text_field :year_built %>
+ </div>
+<%end%>
+
+
+ 
+
+  
+<% if 1==2%>
+<div style="float:left;width:200px">
+	<div class="narrow_box">
+      Elevator: 
+    <% [ 'Yes', 'No'].each do |theme| %>
+      <%= radio_button 'theme', theme, @theme == theme %>
+      <%= theme.humanize %>
+    <% end %>
+   </div>
+  </div><br/><br/>
+<%end%>
+
+
+
+
+
+
+
+
+
 <% if 1==3%>
   <div class="field">
     <%= f.label :outdoor_space %><br />
     <%= f.text_field :outdoor_space %>
   </div>
 <% end %>
-<div style="width:100%;float:left;margin-left:20px">
+<div style="width:100%;float:left">
     <b>Video Link</b>
     <%= f.text_field :video_link, :class => 'text_field' %>
 
