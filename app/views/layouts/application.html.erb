@@ -26,7 +26,7 @@ $(function() {
 </script>
 </head>
 <body>
-
+<div style="min-width:1080px">
 <div id="header">
 <div style="margin-left:35px;float:right;margin-top:-12px">
 	      <a href="/"><img src="/Lateralmarket-logo-black.jpg" height="60px" width="224px" /></a>
@@ -48,15 +48,16 @@ $(function() {
 		  </a>
 		</div>
 		
-		<div style="float:right;overflow:hidden;margin-top:5px;margin-right:85px">
-			<a href="/properties/new" style="color:white" class="btn btn-primary" style="float:right">Create New Listing</a>
-		</div>
 		
 		
 		
 		<div style="text-transform:uppercase;margin-top:19px">
-         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  <%= link_to "About Us", site_about_us_url %>  &nbsp;   &nbsp; &nbsp; &nbsp;  &nbsp;  &nbsp; <%= link_to "Asset Classes", site_asset_classes_url %>  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; <%= link_to "How It Works", site_how_it_works_url %> &nbsp;  &nbsp; &nbsp;  &nbsp;  &nbsp; &nbsp; <%= link_to "Contact Us", site_contact_us_url %>
+         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  <%= link_to "About Us", site_about_us_url %>  &nbsp;   &nbsp; &nbsp; &nbsp;  &nbsp;  &nbsp; <%= link_to "Asset Classes", site_asset_classes_url %>  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; <%= link_to "How It Works", site_how_it_works_url %> &nbsp;  &nbsp; &nbsp;  &nbsp;  &nbsp; &nbsp; <a href="/properties/new">Create Listing</a>  &nbsp;  &nbsp; &nbsp;  &nbsp;  &nbsp; &nbsp; <%= link_to "Contact Us", site_contact_us_url %> 	
+		
         </div>
+
+</div>
+
 
 </div>
 

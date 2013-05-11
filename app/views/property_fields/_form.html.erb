@@ -164,7 +164,8 @@ Private roof deck
 </td>
 
 <td>
-<%=f.check_box :other_outdoor_space %> Other 
+	
+<%=f.check_box :backyard %> Backyard 
 </td>
 </tr>
 
@@ -174,13 +175,14 @@ Private roof deck
 </td>
 <td>
 <%=f.check_box :common_garden %> Common garden/courtyard  
-<td>
-<td></td>
+</td>
+<td>	<%=f.check_box :other_outdoor_space %> Other 
+</td>
 </tr>
 
 <tr>
 	<td>
-<%=f.check_box :indoor_swimming_pool %> Swimming pool, indoor </td><td><%=f.check_box :outdoor_swimming_pool %> Swimming pool, outdoor </td><td></td>
+<%=f.check_box :indoor_swimming_pool %> Swimming pool, indoor </td><td><%=f.check_box :outdoor_swimming_pool %> Swimming pool, outdoor </td><td><%=f.check_box :outdoor_none %> None </td>
 </tr>
 
 </table>
@@ -213,6 +215,11 @@ Private roof deck
 <%=f.check_box :rear_of_building%> Rear of building 
 </td>
 
+<td>
+<%=f.check_box :top_floor %> Top Floor / Penthouse
+</td>
+
+
 </tr>
 <tr>
 	<td>
@@ -224,8 +231,10 @@ Private roof deck
 </td>
 
 <td>
-	<%=f.check_box :basement %> Basement 
-	
+	<%=f.check_box :basement %> Basement 	
+</td>
+
+<td><%=f.check_box :floor_through %> Floor-through
 </td>
 
 </tr>
@@ -242,7 +251,9 @@ Private roof deck
  <%= f.check_box :north %> <span id="paddingtop">North</span> 
  <%= f.check_box :south %> <span id="paddingtop">South </span>
  <%= f.check_box :east %> <span id="paddingtop">East </span>
- <%= f.check_box :west %> <span id="paddingtop">West </span
+ <%= f.check_box :west %> <span id="paddingtop">West </span>
+ <%= f.check_box :obstructed_views %> <span id="paddingtop">Obstructed Views </span>
+
 </div>
 
 

@@ -96,7 +96,7 @@ $("#zip").change(function() {
 				  Studio
 				<%end%>
 				
-				<%end%> <%if !property.property_fields.try(:first).try(:full_bath).blank?%> | <%= property.property_fields.try(:first).full_bath %> full<%end%> <%if !property.property_fields.try(:first).try(:half_bath).blank?%> | <%= property.property_fields.try(:first).half_bath %> half | <%end%> 
+				<%end%> <%if !property.property_fields.try(:first).try(:full_bath).blank?%> | <%= property.property_fields.try(:first).full_bath %> full<%end%> <%if !property.property_fields.try(:first).try(:half_bath).blank?%> | <%= property.property_fields.try(:first).half_bath %> half | <%elsif !property.property_fields.try(:first).try(:full_bath).blank? %> | <%end%> 
 			
 			
 			<%if !property.sqft.blank?%> <%= property.sqft %> <%if property.entry_type=="Commercial for lease" %>sq.ft., <%else%> sq. ft. <%end%><%end%> <%if property.entry_type=="Commercial for lease" %> sub-dividable 
