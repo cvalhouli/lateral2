@@ -15,7 +15,7 @@
 
 <%= f.hidden_field :property_id, :value=>params[:q] %>
 
- <%@property=Property.find(params[:q])%>
+ <% @property=Property.find(params[:q]) %>
 
 <%if @property.property_type=="Hydropower rights"%>
 
@@ -35,6 +35,7 @@
   <%= f.label :Efficiency_of_HydroEquipment %><br />
   <%= f.text_field :Efficiency_of_HydroEquipment %>
 </div>
+
 <% end %>
 
 <%if @property.entry_type=="Residential for rent" ||  @property.entry_type=="Commercial for lease" || @property.entry_type=="Pop-up shop"%>
@@ -47,6 +48,85 @@
 
 
 <% end %>
+
+
+
+
+
+<% if @property.property_type="Single family house" %>
+
+<div class="medium_box">
+ 
+  <b>Annual Real Estate Tax</b>
+  <%= f.text_field :Annual_real_estate_tax %>
+
+</div>
+
+<div class="medium_box">
+   <b>Year built</b>
+   <%= f.text_field :year_built %>
+ </div>
+
+
+<div style="float:left;margin-left:62px;">
+	<b>Fireplace:</b>
+	  <%= f.select :fireplace, ["None", "Wood-burning fireplace", "Gas Fireplace", "Wood/pellet stove"] %>
+ </div>
+</div>
+
+
+<div style="float:left;width:100%;overflow:hidden;padding-bottom:20px">
+<div style="float:left">
+<b>Outdoor Space: </b>
+</div>
+
+<table id="sample" style="float:left;margin-left:50px;">
+	
+	<tr>
+
+<td>	
+<%=f.check_box :backyard %> Backyard 
+</td>
+<td>
+<%=f.check_box :common_roof_deck %> Deck 
+</td>
+
+<td><%=f.check_box :indoor_swimming_pool %> Swimming pool, indoor </td>
+<td><%=f.check_box :outdoor_swimming_pool %> Swimming pool, outdoor </td>
+<td><%=f.check_box :outdoor_none %> None </td>
+</tr>
+
+</table>
+</div>
+
+</div>
+
+
+
+
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <%if (@property.property_type=="Condominium" or @property.property_type=="Co-op") and @property.entry_type!="Residential for rent" %>
   <div class="medium_box">
    
@@ -101,7 +181,7 @@
 
 <div class="field">
  <b> Pets: </b>
-  <%= f.select :pets, ["None", "Cats only","Dogs Only","Both"] %>
+  <%= f.select :pets, ["None", "Cats only","Dogs Only","Any"] %>
  <b>Smoking: </b>
   <%= f.select :smoking, ["Yes","No"]%>
 
@@ -141,7 +221,7 @@
 </div>
 <div style="float:left;margin-left:62px;">
 	<b>Fireplace:</b>
-	  <%= f.select :fireplace, ["Wood-burning fireplace", "Gas Fireplace", "Wood/pellet stove"] %>
+	  <%= f.select :fireplace, ["None", "Wood-burning fireplace", "Gas Fireplace", "Wood/pellet stove"] %>
  </div>
 </div>
 
@@ -192,6 +272,58 @@ Private roof deck
 
 
 
+
+<div style="float:left;width:100%;overflow:hidden;padding-bottom:20px">
+<div style="float:left">
+<b>Rental Terms: </b>
+</div>
+
+<table id="sample" style="float:left;margin-left:50px;">
+	
+	<tr>
+<td>
+<%=f.check_box :first_month %> First month 
+</td>
+<td>
+<%=f.check_box :last_month %> Last month  
+</td>
+<td>
+<%=f.check_box :security_deposit %> Security deposit
+</td>
+</tr>
+
+</table>
+</div>
+
+</div>
+
+
+<div style="float:left;width:100%;overflow:hidden;padding-bottom:20px">
+<div style="float:left;overflow:hidden;">
+&nbsp;	&nbsp;
+&nbsp;
+
+</div>
+
+<table id="sample" style="float:left;margin-left:50px;">
+	
+	<tr>
+<td>
+ <input id="property_field_rent_by" name="property_field[rent_by]" type="radio" value="For rent by owner" />
+  For rent by owner
+
+</td>
+<td>
+ <input id="property_field_rent_by" name="property_field[rent_by]" type="radio" value="For rent by broker" />
+ For rent by broker
+</td>
+
+</tr>
+
+</table>
+</div>
+
+</div>
 
 
 
@@ -458,6 +590,7 @@ Private roof deck
 
 
 
+<%= render 'residential_for_rent' %>
 
 
 

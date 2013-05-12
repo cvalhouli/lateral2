@@ -1,0 +1,66 @@
+<% if @property.entry_type=="Residential for rent"%>
+
+<b>      Dishwasher: </b>
+  <% [ 'Yes', 'No'].each do |theme| %>
+    <%= radio_button 'theme', theme, @theme == theme %>
+    <%= theme.humanize %>
+  <% end %>
+<br/>
+
+  <% [ 'Furnished', 'Unfurnished'].each do |theme3| %>
+    <%= radio_button 'theme3', theme3, @theme == theme3 %>
+    <%= theme3.humanize %>
+  <% end %>
+<br/>
+
+<b> Disabled Access: </b>
+
+  <% [ 'Yes', 'No'].each do |theme4| %>
+    <%= radio_button 'theme4', theme4, @theme == theme4 %>
+    <%= theme4.humanize %>
+  <% end %>
+
+<br/>
+
+
+<b> Wheelchair Lift: </b>
+
+  <% [ 'Yes', 'No'].each do |theme5| %>
+    <%= radio_button 'theme5', theme5, @theme == theme5 %>
+    <%= theme5.humanize %>
+  <% end %>
+
+<br/>
+
+
+
+<b> Entrance at grade/ramp to entrance: </b>
+
+  <% [ 'Yes', 'No'].each do |theme6| %>
+    <%= radio_button 'theme6', theme6, @theme == theme6 %>
+    <%= theme6.humanize %>
+  <% end %>
+
+<br/>
+
+<b> Doorways and hallways at least 36" wide: </b>
+
+  <% [ 'Yes', 'No'].each do |theme7| %>
+    <%= radio_button 'theme7', theme7, @theme == theme7 %>
+    <%= theme7.humanize %>
+  <% end %>
+<br/>
+
+
+<b> Adjustable height kitchen countertops: </b>
+
+  <% [ 'Yes', 'No'].each do |theme8| %>
+    <%= radio_button 'theme8', theme8, @theme == theme8 %>
+    <%= theme8.humanize %>
+  <% end %>
+
+
+
+
+
+<% end %> 

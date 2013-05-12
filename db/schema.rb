@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130510170420) do
+ActiveRecord::Schema.define(:version => 20130512213426) do
+
+  create_table "neighborhoods", :force => true do |t|
+    t.string   "name"
+    t.string   "zip_code"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "pictures", :force => true do |t|
     t.integer  "property_id"
@@ -135,6 +142,17 @@ ActiveRecord::Schema.define(:version => 20130510170420) do
     t.string   "top_floor"
     t.string   "obstructed_views"
     t.string   "floor_through"
+    t.string   "first_month"
+    t.string   "last_month"
+    t.string   "security_deposit"
+    t.string   "rented_by"
+    t.string   "dishwasher"
+    t.string   "furnished"
+    t.string   "disabled_access"
+    t.string   "wheelchair"
+    t.string   "entrance"
+    t.string   "doorways36"
+    t.string   "adjustable"
   end
 
   create_table "users", :force => true do |t|

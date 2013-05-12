@@ -1,4 +1,7 @@
 Mortgage::Application.routes.draw do
+  resources :neighborhoods
+
+
   devise_for :users
 
   resources :property_fields

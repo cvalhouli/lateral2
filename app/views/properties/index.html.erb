@@ -102,7 +102,15 @@ $("#zip").change(function() {
 			<%if !property.sqft.blank?%> <%= property.sqft %> <%if property.entry_type=="Commercial for lease" %>sq.ft., <%else%> sq. ft. <%end%><%end%> <%if property.entry_type=="Commercial for lease" %> sub-dividable 
 			<%end%>
 			<%if property.entry_type!="Assumable mortgage exchange" %>
-			<br><b>Asking price: <%= property.Asking_Price %></b>
+			<br><b>Asking price: 
+			
+			<%= property.Asking_Price %>
+			<%if property.entry_type=="Residential for rent" || property.entry_type=="Commercial for lease" || property.entry_type=="Cell tower leasing" %>/mo.
+				
+			<%end%>
+			</b>
+	
+	
 			<%end%>
 			</td>
         <td>	<%if property.entry_type=="Assumable mortgage exchange" %>
