@@ -65,12 +65,12 @@ Partial BA
 	
 	
 <%if @property.entry_type = "Residential for rent" %>	
-Smoking:  <%if @property.property_fields.try(:first).try(:smoking)%> 
+Smoking:  <%= @property.property_fields.try(:first).try(:smoking)%> 
 <br/>
 
-Pets:
+Pets:<%= @property.property_fields.try(:first).try(:pets)%> 
 <br/>
-<%if @property.property_fields.try(:first).try(:pets)%> 
+<%= @property.property_fields.try(:first).try(:pets)%> 
 <%else%>		
 <b>Annual real estate taxes:</b> <%if @property.property_fields.try(:first).try(:Annual_real_estate_tax)%>$<%= number_with_delimiter(@property.property_fields.try(:first).try(:Annual_real_estate_tax).try(:to_i), :delimiter => ',') %> <%end%>
 <br/>
