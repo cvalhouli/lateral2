@@ -109,7 +109,21 @@
 
 
 
+<%if @property.entry_type=="Residential for rent" %>
 
+
+<div class="field">
+ <b> Pets: </b>
+  <%= f.select :pets, ["None", "Cats only","Dogs Only","Any"] %>
+ <b>Smoking: </b>
+  <%= f.select :smoking, ["Yes","No"]%>
+
+ <b> Laundry: </b>
+  <%= f.select :laundry, ["Coin-op in bldg","W/D in apartment","Valet","None"] %>
+</div>
+
+
+<%end%>
 
 
 
@@ -174,23 +188,11 @@
  </div>
 <br/><br/><br/>
 </div>
+
+
 <%if (@property.property_type=="Condominium" or @property.property_type=="Co-op") %>
 
-<%if @property.entry_type=="Residential for rent" %>
 
-
-<div class="field">
- <b> Pets: </b>
-  <%= f.select :pets, ["None", "Cats only","Dogs Only","Any"] %>
- <b>Smoking: </b>
-  <%= f.select :smoking, ["Yes","No"]%>
-
- <b> Laundry: </b>
-  <%= f.select :laundry, ["Coin-op in bldg","W/D in apartment","Valet","None"] %>
-</div>
-
-
-<%end%>
 
 
 
@@ -218,6 +220,12 @@
       <%= radio_button 'theme', theme, @theme == theme %>
       <%= theme.humanize %>
     <% end %>
+
+
+
+
+
+
 </div>
 <div style="float:left;margin-left:62px;">
 	<b>Fireplace:</b>
