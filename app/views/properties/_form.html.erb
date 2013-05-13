@@ -395,6 +395,10 @@ $(document).ready(function(){
        }
 
 
+     if ($(this).val().toLowerCase() == "manhattan") 
+        {
+        $("#neighborhood").html("Neighborhood:<br/><select id='property_neighborhood' name='property[neighborhood]'><option value=''></option><%for neighborhood in ["East Village", "Lower East Side", "Greenwich Village","West Village","NoHo","SoHo","Nolita","Little Italy","Chinatown","Financial District","Battery Park City","Two Bridges","Roosevelt Island","Upper West Side","Upper East Side","Clinton/Hell’s Kitchen","Chelsea","Sutton","Midtown","Murray Hill","Turtle Bay","Gramercy Park","South Street Seaport","Hamilton Heights","Washington Heights"].sort %><option value='<%=neighborhood%>'><%=neighborhood%></option><%end%></select>");	   
+       }
 
 
      if ($(this).val().toLowerCase() == "brooklyn") 
@@ -402,6 +406,11 @@ $(document).ready(function(){
         $("#neighborhood").html("Neighborhood:<br/><select id='property_neighborhood' name='property[neighborhood]'><option value=''></option><option style='font-weight:bold' value=''>Northwest Brooklyn</option><%for neighborhood in ["Brooklyn Heights","Navy Yard","Cadman Plaza","Clinton Hill","Downtown Brooklyn","DUMBO","Fort Greene","Fulton Ferry","Prospect Heights","Vinegar Hill"].sort %><option value='<%=neighborhood%>'><%=neighborhood%></option><%end%><option style='font-weight:bold' value=''>South Brooklyn</option><%for neighborhood in ["Boerum Hill","Carroll Gardens","Cobble Hill","Gowanus","Greenwood Heights","Park Slope","Red Hook","South Park Slope","Sunset Park","Windsor Terrace"].sort %><option value='<%=neighborhood%>'><%=neighborhood%></option><%end%><option style='font-weight:bold' value=''>Northern Brooklyn</option><%for neighborhood in ["Bushwick","Bushwick – Wyckoff Heights","Greenpoint","Williamsburg","East Williamsburg","Bedford","Bedford-Stuyvesant"].sort %><option value='<%=neighborhood%>'><%=neighborhood%></option><%end%><option style='font-weight:bold' value=''>Central Brooklyn</option><%for neighborhood in ["Beverley Squares","Crown Heights","Ditmas Park","East Flatbush","Farragut","Fiske Terrace","Flatbush","Kensington","Ocean Hill","Ocean Parkway"].sort %><option value='<%=neighborhood%>'><%=neighborhood%></option><%end%></select>");	   
        }
 
+
+     if ($(this).val().toLowerCase() == "cambridge") 
+        {
+        $("#neighborhood").html("Neighborhood:<br/><select id='property_neighborhood' name='property[neighborhood]'><option value=''></option><%for neighborhood in ["Central Sq.","Harvard Sq.","Cambridgeport","Kendall Sq.","Agassiz","Porter Sq.","Inman Sq.","Lechmere Sq.","East Cambridge","Strawberry Hill","West Cambridge","North Cambridge","Riverside"].sort %><option value='<%=neighborhood%>'><%=neighborhood%></option><%end%></select>");	   
+       }
 
 
 
@@ -417,9 +426,14 @@ $(document).ready(function(){
 			    
 					   if ($(this).val().toLowerCase() != "brooklyn") 
 					        {
-		
+							   if ($(this).val().toLowerCase() != "manhattan") 
+		                  {
+								   if ($(this).val().toLowerCase() != "cambridge") 
+			                  {
 	          $("#neighborhood").html("");
 	        }  
+           }
+	       }
 	       }
            }
        }
