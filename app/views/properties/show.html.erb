@@ -64,7 +64,7 @@ Partial BA
 <div style="font-size:13px:float:left;width:250px">
 	
 	
-<%if @property.entry_type = "Residential for rent" %>	
+<%if @property.entry_type == "Residential for rent" %>	
 Smoking:  <%= @property.property_fields.try(:first).try(:smoking)%> 
 <br/>
 
