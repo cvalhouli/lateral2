@@ -11,7 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130512213426) do
+ActiveRecord::Schema.define(:version => 20130513155243) do
+
+  create_table "manhattans", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "neighborhoods", :force => true do |t|
     t.string   "name"
@@ -65,6 +71,7 @@ ActiveRecord::Schema.define(:version => 20130512213426) do
     t.string   "salvage_type"
     t.string   "celltower_type"
     t.float    "hoa"
+    t.string   "neighborhood"
   end
 
   create_table "property_fields", :force => true do |t|
@@ -153,6 +160,8 @@ ActiveRecord::Schema.define(:version => 20130512213426) do
     t.string   "entrance"
     t.string   "doorways36"
     t.string   "adjustable"
+    t.string   "total_living_levels"
+    t.string   "building_name"
   end
 
   create_table "users", :force => true do |t|

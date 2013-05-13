@@ -1,4 +1,7 @@
 Mortgage::Application.routes.draw do
+  resources :manhattans
+
+
   resources :neighborhoods
 
 

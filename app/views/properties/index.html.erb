@@ -85,12 +85,12 @@ $("#zip").change(function() {
     <% @properties.each do |property| %>
       <tr>
       	<td><a href="/properties/<%=property.id%>"><%= image_tag property.photo.url(:thumb) %></a></td>
-		<td><b><%= property.address1 %><%if !property.address2.blank?%>,<%end%> &nbsp;<%= property.address2 %><br/><%= property.city %>, <%= property.state %> <%= property.zipcode %></b><br/><%= property.property_type %>; <%= property.entry_type %><br/> 
+		<td><b><%= property.address1 %><%if !property.address2.blank?%>,<%end%> &nbsp;<%= property.address2 %><br/><%= property.city %>, <%= property.state %> <%= property.zipcode %><%if !property.neighborhood.blank? %>(<%=property.neighborhood%>)<%end%></b><br/><%= property.property_type %>; <%= property.entry_type %><br/> 
 			
 			
 			<%if !property.property_fields.try(:first).try(:bedrooms).blank?%>
 				
-				<% if property.property_fields.try(:first).bedrooms != "0" %>
+			    <% if property.property_fields.try(:first).bedrooms != "0" %>
 				<%= property.property_fields.try(:first).bedrooms %>BR
 				<%else%>
 				  Studio
@@ -108,6 +108,7 @@ $("#zip").change(function() {
 			<%if property.entry_type=="Residential for rent" || property.entry_type=="Commercial for lease" || property.entry_type=="Cell tower leasing" %>/mo.
 				
 			<%end%>
+
 			</b>
 	
 	

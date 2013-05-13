@@ -128,6 +128,10 @@
     
 </div>
 
+
+<div id="neighborhood">
+</div>
+
 <div class="control-group">
 <label>Approx. Interior Sq.Ft. </label>
   <div class="controls">
@@ -367,6 +371,88 @@ $(document).ready(function(){
 
     });
 
+	$(document).ready(function(){
+	   $("#property_city").trigger('change');
+	});
+
+  $("#property_city").change(function() {
+
+      if ($(this).val().toLowerCase() == "boston") 
+        {
+        $("#neighborhood").html("Neighborhood:<br/><select id='property_neighborhood' name='property[neighborhood]'><option value=''></option><option value='Back Bay'>Back Bay</option><option value='Beacon Hill'>Beacon Hill</option><option value='Chinatown/Leather District'>Chinatown/Leather District</option><option value='East Boston'>East Boston</option><option value='Fenway/Kenmore Square'>Fenway/Kenmore Square</option><option value='Mission Hill'>Mission Hill</option><option value='North End'>North End</option><option value='Roslindale'>Roslindale</option><option value='Roxbury'>Roxbury</option><option value='South Boston'>South Boston</option><option value='South End'>South End</option></select>");	   
+       }
+        
+
+      if ($(this).val().toLowerCase() == "dorchester") 
+        {
+        $("#neighborhood").html("Neighborhood:<br/><select id='property_neighborhood' name='property[neighborhood]'><option value=''></option><option value='Adams Village'>Adams Village</option><option value='Ashmont'>Ashmont</option><option value='Cedar Grove'>Cedar Grove</option><option value='Codman Square'>Codman Square</option><option value='Fields Corner'>Fields Corner</option><option value='Four Corners'>Four Corners</option><option value='Franklin Field'>Franklin Field</option><option value='Harbor Point'>Harbor Point</option><option value='Jones Hill/Upham's Corner'>Jones Hill/Upham's Corner</option><option value='Lower Mills'>Lower Mills</option><option value='Meeting House Hill'>Meeting House Hill</option><option value='Mount Bowdoin'>Mount Bowdoin</option><option value='Neponset'>Neponset</option><option value='Peabody Square'>Peabody Square</option><option value='Pope's Hill'>Pope's Hill</option><option value='Port Norfolk'>Port Norfolk</option><option value='Savin Hill'>Savin Hill</option></select>");	   
+       }
+
+
+     if ($(this).val().toLowerCase() == "new york") 
+        {
+        $("#neighborhood").html("Neighborhood:<br/><select id='property_neighborhood' name='property[neighborhood]'><option value=''></option><%for neighborhood in ["East Village", "Lower East Side", "Greenwich Village","West Village","NoHo","SoHo","Nolita","Little Italy","Chinatown","Financial District","Battery Park City","Two Bridges","Roosevelt Island","Upper West Side","Upper East Side","Clinton/Hell’s Kitchen","Chelsea","Sutton","Midtown","Murray Hill","Turtle Bay","Gramercy Park","South Street Seaport","Hamilton Heights","Washington Heights"].sort %><option value='<%=neighborhood%>'><%=neighborhood%></option><%end%></select>");	   
+       }
+
+
+
+
+     if ($(this).val().toLowerCase() == "brooklyn") 
+        {
+        $("#neighborhood").html("Neighborhood:<br/><select id='property_neighborhood' name='property[neighborhood]'><option value=''></option><option style='font-weight:bold' value=''>Northwest Brooklyn</option><%for neighborhood in ["Brooklyn Heights","Navy Yard","Cadman Plaza","Clinton Hill","Downtown Brooklyn","DUMBO","Fort Greene","Fulton Ferry","Prospect Heights","Vinegar Hill"].sort %><option value='<%=neighborhood%>'><%=neighborhood%></option><%end%><option style='font-weight:bold' value=''>South Brooklyn</option><%for neighborhood in ["Boerum Hill","Carroll Gardens","Cobble Hill","Gowanus","Greenwood Heights","Park Slope","Red Hook","South Park Slope","Sunset Park","Windsor Terrace"].sort %><option value='<%=neighborhood%>'><%=neighborhood%></option><%end%><option style='font-weight:bold' value=''>Northern Brooklyn</option><%for neighborhood in ["Bushwick","Bushwick – Wyckoff Heights","Greenpoint","Williamsburg","East Williamsburg","Bedford","Bedford-Stuyvesant"].sort %><option value='<%=neighborhood%>'><%=neighborhood%></option><%end%><option style='font-weight:bold' value=''>Central Brooklyn</option><%for neighborhood in ["Beverley Squares","Crown Heights","Ditmas Park","East Flatbush","Farragut","Fiske Terrace","Flatbush","Kensington","Ocean Hill","Ocean Parkway"].sort %><option value='<%=neighborhood%>'><%=neighborhood%></option><%end%></select>");	   
+       }
+
+
+
+
+
+
+
+      if ($(this).val().toLowerCase() != "dorchester") 
+            {
+		      if ($(this).val().toLowerCase() != "boston") 
+	        {
+		      if ($(this).val().toLowerCase() != "new york") 
+		        {
+			    
+					   if ($(this).val().toLowerCase() != "brooklyn") 
+					        {
+		
+	          $("#neighborhood").html("");
+	        }  
+	       }
+           }
+       }
+
+    });
+
+
+
 
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -17,6 +17,7 @@
 <%= @property.city %>,
 <%= @property.state %>
 <%= @property.zipcode %>
+<%if !@property.neighborhood.blank? %>(<%=@property.neighborhood%>)<%end%>
 </div>
 <div id="SmallText">
 <%=@property.property_type%> | <%=@property.entry_type%>
