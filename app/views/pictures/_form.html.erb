@@ -1,0 +1,8 @@
+<%= form_for @picture, :html => { :multipart => true } do |f| %>
+   <%=f.file_field :photo %>
+  <div class="field">
+    <%= f.hidden_field :property_id, :value=>params[:q] %>
+  </div>
+  <div class="actions">
+    <input name="commit" type="submit" value="Add image" />  </div>
+<% end %>

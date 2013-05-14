@@ -1,0 +1,281 @@
+
+<div id="page_layout">
+
+<%- model_class = Property -%>
+<br/><br/>
+<%#NOTE TO SELF - We did the quick double BR above; replace with a pixel version late%>
+
+<div id="AddressHeader">
+
+<div style="float:left;width:520px;">
+<div id="LargerText">
+<%= @property.address1 %><%if !@property.address2.blank?%>, <%end%>
+<%= @property.address2 %>
+</div>
+<div id="SmallText">
+
+<%= @property.city %>,
+<%= @property.state %>
+<%= @property.zipcode %>
+<%if !@property.neighborhood.blank? %>(<%=@property.neighborhood%>)<%end%>
+</div>
+<div id="SmallText">
+<%=@property.property_type%> | <%=@property.entry_type%>
+<br/>
+<b>
+<%= @property.property_fields.try(:first).try(:total_rooms) %> rooms | 	
+<% if @property.property_fields.try(:first).try(:bedrooms).to_s=="0" %>
+Studio
+<%else%>
+<%= @property.property_fields.try(:first).try(:bedrooms) %> BR 
+<%end%>
+| 	<%= @property.property_fields.try(:first).try(:full_bath) %> Full BA 
+
+<%if !@property.property_fields.try(:first).try(:half_bath).blank? && !@property.property_fields.try(:first).try(:quarter_bath).blank?%>
+| 
+<%if @property.property_fields.try(:first).try(:half_bath) && @property.property_fields.try(:first).try(:quarter_bath)%>
+ <%= @property.property_fields.try(:first).try(:half_bath).to_i + @property.property_fields.try(:first).try(:quarter_bath).to_i %>
+<% elsif @property.property_fields.try(:first).try(:half_bath) && !@property.property_fields.try(:first).try(:quarter_bath)%>
+<%= @property.property_fields.try(:first).try(:half_bath).to_i %>
+<% elsif !@property.property_fields.try(:first).try(:half_bath) && @property.property_fields.try(:first).try(:quarter_bath)%>
+<%= @property.property_fields.try(:first).try(:quarter_bath).to_i %> 
+<%end%>
+Partial BA
+<%end%>
+</b>
+</div>
+
+</div>
+
+<div style="float:left;width:400px;">
+	<div style="float:left;width:250px;">
+
+
+<div id="LargerText">
+<%=@property.Asking_Price%> <%if @property.entry_type=="Residential for rent" || @property.entry_type=="Commercial for lease" || @property.entry_type=="Cell tower leasing" %>/mo.<%end%>
+</div>	
+
+<div style="font-size:13px;float:left;font-weight:none;width:250px">
+<%if !@property.Asking_Price.blank? && !@property.sqft.blank? %>
+ <b>Approx. <%=@property.sqft %>  sq.ft.</b> ($<%=(@property.Asking_Price.delete('$,').to_f/@property.sqft.delete('$,').to_f).round(2)%>/sq.ft.) 
+
+<%end%>
+
+
+<div style="font-size:13px:float:left;width:250px">
+	
+	
+<%if @property.entry_type == "Residential for rent" %>	
+Smoking:  <%= @property.property_fields.try(:first).try(:smoking)%> 
+<br/>
+
+Pets:<%= @property.property_fields.try(:first).try(:pets)%> 
+<br/>
+<%= @property.property_fields.try(:first).try(:pets)%> 
+<%else%>		
+<b>Annual real estate taxes:</b> <%if @property.property_fields.try(:first).try(:Annual_real_estate_tax)%>$<%= number_with_delimiter(@property.property_fields.try(:first).try(:Annual_real_estate_tax).try(:to_i), :delimiter => ',') %> <%end%>
+<br/>
+<b>Monthly HOA fee:</b> <%if @property.property_fields.try(:first).try(:hoa) %> $<%= number_with_delimiter(@property.property_fields.try(:first).try(:hoa).try(:to_i), :delimiter => ',' ) %> <%end%>
+<%end%>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+
+
+</div>
+
+<div style="font-size:10px;margin-top:5px;font-weight:bold;padding-top:20px;padding-bottom:15px;float:right;padding-right:203px;margin-top:-20px">
+	
+<span style="padding-right:2px"><%=link_to "FAVORITE"%></span> | <span style="padding-left:2px;padding-right:4px"><%=link_to "PRINT"%></span>|<span style="padding-left:4px;padding-right:4px"><%=link_to "SHARE"%></span>|<span style="padding-left:4px;padding-right:4px"><%=link_to "HIDE"%></span>|<span style="padding-left:4px;padding-right:4px"><%=link_to "REPORT AN ISSUE"%></span>
+</div>
+
+
+
+<div style="float:left;width:1200px">
+
+<div style="float:left;background:#f0f0f0;height:400px;width:470px;">
+	
+	
+	<% if 1==1 %>
+	<%@pictures=@property.pictures %>
+	
+	<div id="myCarousel" class="carousel slide">
+		
+	      
+    <ol class="carousel-indicators">
+	
+	 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+	<%counter=1%>
+    <%for picture in @pictures%>
+    
+    <li data-target="#myCarousel" data-slide-to="<%=counter%>"></li>
+     <%counter=counter+1%>
+    <%end%>
+
+    </ol>
+   <%end%>
+
+
+<%if 1==1 %>
+    <!-- Carousel items -->
+    <div class="carousel-inner">
+	
+	
+    <div class="active item">
+<% end %>
+    <%= image_tag @property.photo.url, :class=>'slider' %>
+
+<% if 1==1%>
+
+     </div>
+
+	<%for picture in @pictures%>
+    
+    <div class="item"><%= image_tag picture.photo.url, :class=>'slider' %></div>
+   
+    <%end%>
+
+
+    </div>
+    <!-- Carousel nav -->
+    <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+    <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+    </div>
+	
+	
+	
+	
+	
+	
+	<%end %>
+	
+
+<br/>
+<%#= link_to 'Add Image', new_picture_path(:q=>@property.id) %>
+</div>
+
+<div style="width:400px;margin-right:280px;float:right;overflow:hidden">
+	
+	<div id="map_canvas"></div>
+    <div id="map_canvas2"></div>
+	
+</div>
+
+<div style="float:left;background:#fff;margin-top:20px;padding: 10px 10px 10px 0px; height:380px;width:480px;">
+	<b>DESCRIPTION</b><br/>
+	<%=@property.description%>
+</div>
+
+
+
+<dl class="dl-horizontal">
+
+	<%if 1==2%>
+
+  <dt><strong><%= model_class.human_attribute_name(:sqft) %>:</strong></dt>
+  <dd><%= @property.sqft %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:marketvalue) 
+%>:</strong></dt>
+  <dd><%= @property.property_fields.try(:first).try(:marketvalue) %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:mortgageamount) %>:</strong></dt>
+  <dd><%= @property.property_fields.try(:first).try(:mortgageamount) %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:mortgageAPR) %>:</strong></dt>
+  <dd><%= @property.property_fields.try(:first).try(:mortgageAPR) %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:mortgagetype) %>:</strong></dt>
+  <dd><%= @property.property_fields.try(:first).try(:mortgagetype) %></dd>
+
+
+<dt><strong><%= model_class.human_attribute_name(:entry_type) %>:</strong></dt>
+  <dd><%= @property.entry_type %></dd>
+ <dt><strong>Total Rooms:</strong></dt>
+  <dd><%= @property.property_fields.try(:first).try(:total_rooms) %></dd>
+<dt><strong>Bedrooms:</strong></dt>
+  <dd><%= @property.property_fields.try(:first).try(:bedrooms) %></dd>
+
+<dt><strong>Full Bath:</strong></dt>
+  <dd><%= @property.property_fields.try(:first).try(:full_bath) %></dd>
+
+
+<dt><strong>Half Bath:</strong></dt>
+  <dd><%= @property.property_fields.try(:first).try(:half_bath) %></dd>
+
+
+<dt><strong>Quarter Bath:</strong></dt>
+  <dd><%= @property.property_fields.try(:first).try(:quarter_bath) %></dd>
+
+
+<dt><strong>Outdoor Space:</strong></dt>
+  <dd><%= @property.property_fields.try(:first).try(:outdoor_space) %></dd>
+
+<dt><strong>Elevator:</strong></dt>
+  <dd><%= @property.property_fields.try(:first).try(:elevator) %></dd>
+
+<dt><strong>Maintenance fee</strong></dt>
+  <dd><%= @property.property_fields.try(:first).try(:maintenance_fee) %></dd>
+
+  
+  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
+  <dd><%= @property.description %></dd>
+
+<%end%>
+
+</dl>
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              properties_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_property_path(@property), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              property_path(@property),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
+
+
+
+<%if 1==1%>
+    <script>
+function initialize() {
+  var myLatlng = new google.maps.LatLng(<%=@property.latitude%>,<%=@property.longitude%>);
+  var mapOptions = {
+    zoom: 12,
+    center: myLatlng,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  }
+
+ var mapOptions2 = {
+    zoom: 16,
+    center: myLatlng,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  }
+
+  var map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+  var map2 = new google.maps.Map(document.getElementById('map_canvas2'), mapOptions2);
+
+  var marker = new google.maps.Marker({
+      position: myLatlng,
+      map: map,
+      title: 'Hello World!'
+  });
+
+ var marker2 = new google.maps.Marker({
+      position: myLatlng,
+      map: map2,
+      title: 'Hello World!'
+  });
+
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+    </script>
+
+<%end%>
+	

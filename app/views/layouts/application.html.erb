@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%=@title%></title>
+
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+
+  <%= javascript_include_tag "https://js.stripe.com/v1/", "application" %>
+
+  <%= csrf_meta_tags %>
+  <%#= tag :meta, :name => "stripe-key",  
+    :content => STRIPE_PUBLIC_KEY %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+
+<script>
+$(function() {
+    $('.carousel').each(function(){
+        $(this).carousel({
+            interval: false
+        });
+    });
+});​
+</script>
+</head>
+<body>
+<div style="min-width:1080px">
+<div id="header">
+<div style="margin-left:35px;float:right;margin-top:-12px">
+	      <a href="/"><img src="/Lateralmarket-logo-black.jpg" height="60px" width="224px" /></a>
+</div>	
+</div>
+
+
+      <div id="header2">
+
+		<div style="float:right;padding-left:10px;margin-top:5px;overflow:hidden">
+		  <a href="http://lateralmarket.tumblr.com">
+		<img src="http://cdn3.iconfinder.com/data/icons/picons-social/57/55-tumblr-128.png" border=0 width="32px" height="32" />
+		  </a>
+		</div>
+
+		<div style="float:right;overflow:hidden;margin-top:5px">
+		  <a href="http://www.facebook.com/lateralmarket">
+		<img src="http://cdn3.iconfinder.com/data/icons/picons-social/57/46-facebook-128.png" border=0 width="32px" height="32" />
+		  </a>
+		</div>
+		
+		
+		
+		
+		<div style="text-transform:uppercase;margin-top:19px">
+         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  <%= link_to "About Us", site_about_us_url %>  &nbsp;   &nbsp; &nbsp; &nbsp;  &nbsp;  &nbsp; <%= link_to "Asset Classes", site_asset_classes_url %>  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; <%= link_to "How It Works", site_how_it_works_url %> &nbsp;  &nbsp; &nbsp;  &nbsp;  &nbsp; &nbsp; <a href="/properties/new">Create Listing</a>  &nbsp;  &nbsp; &nbsp;  &nbsp;  &nbsp; &nbsp; <%= link_to "Contact Us", site_contact_us_url %> 	
+		
+        </div>
+
+</div>
+
+
+</div>
+
+	<div class="container">
+	  <div class="row">
+	    <div class="span12">
+<%= yield %>
+
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>

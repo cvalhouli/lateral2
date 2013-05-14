@@ -1,0 +1,94 @@
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('/fontawesome-webfont.eot?v=3.0.1');
+  src: url('/fontawesome-webfont.eot?#iefix&v=3.0.1') format('embedded-opentype'),
+    url('/fontawesome-webfont.woff?v=3.0.1') format('woff'),
+   url('/fontawesome-webfont.ttf?v=3.0.1') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+#property_field_pets
+{
+width:105px;
+margin-right:50px;
+}
+
+
+#property_field_smoking
+{
+width:80px;
+margin-right:50px;
+
+}
+
+#property_field_laundry
+{
+width:145px;
+}
+
+
+.map_container {
+  padding: 0px;
+  border-width: 0px;
+  border-style: solid;
+  border-color: #ccc #ccc #999 #ccc;
+  -webkit-box-shadow: rgba(64, 64, 64, 0.5) 0 0px 0px;
+  -moz-box-shadow: rgba(64, 64, 64, 0.5) 0 0px 0px;
+  box-shadow: rgba(64, 64, 64, 0.1) 0 0px 0px;
+  width: 400px;
+float:right;
+}
+.
+.gmaps4rails_map {
+  width: 400px;
+  height: 400px;
+}
+
+.bing_map {
+   position: absolute;
+   top: 20;
+   left: 10;
+   width: 400px;
+   height: 400px;
+   border:#555555 2px solid;
+}
+
+
+#map-canvas, #map_canvas {
+  height: 400px;
+  width:350px;
+}
+
+@media print {
+  html, body {
+    height: auto;
+  }
+
+  #map_canvas {
+    height: 400px;
+    width: 350px;
+  }
+}
+IMG.slider{
+	max-height:380px;
+    max-width:480px;
+	margin:0px auto;
+}
+ #map_canvas2 {
+    height: 400px;
+    width: 350px;
+    margin-top:20px;
+  }
+}
+
+#panel {
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  margin-left: -180px;
+  z-index: 5;
+  background-color: #fff;
+  padding: 5px;
+  border: 1px solid #999;
+}

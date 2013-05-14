@@ -1,0 +1,472 @@
+<%= form_for @property, :html => { :multipart => true } do |f| %>
+
+<div class="custom_width2">Entry type <br/>
+
+
+      <%= f.select :entry_type, ["Architectural salvage and antiques", "Assumable mortgage exchange","Residential for sale","Residential for rent","Commercial for sale", "Commercial for lease", "Pop-up shop"].sort, :class => 'text_field' %>
+ 
+</div>
+    Listing type 
+
+
+<div id="property_type">
+	
+</div>
+
+
+
+<% if 1==2 %>
+
+
+<div id="property_type22">
+<%= f.select :property_type, ["Cell tower leasing", "Occupied residential properties", "Farmland", "Industrial", "Restaurant", "Mixed use", "Tenancy-in-common", "Permitted properties", "Parking",  "School loan debt",  "Single family house", "Multifamily house", "Condominium", "Co-op","Hydropower rights"].sort, :class => 'text_field' %>
+</div>
+
+<div id="property_type_assumable">
+
+<%= f.select :property_type, ["Single family house", "Multifamily house", "Condominium", "Co-op"].sort, :class => 'text_field' %>
+
+</div>
+
+<div id="property_type_residential_for_rent">
+<%= f.select :property_type, ["Single family house", "Multifamily house", "Condominium", "Co-op"].sort, :class => 'text_field' %>
+
+</div>
+
+<div id="property_type_residential_for_sale">
+<%= f.select :property_type, ["Single family house", "Multifamily house", "Condominium", "Co-op", "Occupied residential properties",].sort, :class => 'text_field' %>
+</div>
+
+<div id="property_type_commercial_for_sale">
+<%= f.select :property_type, ["Farmland", "Industrial", "Restaurant", "Mixed use", "Tenancy-in-common", "Permitted properties", "Parking", "Hydropower rights"].sort, :class => 'text_field' %>
+</div>
+
+<div id="property_type_commercial_for_lease">
+<%= f.select :property_type, ["Cell tower leasing", "Farmland", "Industrial", "Restaurant", "Mixed use", "Tenancy-in-common", "Permitted properties", "Parking", "Hydropower rights"].sort, :class => 'text_field' %>
+</div>
+
+<div id="property_type2">
+<%= f.select :property_type, ["Cell tower leasing", "Occupied residential properties", "Farmland", "Industrial", "Restaurant", "Mixed use", "Tenancy-in-common", "Permitted properties", "Parking",  "School loan debt",  "Single family house", "Multifamily house", "Condominium", "Co-op","Hydropower rights"].sort, :class => 'text_field' %>
+</div>
+
+
+<% end %>
+
+
+
+
+
+
+
+   <br/>
+      Address1:
+      <%= f.text_field :address1, :class => 'text_field' %>
+      Address2:
+      <%= f.text_field :address2, :class => 'text_field' %>
+  <br/>
+  <div class="control-group">
+      City:
+      <%= f.text_field :city, :class => 'text_field' %>
+      State:
+      <%= f.select :state, states = Array[ ["AK", "Alaska"],
+	["AL", "Alabama"],
+	["AR", "Arkansas"],
+	["AS", "American Samoa"],
+	["AZ", "Arizona"],
+	["CA", "California"],
+	["CO", "Colorado"],
+	["CT", "Connecticut"],
+	["DC", "District of Columbia"],
+	["DE", "Delaware"],
+	["FL", "Florida"],
+	["GA", "Georgia"],
+	["GU", "Guam"],
+	["HI", "Hawaii"],
+	["IA", "Iowa"],
+	["ID", "Idaho"],
+	["IL", "Illinois"],
+	["IN", "Indiana"],
+	["KS", "Kansas"],
+	["KY", "Kentucky"],
+	["LA", "Louisiana"],
+	["MA", "Massachusetts"],
+	["MD", "Maryland"],
+	["ME", "Maine"],
+	["MI", "Michigan"],
+	["MN", "Minnesota"],
+	["MO", "Missouri"],
+	["MS", "Mississippi"],
+	["MT", "Montana"],
+	["NC", "North Carolina"],
+	["ND", "North Dakota"],
+	["NE", "Nebraska"],
+	["NH", "New Hampshire"],
+	["NJ", "New Jersey"],
+	["NM", "New Mexico"],
+	["NV", "Nevada"],
+	["NY", "New York"],
+	["OH", "Ohio"],
+	["OK", "Oklahoma"],
+	["OR", "Oregon"],
+	["PA", "Pennsylvania"],
+	["PR", "Puerto Rico"],
+	["RI", "Rhode Island"],
+	["SC", "South Carolina"],
+	["SD", "South Dakota"],
+	["TN", "Tennessee"],
+	["TX", "Texas"],
+	["UT", "Utah"],
+	["VA", "Virginia"],
+	["VI", "Virgin Islands"],
+	["VT", "Vermont"],
+	["WA", "Washington"],
+	["WI", "Wisconsin"],
+	["WV", "West Virginia"],
+	["WY", "Wyoming"] ], :class => 'custom_size' %>
+      Zip Code:
+      <%= f.text_field :zipcode, :class => 'text_field custom_size' %>
+    
+</div>
+
+
+<div id="neighborhood">
+</div>
+
+<div class="control-group">
+<label>Approx. Interior Sq.Ft. </label>
+  <div class="controls">
+    <%= f.text_field :sqft, :class => 'text_field' %>
+  </div>
+</div>
+
+
+<div class="control-group">
+  <label> Asking price	
+  </label>
+  <div class="controls">
+    <%= f.text_field :Asking_Price, :class => 'text_field' %>
+  </div>
+</div>
+
+<div id="layout_select1">
+</div>
+
+<div id="layout_select2">
+
+
+ <div class="control-group">
+   <%= f.label :marketvalue, :class => 'control-label' %>
+   <div class="controls">
+     <%= f.text_field :marketvalue, :class => 'text_field' %>
+   </div>
+ </div>
+  <div class="control-group">
+    <%= f.label :mortgageamount, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :mortgageamount, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :mortgageAPR, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :mortgageAPR, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :mortgagetype, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.select :mortgagetype, ["","Adjustable rate mortgage", "Fixed, 30 year", "Fixed, 15 year", "Other"].sort,:class => 'text_field' %>
+    </div>
+  </div>
+
+</div>
+
+
+<div id="salvage_type">
+	 <%= f.select :salvage_type, ["Doors", "Windows", "Fireplace mantels", "Fireplace mantle accessories", "Hardware", "Stair parts", "Cabinetry", "Millwork", "Kitchen & bath",  "Sinks",  "Marble sinks", "Bathtubs", "Lighting", "Ironwork","Reclaimed lumber", "Fixtures & fittings", "Floor grates", "Brick & granite", "Stained glass", "Furniture"].sort, :class => 'text_field' %>
+</div>
+
+<div id="celltower_type" style="display:none">
+	 <%= f.select :celltower_type, ["Church steeple", "Rooftop cellular antenna", "Guyed cell tower", "Stealth cell tower"].sort, :class => 'text_field' %>
+</div>
+
+
+
+Upload photo:
+   <%=f.file_field :photo %>
+<br/>
+
+  <div class="control-group">
+    <%= f.label :description, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :description, :class => 'text_area custom_description' %>
+    </div>
+  </div>
+
+
+  <div class="form-actions">
+<input class="btn btn-primary" id="new_property" name="commit" type="submit" value="Create Property" />    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                properties_path, :class => 'btn' %>
+  </div>
+<% end %>
+
+<script>
+
+
+
+
+$(document).ready(function(){
+   $("#property_property_type").trigger('change');
+});
+    $("#property_property_type").change(function() {
+	
+	
+	   alert('test');
+ 	
+       if ($(this).val() != "Architectural salvage & antiques" && $(this).val() != "Farmland"  && $(this).val() != "Tenancy-in-common"  && $(this).val() != "Permitted properties"  && $(this).val() != "Parking"  && $(this).val() != "School loan debt"  && $(this).val() != "Hydropower rights"  && $(this).val() != "Cell tower leasing") 
+            {
+            $("#layout_select1").html("Asking Price<input class='text_field' id='property_Asking_Price' name='property[Asking_Price]' size='30' type='text' /><br/>Parking<input class='text_field' id='property_Parking_Spaces' name='property[Parking_Spaces]' size='30' type='text' />"); 
+            }
+           else
+            {
+            $("#layout_select1").html("Asking Price<input class='text_field' id='property_Asking_Price' name='property[Asking_Price]' size='30' type='text' />");
+            }
+
+	       if ($(this).val() == "Architectural salvage & antiques") 
+	            {
+	            $("#salvage_type").show(); 
+	            }
+	           else
+	            {
+	            $("#salvage_type").hide();
+	            }
+
+               if ($(this).val() == "Cell tower leasing") 
+		            {
+		            $("#celltower_type").show(); 
+		            }
+		           else
+		            {
+		            $("#celltower_type").hide();
+		            }  
+    });
+
+
+	$(document).ready(function(){
+	   $("#property_entry_type").trigger('change');
+	});
+
+  $("#property_entry_type").change(function() {
+
+
+      if ($(this).val() == "Architectural salvage and antiques") 
+           {
+           $("#layout_select2").hide(); 
+           $("#salvage_type").hide();
+	  	   $("#property_type").html("<select id='property_salvage_type' name='property[salvage_type]'><option value='Bathtubs'>Bathtubs</option><option value='Brick &amp; granite'>Brick &amp; granite</option><option value='Cabinetry'>Cabinetry</option><option value='Doors'>Doors</option><option value='Fireplace mantels'>Fireplace mantels</option><option value='Fireplace mantle accessories'>Fireplace mantle accessories</option><option value='Fixtures &amp; fittings'>Fixtures &amp; fittings</option><option value='Floor grates'>Floor grates</option><option value='Furniture'>Furniture</option><option value='Hardware'>Hardware</option><option value='Ironwork'>Ironwork</option><option value='Kitchen &amp; bath'>Kitchen &amp; bath</option><option value='Lighting'>Lighting</option><option value='Marble sinks'>Marble sinks</option><option value='Millwork'>Millwork</option><option value='Reclaimed lumber'>Reclaimed lumber</option><option value='Sinks'>Sinks</option><option value='Stained glass'>Stained glass</option><option value='Stair parts'>Stair parts</option><option value='Windows'>Windows</option></select>");
+           }
+          else
+           {
+           $("#salvage_type").hide();
+           $("#layout_select2").hide(); 
+
+           }
+
+
+	       if ($(this).val() == "Assumable mortgage exchange") 
+	            {
+	            $("#layout_select2").show(); 
+	            $("#salvage_type").hide();
+	            $("#property_type").html("<select id='property_property_type' name='property[property_type]'><option value='Co-op'>Co-op</option><option value='Condominium'>Condominium</option><option value='Multifamily house'>Multifamily house</option><option value='Single family house'>Single family house</option></select>"); 
+	            }
+	           else
+	            {
+	            $("#layout_select2").hide(); 
+	            $("#salvage_type").hide();
+
+	            }
+
+
+		       if ($(this).val() == "Pop-up shop") 
+		            {
+		            $("#layout_select2").hide(); 
+		            $("#salvage_type").hide();
+		            $("#property_type").html("<select id='property_property_type' name='property[property_type]'><option value='Retail'>Retail</option><option value='Restaurant'>Restaurant</option><option value='Industrial'>Industrial</option><option value='Outdoor'>Outdoor</option></select>"); 
+		            }
+		           else
+		            {
+		            $("#layout_select2").hide(); 
+		            $("#salvage_type").hide();
+
+		            }
+
+
+		       if ($(this).val() == "Commercial for sale") 
+		            {
+		            $("#layout_select2").hide(); 
+					$("#property_type").html("<select id='property_property_type' name='property[property_type]'><option value='Farmland'>Farmland</option><option value='Hydropower rights'>Hydropower rights</option><option value='Industrial'>Industrial</option><option value='Mixed use'>Mixed use</option><option value='Parking'>Parking</option><option value='Permitted properties'>Permitted properties</option><option value='Restaurant'>Restaurant</option><option value='Tenancy-in-common'>Tenancy-in-common</option></select>");
+		            $("#salvage_type").hide();
+		
+		            }
+		           else
+		            {
+		            $("#layout_select2").hide();
+		            $("#salvage_type").hide();
+
+		            }
+		
+		
+			       if ($(this).val() == "Commercial for lease") 
+			            {
+			            $("#layout_select2").hide();
+		                $("#property_type").html("<select id='property_property_type' name='property[property_type]'><option value='Cell tower leasing'>Cell tower leasing</option><option value='Farmland'>Farmland</option><option value='Hydropower rights'>Hydropower rights</option><option value='Industrial'>Industrial</option><option value='Mixed use'>Mixed use</option><option value='Parking'>Parking</option><option value='Permitted properties'>Permitted properties</option><option value='Restaurant'>Restaurant</option><option value='Tenancy-in-common'>Tenancy-in-common</option></select>");
+			            $("#salvage_type").hide();
+		
+		             }
+		
+		           else
+		            {
+		            $("#layout_select2").hide();
+		            $("#salvage_type").hide();
+
+		            }
+		
+	
+			       if ($(this).val() == "Residential for rent") 
+			            {
+			            $("#layout_select2").hide(); 
+			            $("#salvage_type").hide();
+			
+			            $("#property_type").html("<select id='property_property_type' name='property[property_type]'><option value='Co-op'>Co-op</option><option value='Condominium'>Condominium</option><option value='Multifamily house'>Multifamily house</option><option value='Single family house'>Single family house</option></select>"); 
+			            }
+			           else
+			            {
+				            $("#salvage_type").hide();
+			            $("#layout_select2").hide(); 
+
+			            }
+
+
+				       if ($(this).val() == "Residential for sale") 
+				            {
+				            $("#layout_select2").hide(); 
+				            $("#salvage_type").hide();
+				
+				            $("#property_type").html("<select id='property_property_type' name='property[property_type]'><option value='Co-op'>Co-op</option><option value='Condominium'>Condominium</option><option value='Multifamily house'>Multifamily house</option><option value='Occupied residential properties'>Occupied residential properties</option><option value='Single family house'>Single family house</option></select>"); 
+				            }
+				           else
+				            {
+				            $("#layout_select2").hide(); 
+				            $("#salvage_type").hide();
+
+				            }
+
+
+
+
+
+	
+		
+		
+
+    });
+
+	$(document).ready(function(){
+	   $("#property_city").trigger('change');
+	});
+
+  $("#property_city").change(function() {
+
+      if ($(this).val().toLowerCase() == "boston") 
+        {
+        $("#neighborhood").html("Neighborhood:<br/><select id='property_neighborhood' name='property[neighborhood]'><option value=''></option><option value='Back Bay'>Back Bay</option><option value='Beacon Hill'>Beacon Hill</option><option value='Chinatown/Leather District'>Chinatown/Leather District</option><option value='East Boston'>East Boston</option><option value='Fenway/Kenmore Square'>Fenway/Kenmore Square</option><option value='Mission Hill'>Mission Hill</option><option value='North End'>North End</option><option value='Roslindale'>Roslindale</option><option value='Roxbury'>Roxbury</option><option value='South Boston'>South Boston</option><option value='South End'>South End</option></select>");	   
+       }
+        
+
+      if ($(this).val().toLowerCase() == "dorchester") 
+        {
+        $("#neighborhood").html("Neighborhood:<br/><select id='property_neighborhood' name='property[neighborhood]'><option value=''></option><option value='Adams Village'>Adams Village</option><option value='Ashmont'>Ashmont</option><option value='Cedar Grove'>Cedar Grove</option><option value='Codman Square'>Codman Square</option><option value='Fields Corner'>Fields Corner</option><option value='Four Corners'>Four Corners</option><option value='Franklin Field'>Franklin Field</option><option value='Harbor Point'>Harbor Point</option><option value='Jones Hill/Upham's Corner'>Jones Hill/Upham's Corner</option><option value='Lower Mills'>Lower Mills</option><option value='Meeting House Hill'>Meeting House Hill</option><option value='Mount Bowdoin'>Mount Bowdoin</option><option value='Neponset'>Neponset</option><option value='Peabody Square'>Peabody Square</option><option value='Pope's Hill'>Pope's Hill</option><option value='Port Norfolk'>Port Norfolk</option><option value='Savin Hill'>Savin Hill</option></select>");	   
+       }
+
+
+     if ($(this).val().toLowerCase() == "new york") 
+        {
+        $("#neighborhood").html("Neighborhood:<br/><select id='property_neighborhood' name='property[neighborhood]'><option value=''></option><%for neighborhood in ["East Village", "Lower East Side", "Greenwich Village","West Village","NoHo","SoHo","Nolita","Little Italy","Chinatown","Financial District","Battery Park City","Two Bridges","Roosevelt Island","Upper West Side","Upper East Side","Clinton/Hell’s Kitchen","Chelsea","Sutton","Midtown","Murray Hill","Turtle Bay","Gramercy Park","South Street Seaport","Hamilton Heights","Washington Heights"].sort %><option value='<%=neighborhood%>'><%=neighborhood%></option><%end%></select>");	   
+       }
+
+
+     if ($(this).val().toLowerCase() == "manhattan") 
+        {
+        $("#neighborhood").html("Neighborhood:<br/><select id='property_neighborhood' name='property[neighborhood]'><option value=''></option><%for neighborhood in ["East Village", "Lower East Side", "Greenwich Village","West Village","NoHo","SoHo","Nolita","Little Italy","Chinatown","Financial District","Battery Park City","Two Bridges","Roosevelt Island","Upper West Side","Upper East Side","Clinton/Hell’s Kitchen","Chelsea","Sutton","Midtown","Murray Hill","Turtle Bay","Gramercy Park","South Street Seaport","Hamilton Heights","Washington Heights"].sort %><option value='<%=neighborhood%>'><%=neighborhood%></option><%end%></select>");	   
+       }
+
+
+     if ($(this).val().toLowerCase() == "brooklyn") 
+        {
+        $("#neighborhood").html("Neighborhood:<br/><select id='property_neighborhood' name='property[neighborhood]'><option value=''></option><option style='font-weight:bold' value=''>Northwest Brooklyn</option><%for neighborhood in ["Brooklyn Heights","Navy Yard","Cadman Plaza","Clinton Hill","Downtown Brooklyn","DUMBO","Fort Greene","Fulton Ferry","Prospect Heights","Vinegar Hill"].sort %><option value='<%=neighborhood%>'><%=neighborhood%></option><%end%><option style='font-weight:bold' value=''>South Brooklyn</option><%for neighborhood in ["Boerum Hill","Carroll Gardens","Cobble Hill","Gowanus","Greenwood Heights","Park Slope","Red Hook","South Park Slope","Sunset Park","Windsor Terrace"].sort %><option value='<%=neighborhood%>'><%=neighborhood%></option><%end%><option style='font-weight:bold' value=''>Northern Brooklyn</option><%for neighborhood in ["Bushwick","Bushwick – Wyckoff Heights","Greenpoint","Williamsburg","East Williamsburg","Bedford","Bedford-Stuyvesant"].sort %><option value='<%=neighborhood%>'><%=neighborhood%></option><%end%><option style='font-weight:bold' value=''>Central Brooklyn</option><%for neighborhood in ["Beverley Squares","Crown Heights","Ditmas Park","East Flatbush","Farragut","Fiske Terrace","Flatbush","Kensington","Ocean Hill","Ocean Parkway"].sort %><option value='<%=neighborhood%>'><%=neighborhood%></option><%end%></select>");	   
+       }
+
+
+     if ($(this).val().toLowerCase() == "cambridge") 
+        {
+        $("#neighborhood").html("Neighborhood:<br/><select id='property_neighborhood' name='property[neighborhood]'><option value=''></option><%for neighborhood in ["Central Sq.","Harvard Sq.","Cambridgeport","Kendall Sq.","Agassiz","Porter Sq.","Inman Sq.","Lechmere Sq.","East Cambridge","Strawberry Hill","West Cambridge","North Cambridge","Riverside"].sort %><option value='<%=neighborhood%>'><%=neighborhood%></option><%end%></select>");	   
+       }
+
+
+
+
+
+
+      if ($(this).val().toLowerCase() != "dorchester") 
+            {
+		      if ($(this).val().toLowerCase() != "boston") 
+	        {
+		      if ($(this).val().toLowerCase() != "new york") 
+		        {
+			    
+					   if ($(this).val().toLowerCase() != "brooklyn") 
+					        {
+							   if ($(this).val().toLowerCase() != "manhattan") 
+		                  {
+								   if ($(this).val().toLowerCase() != "cambridge") 
+			                  {
+	          $("#neighborhood").html("");
+	        }  
+           }
+	       }
+	       }
+           }
+       }
+
+    });
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

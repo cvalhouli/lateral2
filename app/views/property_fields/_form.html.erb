@@ -1,0 +1,629 @@
+<%= form_for(@property_field) do |f| %>
+  <% if @property_field.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@property_field.errors.count, "error") %> prohibited this property_field from being saved:</h2>
+
+
+
+      <ul>
+      <% @property_field.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<%= f.hidden_field :property_id, :value=>params[:q] %>
+
+ <% @property=Property.find(params[:q]) %>
+
+<%if @property.property_type=="Hydropower rights"%>
+
+ <div class="field">
+  <%= f.label :KWatt_Hours_Annually %><br />
+  <%= f.text_field :KWatt_Hours_Annually %>
+</div>
+<div class="field">
+  <%= f.label :Volume_Water %><br />
+  <%= f.text_field :Volume_Water %>
+</div>
+<div class="field">
+  <%= f.label :Height_Of_Drop %><br />
+  <%= f.text_field :Height_Of_Drop %>
+</div>
+<div class="field">
+  <%= f.label :Efficiency_of_HydroEquipment %><br />
+  <%= f.text_field :Efficiency_of_HydroEquipment %>
+</div>
+
+<% end %>
+
+<%if @property.entry_type=="Residential for rent" ||  @property.entry_type=="Commercial for lease" || @property.entry_type=="Pop-up shop"%>
+
+<div class="field">
+  <b>Available beginning:</b>
+  <%= f.text_field :available %>
+</div>
+
+
+
+<% end %>
+
+
+
+
+
+<% if @property.property_type="Single family house" %>
+
+<div class="medium_box">
+ 
+  <b>Annual Real Estate Tax</b>
+  <%= f.text_field :Annual_real_estate_tax %>
+
+</div>
+
+<div class="medium_box">
+   <b>Year built</b>
+   <%= f.text_field :year_built %>
+ </div>
+
+
+<div style="float:left;margin-left:62px;">
+	<b>Fireplace:</b>
+	  <%= f.select :fireplace, ["None", "Wood-burning fireplace", "Gas Fireplace", "Wood/pellet stove"] %>
+ </div>
+</div>
+
+
+<div style="float:left;width:100%;overflow:hidden;padding-bottom:20px">
+<div style="float:left">
+<b>Outdoor Space: </b>
+</div>
+
+<table id="sample" style="float:left;margin-left:50px;">
+	
+	<tr>
+
+<td>	
+<%=f.check_box :backyard %> Backyard 
+</td>
+<td>
+<%=f.check_box :common_roof_deck %> Deck 
+</td>
+
+<td><%=f.check_box :indoor_swimming_pool %> Swimming pool, indoor </td>
+<td><%=f.check_box :outdoor_swimming_pool %> Swimming pool, outdoor </td>
+<td><%=f.check_box :outdoor_none %> None </td>
+</tr>
+
+</table>
+</div>
+
+</div>
+
+
+
+
+<% end %>
+
+
+
+
+<%if @property.entry_type=="Residential for rent" %>
+
+
+<div class="field">
+ <b> Pets: </b>
+  <%= f.select :pets, ["None", "Cats only","Dogs Only","Any"] %>
+ <b>Smoking: </b>
+  <%= f.select :smoking, ["Yes","No"]%>
+
+ <b> Laundry: </b>
+  <%= f.select :laundry, ["Coin-op in bldg","W/D in apartment","Valet","None"] %>
+</div>
+
+
+<%end%>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%if (@property.property_type=="Condominium" or @property.property_type=="Co-op") and @property.entry_type!="Residential for rent" %>
+  <div class="medium_box">
+   
+    <b>Annual Real Estate Tax</b>
+    <%= f.text_field :Annual_real_estate_tax %>
+    <b>Homeowner association fee: </b>
+
+    <%= f.text_field :hoa %>
+  </div>
+
+<%end%>
+<div style="width:100%">
+<div style="float:left;width:120px">
+  <div class="box_width narrow_box">
+	<b>Total Rooms </b>
+    <%= f.text_field :total_rooms %>
+  </div>
+</div>
+<div style="float:left;width:110px">
+ <div class="box_width narrow_box">
+  <b> Bedrooms </b><input id="property_field_bedrooms" name="property_field[bedrooms]" size="10" type="text" />
+  </div>
+ </div>
+
+ <div style="float:left;width:100px">
+ <div class="box_width narrow_box">
+  <b> Full Bath </b>
+   <input id="property_field_full_bath" name="property_field[full_bath]" size="10" type="text" />
+ </div>
+ </div>
+
+ <div style="float:left;width:100px">
+ <div class="box_width narrow_box">
+   <b>Half Bath </b>
+   <input id="property_field_half_bath" name="property_field[half_bath]" size="10" type="text" />
+ </div>
+ </div>
+
+
+
+ <div style="float:left;width:140px">	
+	<div class="narrow_box">
+   <b> Quarter Bath:  </b>    <%= f.text_field :quarter_bath %>
+   </div>
+ </div>
+<br/><br/><br/>
+</div>
+
+
+<%if (@property.property_type=="Condominium" or @property.property_type=="Co-op") %>
+
+
+
+
+
+
+
+<div class="narrow_box">
+	
+  <div style="float:left;overflow:hidden">
+<b>  Unit Floor: </b>
+  <%= f.text_field :unit_floor %>
+&nbsp; &nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+&nbsp;
+&nbsp;
+&nbsp;
+
+
+  <b>      Elevator: </b>
+    <% [ 'Yes', 'No'].each do |theme| %>
+      <%= radio_button 'theme', theme, @theme == theme %>
+      <%= theme.humanize %>
+    <% end %>
+
+
+
+
+
+
+</div>
+<div style="float:left;margin-left:62px;">
+	<b>Fireplace:</b>
+	  <%= f.select :fireplace, ["None", "Wood-burning fireplace", "Gas Fireplace", "Wood/pellet stove"] %>
+ </div>
+</div>
+
+
+<div style="float:left;width:100%;overflow:hidden;padding-bottom:20px">
+<div style="float:left">
+<b>Outdoor Space: </b>
+</div>
+
+<table id="sample" style="float:left;margin-left:50px;">
+	
+	<tr>
+		<td>
+<%=f.check_box :private_balcony %> Private balcony 
+</td>
+<td>
+<%=f.check_box :private_roof_deck%> 
+
+Private roof deck  
+</td>
+
+<td>
+	
+<%=f.check_box :backyard %> Backyard 
+</td>
+</tr>
+
+<tr>
+<td>
+<%=f.check_box :common_roof_deck %> Common roof deck 
+</td>
+<td>
+<%=f.check_box :common_garden %> Common garden/courtyard  
+</td>
+<td>	<%=f.check_box :other_outdoor_space %> Other 
+</td>
+</tr>
+
+<tr>
+	<td>
+<%=f.check_box :indoor_swimming_pool %> Swimming pool, indoor </td><td><%=f.check_box :outdoor_swimming_pool %> Swimming pool, outdoor </td><td><%=f.check_box :outdoor_none %> None </td>
+</tr>
+
+</table>
+</div>
+
+</div>
+
+
+
+
+<div style="float:left;width:100%;overflow:hidden;padding-bottom:20px">
+<div style="float:left">
+<b>Rental Terms: </b>
+</div>
+
+<table id="sample" style="float:left;margin-left:50px;">
+	
+	<tr>
+<td>
+<%=f.check_box :first_month %> First month 
+</td>
+<td>
+<%=f.check_box :last_month %> Last month  
+</td>
+<td>
+<%=f.check_box :security_deposit %> Security deposit
+</td>
+</tr>
+
+</table>
+</div>
+
+</div>
+
+
+<div style="float:left;width:100%;overflow:hidden;padding-bottom:20px">
+<div style="float:left;overflow:hidden;">
+&nbsp;	&nbsp;
+&nbsp;
+
+</div>
+
+<table id="sample" style="float:left;margin-left:50px;">
+	
+	<tr>
+<td>
+ <input id="property_field_rent_by" name="property_field[rent_by]" type="radio" value="For rent by owner" />
+  For rent by owner
+
+</td>
+<td>
+ <input id="property_field_rent_by" name="property_field[rent_by]" type="radio" value="For rent by broker" />
+ For rent by broker
+</td>
+
+</tr>
+
+</table>
+</div>
+
+</div>
+
+
+
+
+<div style="float:left;width:100%;margin-left:20px;overflow:hidden;padding-bottom:20px">
+<div style="float:left">
+
+<b>Unit Placement: </b>
+</div>
+
+<table id="sample" style="float:left;margin-left:50px;">
+
+<tr>
+<td>
+<%=f.check_box :corner_unit%> Corner unit 
+</td>
+<td>
+<%=f.check_box :front_of_building%> Front of building  
+</td>
+<td>
+<%=f.check_box :rear_of_building%> Rear of building 
+</td>
+
+<td>
+<%=f.check_box :top_floor %> Top Floor / Penthouse
+</td>
+
+
+</tr>
+<tr>
+	<td>
+<%=f.check_box :street_level %> Street level 
+    </td>
+<td>
+	<%=f.check_box :raised_ground_floor%> Raised ground floor 
+
+</td>
+
+<td>
+	<%=f.check_box :basement %> Basement 	
+</td>
+
+<td><%=f.check_box :floor_through %> Floor-through
+</td>
+
+</tr>
+
+
+</table>
+
+</div>
+
+<div class="field" style="margin-left:20px">
+
+ <b> Exposure: </b>
+ <di style="margin-left:82px">
+ <%= f.check_box :north %> <span id="paddingtop">North</span> 
+ <%= f.check_box :south %> <span id="paddingtop">South </span>
+ <%= f.check_box :east %> <span id="paddingtop">East </span>
+ <%= f.check_box :west %> <span id="paddingtop">West </span>
+ <%= f.check_box :obstructed_views %> <span id="paddingtop">Obstructed Views </span>
+
+</div>
+
+
+</div>
+
+
+
+
+
+<% end %>
+
+
+
+
+
+
+
+<%if @property.entry_type == "Commercial for sale" %>
+<b>Annual Real Estate Tax </b>
+<%= f.text_field :Annual_real_estate_tax %>
+<% end %>
+
+<%if @property.property_type=="Single family house" or @property.property_type=="Multifamily house" or @property.property_type=="Condominium" or @property.property_type=="Co-op" %>
+
+ 
+<%if 1==2%>
+<div class="medium_box">
+   <%= f.label :year_built %><br />
+   <%= f.text_field :year_built %>
+ </div>
+<%end%>
+
+
+ 
+
+  
+<% if 1==2%>
+<div style="float:left;width:200px">
+	<div class="narrow_box">
+      Elevator: 
+    <% [ 'Yes', 'No'].each do |theme| %>
+      <%= radio_button 'theme', theme, @theme == theme %>
+      <%= theme.humanize %>
+    <% end %>
+   </div>
+  </div><br/><br/>
+<%end%>
+
+
+
+
+
+
+
+
+
+<% if 1==3%>
+  <div class="field">
+    <%= f.label :outdoor_space %><br />
+    <%= f.text_field :outdoor_space %>
+  </div>
+<% end %>
+<div style="width:100%;float:left">
+    <b>Video Link</b>
+    <%= f.text_field :video_link, :class => 'text_field' %>
+
+  <b>Property Website</b>
+    <%= f.text_field :proprerty_website, :class => 'text_field' %>
+
+</div>
+
+
+
+ <%if @property.entry_type=="Commercial for sale" || @property.entry_type=="Commercial for lease" and (@property.property_type!="Hydropower rights" || @property.property_type!="Cell tower leasing")%>
+  <div class="field">
+    <%= f.label :Clear_Height %>  
+<br />
+    <%= f.text_field :Clear_Height %>
+  </div>
+
+<div class="field">
+  <%= f.label :Electrical_Service %><br />
+  <%= f.text_field :Electrical_Service %>
+</div>
+<% end %>
+
+<%if 1==2%>
+
+  <div class="field">
+    <%= f.label :Roof %><br />
+    <%= f.text_field :Roof %>
+  </div>
+
+  <div class="field">
+    <%= f.label :FAR %><br />
+    <%= f.text_field :FAR %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Sewer %><br />
+    <%= f.text_field :Sewer %>
+  </div>
+<% end %>
+
+<% if 1==2 %>
+  <div class="field">
+    <%= f.label :City_Water %><br />
+    <%= f.text_field :City_Water %>
+  </div>
+<% end %>
+
+<%end%>
+
+
+<%if @property.entry_type=="Commercial for sale" or @property.entry_type=="Commercial for lease" or @property.entry_type=="Pop-up shop"%>
+
+  <div class="field">
+    <%= f.label :zoning %><br />
+    <%= f.text_field :zoning %>
+  </div>
+  <div class="field">
+    <%= f.label :year_built %><br />
+    <%= f.text_field :year_built %>
+  </div>
+  <div class="field">
+    <%= f.label :unit_placement %><br />
+    <%= f.text_field :unit_placement %>
+  </div>
+  <div class="field">
+    <%= f.label :price_per_sqft %><br />
+    <%= f.text_field :price_per_sqft %>
+  </div>
+  <div class="field">
+    <%= f.label :when_available %><br />
+    <%= f.text_field :when_available %>
+  </div>
+  <div class="field">
+    <%= f.label :Clear_Height %><br />
+    <%= f.text_field :Clear_Height %>
+  </div>
+<div class="field">
+  <%= f.label :Electrical_Service %><br />
+  <%= f.text_field :Electrical_Service %>
+</div>
+  <div class="field">
+    <%= f.label :Sewer %><br />
+    <%= f.text_field :Sewer %>
+  </div>
+  <div class="field">
+    <%= f.label :Load_Capacity %><br />
+    <%= f.text_field :Load_Capacity %>
+  </div>
+  <div class="field">
+    <%= f.label :Loading_Docks %><br />
+    <%= f.text_field :Loading_Docks %>
+  </div>
+<%end%>
+
+<%if @property.entry_type=="Commercial for sale"%>
+
+<div class="field">
+  <%= f.label :Cap_Rate %><br />
+  <%= f.text_field :Cap_Rate %>
+</div>
+<div class="field">
+  <%= f.label :FAR %><br />
+  <%= f.text_field :FAR %>
+</div>
+<div class="field">
+  <%= f.label :Roof %><br />
+  <%= f.text_field :Roof %>
+</div>
+<%end%>
+
+<%if @property.entry_type=="Assumable mortgage exchange"%>
+
+<div class="control-group">
+  <%= f.label :marketvalue, :class => 'control-label' %>
+  <div class="controls">
+    <%= f.text_field :marketvalue, :class => 'text_field' %>
+  </div>
+</div>
+ <div class="control-group">
+   <%= f.label :mortgageamount, :class => 'control-label' %>
+   <div class="controls">
+     <%= f.text_field :mortgageamount, :class => 'text_field' %>
+   </div>
+ </div>
+ <div class="control-group">
+   <%= f.label :mortgageAPR, :class => 'control-label' %>
+   <div class="controls">
+     <%= f.text_field :mortgageAPR, :class => 'text_field' %>
+   </div>
+ </div>
+ <div class="control-group">
+   <%= f.label :mortgagetype, :class => 'control-label' %>
+   <div class="controls">
+     <%= f.select :mortgagetype, ["","Adjustable rate mortgage", "Fixed, 30 year", "Fixed, 15 year", "Other"].sort,:class => 'text_field' %>
+   </div>
+ </div>
+<%end%>
+
+
+
+<%= render 'residential_for_rent' %>
+
+
+
+
+  <div class="actions"style="margin-left:20px">
+    <%= f.submit %>
+  </div>
+
+
+
+<% end %>
+
+
+
+
+
+<script>
+$(function() {
+  $('#property_field_available').datepicker(	{
+	showOn: "button",
+	buttonImage: "/calendar.gif",
+	buttonImageOnly: true
+	});
+});
+</script>
+
+
+
