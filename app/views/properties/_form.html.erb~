@@ -304,7 +304,7 @@ $(document).ready(function(){
 		       if ($(this).val() == "Commercial for sale") 
 		            {
 		            $("#layout_select2").hide(); 
-					$("#property_type").html("<select id='property_property_type' name='property[property_type]'><option value='Farmland'>Farmland</option><option value='Hydropower rights'>Hydropower rights</option><option value='Industrial'>Industrial</option><option value='Commercial/Retail'>Commercial/Retail</option><option value='Mixed use'>Mixed use</option><option value='Parking'>Parking</option><option value='Permitted properties'>Permitted properties</option><option value='Restaurant'>Restaurant</option><option value='Tenancy-in-common'>Tenancy-in-common</option></select>");
+					$("#property_type").html("<select id='property_property_type' name='property[property_type]'><option value='Farmland'>Farmland</option><option value='Hydropower rights'>Hydropower rights</option><option value='Industrial'>Industrial</option><option value='Mixed use'>Mixed use</option><option value='Parking'>Parking</option><option value='Permitted properties'>Permitted properties</option><option value='Restaurant'>Restaurant</option><option value='Tenancy-in-common'>Tenancy-in-common</option></select>");
 		            $("#salvage_type").hide();
 		
 		            }
@@ -319,7 +319,7 @@ $(document).ready(function(){
 			       if ($(this).val() == "Commercial for lease") 
 			            {
 			            $("#layout_select2").hide();
-		                $("#property_type").html("<select id='property_property_type' name='property[property_type]'><option value='Cell tower leasing'>Cell tower leasing</option><option value='Farmland'>Farmland</option><option value='Hydropower rights'>Hydropower rights</option><option value='Industrial'>Industrial</option><option value='Commercial/Retail'>Commercial/Retail</option><option value='Mixed use'>Mixed use</option><option value='Parking'>Parking</option><option value='Permitted properties'>Permitted properties</option><option value='Restaurant'>Restaurant</option><option value='Tenancy-in-common'>Tenancy-in-common</option></select>");
+		                $("#property_type").html("<select id='property_property_type' name='property[property_type]'><option value='Cell tower leasing'>Cell tower leasing</option><option value='Farmland'>Farmland</option><option value='Hydropower rights'>Hydropower rights</option><option value='Industrial'>Industrial</option><option value='Mixed use'>Mixed use</option><option value='Parking'>Parking</option><option value='Permitted properties'>Permitted properties</option><option value='Restaurant'>Restaurant</option><option value='Tenancy-in-common'>Tenancy-in-common</option></select>");
 			            $("#salvage_type").hide();
 		
 		             }
@@ -397,7 +397,7 @@ $(document).ready(function(){
 
      if ($(this).val().toLowerCase() == "manhattan") 
         {
-        $("#neighborhood").html("Neighborhood:<br/><select id='property_neighborhood' name='property[neighborhood]'><option value=''></option><%for neighborhood in ["East Village", "Lower East Side", "Greenwich Village","West Village","NoHo","SoHo","Nolita","Little Italy","Chinatown","Financial District","Battery Park City","Two Bridges","Roosevelt Island","Upper West Side","Upper East Side","Clinton/Hell's Kitchen","Chelsea","Sutton","Midtown","Murray Hill","Turtle Bay","Gramercy Park","South Street Seaport","Hamilton Heights","Washington Heights"].sort %><option value='<%=neighborhood%>'><%=neighborhood%></option><%end%></select>");	   
+        $("#neighborhood").html("Neighborhood:<br/><select id='property_neighborhood' name='property[neighborhood]'><option value=''></option><%for neighborhood in ["East Village", "Lower East Side", "Greenwich Village","West Village","NoHo","SoHo","Nolita","Little Italy","Chinatown","Financial District","Battery Park City","Two Bridges","Roosevelt Island","Upper West Side","Upper East Side","Clinton/Hell’s Kitchen","Chelsea","Sutton","Midtown","Murray Hill","Turtle Bay","Gramercy Park","South Street Seaport","Hamilton Heights","Washington Heights"].sort %><option value='<%=neighborhood%>'><%=neighborhood%></option><%end%></select>");	   
        }
 
 
