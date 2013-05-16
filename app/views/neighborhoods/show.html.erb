@@ -10,6 +10,35 @@
   <%= @neighborhood.zip_code %>
 </p>
 
+<p>
+  <b>City:</b>
+  <%= @neighborhood.city %>
+</p>
+
+<p>
+  <b>Boundaries:</b>
+  <%= @neighborhood.boundaries %>
+</p>
+
+
+<p>
+  <b>History:</b>
+  <%= @neighborhood.history %>
+</p>
+
+
+<p>
+  <b>Notable Resident:</b>
+  <%= @neighborhood.notable_resident %>
+</p>
+
+
+<p>
+  <b>Of note:</b>
+  <%= @neighborhood.of_note %>
+</p>
+
+
 
 <%= link_to 'Edit', edit_neighborhood_path(@neighborhood) %> |
 <%= link_to 'Back', neighborhoods_path %>
