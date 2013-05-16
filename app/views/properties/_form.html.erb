@@ -148,6 +148,11 @@
   </div>
 </div>
 
+
+
+
+
+
 <div id="layout_select1">
 </div>
 
@@ -442,6 +447,10 @@ $(document).ready(function(){
         $("#neighborhood").html("Neighborhood:<br/><select id='property_neighborhood' name='property[neighborhood]'><option value=''></option><%for neighborhood in ["Oak Square"] %><option value='<%=neighborhood%>'><%=neighborhood%></option><%end%></select>");	   
        }
 
+    if ($(this).val().toLowerCase() == "lowell") 
+        {
+        $("#neighborhood").html("Neighborhood:<br/><select id='property_neighborhood' name='property[neighborhood]'><option value=''></option><%for neighborhood in ["Acre","Back Central","Belvidere","Centralville","Downtown","Hamilton Canal District","Highlands","Pawtucketville","South Lowell"].sort %><option value='<%=neighborhood%>'><%=neighborhood%></option><%end%></select>");	   
+       }
 
 
 
@@ -467,11 +476,14 @@ $(document).ready(function(){
 			                  {
 			   if ($(this).val().toLowerCase() != "allston") 
 			                  {
+							   if ($(this).val().toLowerCase() != "lowell") 
+							                  {
 	          $("#neighborhood").html("");
 	                                   }  
                                          }
                                      }
  }
+}
 }
 	                          }
 	                      }

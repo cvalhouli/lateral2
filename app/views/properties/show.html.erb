@@ -9,7 +9,7 @@
 
 <div style="float:left;width:520px;">
 <div id="LargerText">
-<%= @property.address1 %><%if !@property.address2.blank?%>, <%end%>
+<%= @property.address1.gsub("Avenue", "Ave.").gsub("avenue", "Ave.").gsub("street", "St.").gsub("Street", "St.").gsub("Road", "Rd.").gsub("road", "Rd.").gsub("Circle", "Cir.").gsub("circle", "Cir.").gsub("Court", "Ct.").gsub("court", "Ct.").gsub("Terrace", "Terr.").gsub("terrace", "Terr.").gsub("Drive", "Dr.").gsub("drive", "Dr.")%><%if !@property.address2.blank?%>, <%end%>
 <%= @property.address2 %>
 </div>
 <div id="SmallText">
@@ -57,7 +57,8 @@ Partial BA
 
 <div style="font-size:13px;float:left;font-weight:none;width:250px">
 <%if !@property.Asking_Price.blank? && !@property.sqft.blank? %>
- <b>Approx. <%=@property.sqft %>  sq.ft.</b> ($<%=(@property.Asking_Price.delete('$,').to_f/@property.sqft.delete('$,').to_f).round(2)%>/sq.ft.) 
+ <b>Approx. <%=@property.sqft %>  sq.ft.</b>
+ (<span style="color:#91898C">$<%=(@property.Asking_Price.delete('$,').to_f/@property.sqft.delete('$,').to_f).round(2)%>/sq.ft.</span>) 
 
 <%end%>
 
@@ -73,9 +74,9 @@ Pets:<%= @property.property_fields.try(:first).try(:pets)%>
 <br/>
 <%= @property.property_fields.try(:first).try(:pets)%> 
 <%else%>		
-<b>Annual real estate taxes:</b> <%if @property.property_fields.try(:first).try(:Annual_real_estate_tax)%>$<%= number_with_delimiter(@property.property_fields.try(:first).try(:Annual_real_estate_tax).try(:to_i), :delimiter => ',') %> <%end%>
+<b>Real estate taxes:</b> <%if @property.property_fields.try(:first).try(:Annual_real_estate_tax)%>$<%= number_with_delimiter(@property.property_fields.try(:first).try(:Annual_real_estate_tax).try(:to_i), :delimiter => ',') %>/yr. ($<%= number_with_delimiter(@property.property_fields.try(:first).try(:Annual_real_estate_tax).try(:to_i)/12, :delimiter => ',') %>/mo.)  <%end%>
 <br/>
-<b>Monthly HOA fee:</b> <%if @property.property_fields.try(:first).try(:hoa) %> $<%= number_with_delimiter(@property.property_fields.try(:first).try(:hoa).try(:to_i), :delimiter => ',' ) %> <%end%>
+<b>Common Charges:</b> <%if @property.property_fields.try(:first).try(:hoa) %> $<%= number_with_delimiter(@property.property_fields.try(:first).try(:hoa).try(:to_i), :delimiter => ',' ) %> <%end%>
 <%end%>
 </div>
 
