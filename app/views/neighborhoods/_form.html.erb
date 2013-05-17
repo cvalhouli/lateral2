@@ -16,17 +16,25 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :zip_code %><br />
+    <label>Zip codes</label><br />
     <%= f.text_field :zip_code %>
   </div>
   <div class="field">
     <%= f.label :city %><br />
     <%= f.text_field :city %>
   </div>
+
+  <div class="field">
+    <%= f.label :housing_stock %><br />
+    <%= f.text_field :housing_stock %>
+  </div>
+
   <div class="field">
     <%= f.label :boundaries %><br />
-    <%= f.text_field :boundaries %>
+    <%= f.text_area :boundaries %>
   </div>
+
+
 
   <div class="field">
     <%= f.label :history %><br />
