@@ -26,8 +26,15 @@
 
   <div class="field">
     <%= f.label :housing_stock %><br />
-    <%= f.text_field :housing_stock %>
+    <%= f.text_area :housing_stock, :rows=>5, :cols=>40 %>
   </div>
+
+
+  <div class="field">
+    <%= f.label :wikipedia_link %><br />
+    <%= f.text_field :wikipedia_link %>
+  </div>
+
 
   <div class="field">
     <%= f.label :boundaries %><br />
