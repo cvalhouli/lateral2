@@ -165,6 +165,9 @@ Pets:<%= @property.property_fields.try(:first).try(:pets)%>
 	
 	<div id="map_canvas"></div>
     <div id="map_canvas2"></div>
+
+
+
 	
 </div>
 
@@ -251,6 +254,77 @@ Pets:<%= @property.property_fields.try(:first).try(:pets)%>
 <%if 1==1%>
     <script>
 function initialize() {
+	//Google Maps code//
+	var greyedOut = [ { color: "#CCCCCC" } ]
+	var styleArray = [
+		{
+			featureType: "road.arterial",
+			elementType: "geometry",
+			stylers: [
+				{ hue: "#666666" },
+				{ saturation: -100 },
+				{ lightness: 0 }
+			]
+		},{
+			featureType: "road.highway",
+			elementType: "geometry",
+			stylers: [
+				{ hue: "#A710DE" },
+				{ saturation: -90 },
+				{ lightness: 20 }
+			]
+		},{
+			featureType: "water",
+			stylers: [
+				{ hue: "#3F5375" },
+				{ saturation: -50 },
+				{ lightness: 0 }
+			]
+		},{
+			featureType: "poi.park",
+			stylers: greyedOut
+		},{
+			featureType: "administrative.land_parcel",
+			stylers: greyedOut
+		},{
+			featureType: "poi.attraction",
+			stylers: greyedOut
+		}
+	];
+
+	var zones = new google.maps.FusionTablesLayer({
+		query: {
+			select: 'geometry',
+			from: '13uEi2dynsKzdVyegQvO7QH59OOOnjxjd3Ry9BEA'
+		},
+		clickable: 0,
+		styles: [{
+			polygonOptions: {
+				fillColor: "#FF0000",
+				fillOpacity: 0.45
+			}
+		},{
+			where:"CAT1NNE = 'B'",
+			polygonOptions: {
+				fillColor: "#FF5C33"
+			}
+		},{
+			where:"CAT1NNE = 'C'",
+			polygonOptions: {
+				fillColor: "#FFFF00"
+			}
+		}]
+	});
+	var locations = new google.maps.FusionTablesLayer({
+  		query: {
+    		select: 'Geocodable address',
+    		from: '2047825'
+  		},
+	});
+
+	
+	
+	
   var myLatlng = new google.maps.LatLng(<%=@property.latitude%>,<%=@property.longitude%>);
   var mapOptions = {
     zoom: 12,
@@ -272,6 +346,8 @@ function initialize() {
       map: map,
       title: 'Hello World!'
   });
+	zones.setMap(map);
+	zones.setMap(map2);
 
  var marker2 = new google.maps.Marker({
       position: myLatlng,
