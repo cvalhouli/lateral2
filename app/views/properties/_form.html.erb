@@ -402,7 +402,7 @@ $(document).ready(function(){
 
      if ($(this).val().toLowerCase() == "manhattan") 
         {
-        $("#neighborhood").html("Neighborhood:<br/><select id='property_neighborhood' name='property[neighborhood]'><option value=''></option><%for neighborhood in ["East Village", "Lower East Side", "Greenwich Village","West Village","NoHo","SoHo","Nolita","Little Italy","Chinatown","Financial District","Battery Park City","Two Bridges","Roosevelt Island","Upper West Side","Upper East Side","Clinton/Hell's Kitchen","Chelsea","Sutton","Midtown","Murray Hill","Turtle Bay","Gramercy Park","South Street Seaport","Hamilton Heights","Washington Heights"].sort %><option value='<%=neighborhood%>'><%=neighborhood%></option><%end%></select>");	   
+        $("#neighborhood").html("Neighborhood:<br/><select id='property_neighborhood' name='property[neighborhood]'><option value=''></option><%for neighborhood in ["East Village", "Tribeca","Inwood","Midtown East","Kip's Bay", "Lower East Side", "Greenwich Village","West Village","NoHo","SoHo","Nolita","Little Italy","Chinatown","Financial District","Battery Park City","Two Bridges","Roosevelt Island","Upper West Side","Upper East Side","Clinton/Hell's Kitchen","Chelsea","Sutton","Midtown","Murray Hill","Turtle Bay","Gramercy Park","South Street Seaport","Hamilton Heights","Washington Heights"].sort %><option value='<%=neighborhood%>'><%=neighborhood%></option><%end%></select>");	   
        }
 
 
@@ -414,9 +414,13 @@ $(document).ready(function(){
 
      if ($(this).val().toLowerCase() == "cambridge") 
         {
-        $("#neighborhood").html("Neighborhood:<br/><select id='property_neighborhood' name='property[neighborhood]'><option value=''></option><%for neighborhood in ["Larchwood","Peabody/Neighborhood nine", "Avon Hill","Area Four", "Central Sq.","Harvard Sq.","Cambridgeport","Kendall Sq.","Agassiz","Porter Sq.","Inman Sq.","Lechmere Sq.","East Cambridge","Strawberry Hill","West Cambridge","North Cambridge","Riverside"].sort %><option value='<%=neighborhood%>'><%=neighborhood%></option><%end%></select>");	   
+        $("#neighborhood").html("Neighborhood:<br/><select id='property_neighborhood' name='property[neighborhood]'><option value=''></option><%for neighborhood in ["Larchwood","Peabody/Neighborhood nine", "Avon Hill","Area Four", "Central Sq.","Harvard Sq.","Cambridgeport","Kendall Sq.","Agassiz","Huron Village","Porter Sq.","Inman Sq.","Lechmere Sq.","East Cambridge","Strawberry Hill","West Cambridge","North Cambridge","Riverside"].sort %><option value='<%=neighborhood%>'><%=neighborhood%></option><%end%></select>");	   
        }
 
+     if ($(this).val().toLowerCase() == "queens") 
+        {
+        $("#neighborhood").html("Neighborhood:<br/><select id='property_neighborhood' name='property[neighborhood]'><option value=''></option><%for neighborhood in ["Astoria","Forest Hills","Ridgewood","Hunter's Point","Long Island City"].sort %><option value='<%=neighborhood%>'><%=neighborhood%></option><%end%></select>");	   
+       }
 
 
      if ($(this).val().toLowerCase() == "san francisco") 
@@ -429,7 +433,7 @@ $(document).ready(function(){
 
      if ($(this).val().toLowerCase() == "somerville") 
         {
-        $("#neighborhood").html("Neighborhood:<br/><select id='property_neighborhood' name='property[neighborhood]'><option value=''></option><%for neighborhood in ["Assembly Square", "Ball Square", "Davis Square", "Union Square", "Ten Hills", "Spring Hill", "Powder House Square", "Winter Hill", "Magoun Square", "Inner Belt District", "Teele Square"].sort %><option value='<%=neighborhood%>'><%=neighborhood%></option><%end%></select>");	   
+        $("#neighborhood").html("Neighborhood:<br/><select id='property_neighborhood' name='property[neighborhood]'><option value=''></option><%for neighborhood in ["Assembly Square", "Prospect Hills", "East Somerville", "Ball Square", "Davis Square", "Union Square", "Ten Hills", "Spring Hill", "Powder House Square", "Winter Hill", "Magoun Square", "Inner Belt District", "Teele Square"].sort %><option value='<%=neighborhood%>'><%=neighborhood%></option><%end%></select>");	   
        }
 
 
@@ -478,11 +482,14 @@ $(document).ready(function(){
 			                  {
 							   if ($(this).val().toLowerCase() != "lowell") 
 							                  {
+														   if ($(this).val().toLowerCase() != "queens") 
+														                  {
 	          $("#neighborhood").html("");
 	                                   }  
                                          }
                                      }
  }
+}
 }
 }
 	                          }
