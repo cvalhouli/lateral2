@@ -1,3 +1,13 @@
+
+
+<div style="margin-top:50px;width:100%;font-size:16px">
+<%=link_to 'Listings', :q=>'listings', :id=>params[:id]%> | <%=link_to 'Favorites', :q=>'favorites', :id=>params[:id]%>
+| <%=link_to 'Saved Searches', :q=>'savedsearch', :id=>params[:id]%> | <a href="/mailboxes">Messages</a>
+
+
+
+<%if params[:q]==nil or params[:q]=='listings'%>
+
 <%- model_class = Property -%>
 
 <div class="page-header">
@@ -123,3 +133,12 @@
   </tbody>
 </table>
 
+<% elsif params[:q]=='favorites' %>
+Favorites
+
+<% elsif params[:q]=='savedsearch' %>
+Saved Search
+<% elsif params[:q]=='messages' %>
+Messages
+
+<%end%>

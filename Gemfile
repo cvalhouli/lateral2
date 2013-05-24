@@ -17,6 +17,8 @@ gem 'stripe'
 gem 'sqlite3'
 
 
+gem "has_mailbox"
+gem 'will_paginate'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

@@ -2,8 +2,7 @@ Mortgage::Application.routes.draw do
   get "profile/index"
 
   resources :manhattans
-
-
+  mailboxes_for :users, :user_object_name => "current_user", :user_display_attribute => "email"
   resources :neighborhoods
 
 
