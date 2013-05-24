@@ -7,7 +7,7 @@ class Property < ActiveRecord::Base
     :outdoor_space,
     :elevator,
     :smoking,
-    :pets,
+    :pets, :user_id,
     :maintenance_fee
   has_many :pictures
   has_many :property_fields

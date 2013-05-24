@@ -259,82 +259,11 @@ Pets:<%= @property.property_fields.try(:first).try(:pets)%>
 <%if 1==1%>
     <script>
 function initialize() {
-	//Google Maps code//
-	
-	
-	// Poygon getBounds extension - google-maps-extensions
-	// http://code.google.com/p/google-maps-extensions/source/browse/google.maps.Polygon.getBounds.js
-	if (!google.maps.Polygon.prototype.getBounds) {
-	  google.maps.Polygon.prototype.getBounds = function(latLng) {
-	    var bounds = new google.maps.LatLngBounds();
-	    var paths = this.getPaths();
-	    var path;
 
-	    for (var p = 0; p < paths.getLength(); p++) {
-	      path = paths.getAt(p);
-	      for (var i = 0; i < path.getLength(); i++) {
-	        bounds.extend(path.getAt(i));
-	      }
-	    }
-
-	    return bounds;
-	  }
-	}
-
-	// Polygon containsLatLng - method to determine if a latLng is within a polygon
-	google.maps.Polygon.prototype.containsLatLng = function(latLng) {
-	  // Exclude points outside of bounds as there is no way they are in the poly
-
-	  var lat, lng;
-
-	  //arguments are a pair of lat, lng variables
-	  if(arguments.length == 2) {
-	    if(typeof arguments[0]=="number" && typeof arguments[1]=="number") {
-	      lat = arguments[0];
-	      lng = arguments[1];
-	    }
-	  } else if (arguments.length == 1) {
-	    var bounds = this.getBounds();
-
-	    if(bounds != null && !bounds.contains(latLng)) {
-	      return false;
-	    }
-	    lat = latLng.lat();
-	    lng = latLng.lng();
-	  } else {
-	    console.log("Wrong number of inputs in google.maps.Polygon.prototype.contains.LatLng");
-	  }
-
-	  // Raycast point in polygon method
-	  var inPoly = false;
-
-	  var numPaths = this.getPaths().getLength();
-	  for(var p = 0; p < numPaths; p++) {
-	    var path = this.getPaths().getAt(p);
-	    var numPoints = path.getLength();
-	    var j = numPoints-1;
-
-	    for(var i=0; i < numPoints; i++) {
-	      var vertex1 = path.getAt(i);
-	      var vertex2 = path.getAt(j);
-
-	      if (vertex1.lng() < lng && vertex2.lng() >= lng || vertex2.lng() < lng && vertex1.lng() >= lng) {
-	        if (vertex1.lat() + (lng - vertex1.lng()) / (vertex2.lng() - vertex1.lng()) * (vertex2.lat() - vertex1.lat()) < lat) {
-	          inPoly = !inPoly;
-	        }
-	      }
-
-	      j = i;
-	    }
-	  }
-
-	  return inPoly;
-	}
-		
 	
 	
 	
-	
+    var infowindow = new google.maps.InfoWindow({size: new google.maps.Size(150,50) });	
 	var greyedOut = [ { color: "#CCCCCC" } ]
 	var styleArray = [
 		{
@@ -395,27 +324,7 @@ function initialize() {
 			}
 		}]
 	});
-	var locations = new google.maps.FusionTablesLayer({
-  		query: {
-    		select: 'Geocodable address',
-    		from: '2047825'
-  		},
-	});
-  
 
-
-
-
-
-
-
-	
-	<% if 1==2 %>
-	
-	
-	<Polygon><outerBoundaryIs><LinearRing><coordinates>,,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 -,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0</coordinates></LinearRing></outerBoundaryIs></Polygon>
-	<% end %>
-	
   var myLatlng = new google.maps.LatLng(<%=@property.latitude%>,<%=@property.longitude%>);
   var mapOptions = {
     zoom: 12,
@@ -445,20 +354,104 @@ function initialize() {
       title: 'Hello World!'
   });
 
-
-	zones.setMap(map);
 	zones.setMap(map2);
-	bermudaTriangle.setMap(map);
-	bermudaTriangle.setMap(map2);
+	
+	
+
+	
+	
+	
+	  google.maps.event.addListener(zones, "click", function(e) {
+	    var content = "<b>"+e.row['name'].value+"</b><br><br>"+e.latLng.toUrlValue(6);
+	    infowindow.setContent(content);
+	    infowindow.setPosition(e.latLng);
+	    infowindow.open(map2);
+	  });
+
+	
+	function showAddress(address) {
+	    var contentString = address+"<br>Outside Area";
+	   
+		  var point = myLatlng;
+	          contentString += "<br>"+myLatlng;
+	          map2.setCenter(myLatlng);
+	          // query FT for data
+	          var queryText ="SELECT 'CAT1NNE', 'geometry'  FROM "+FusionTableID+" WHERE ST_INTERSECTS(\'geometry\', CIRCLE(LATLNG(" + myLatlng.toUrlValue(6) + "),0.5));";
+	          // document.getElementById('FTQuery').innerHTML = queryText;
+	          queryText = encodeURIComponent(queryText);
+	          var query = new google.visualization.Query('http://www.google.com/fusiontables/gvizdata?tq='  + queryText);
 
 
-   if (bermudaTriangle.containsLatLng(<%=@property.latitude%>, <%=@property.longitude%>))
-    {
-	 alert("Within a flood zone");
-    }
+
+	          //set the callback function
+	          query.send(openInfoWindowOnMarker);
+	 
+	}
+
+	function openInfoWindowOnMarker(response) {
+	if (!response) {
+	  alert('no response');
+	  return;
+	}
+	if (response.isError()) {
+	  alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+	  return;
+	} 
+	  FTresponse = response;
+	  //for more information on the response object, see the documentation
+	  //http://code.google.com/apis/visualization/documentation/reference.html#QueryResponse
+	  numRows = response.getDataTable().getNumberOfRows();
+	  numCols = response.getDataTable().getNumberOfColumns();
+	  var content = "<b>Outside area</b><br><br>";    
+	  var unionBounds = null;
+	//  alert(numRows);
+	  for (var i=0; i < numRows; i++) {
+	     var name = FTresponse.getDataTable().getValue(i,0);
+	     var kml =  FTresponse.getDataTable().getValue(i,1);
+	     // create a geoXml3 parser for the click handlers
+	     content = "<b>"+response.getDataTable().getValue(i,0)+"</b><br><br>";
 
 
+
+	     alert("Flood Zone"+response.getDataTable().getValue(i,0));
+
+	/*
+	     var geoXml = new geoXML3.parser({
+	                    map: map,
+			    zoom: false
+	                });
+	//   alert(kml);
+	     geoXml.parseKmlString("<Placemark>"+kml+"<\/Placemark>");
+	     geoXml.docs[0].gpolygons[0].setMap(null);
+	     if (!unionBounds) unionBounds = geoXml.docs[0].gpolygons[0].bounds;
+	     else unionBounds.union(geoXml.docs[0].gpolygons[0].bounds);
+	*/
+	   }
+	  infowindow.setContent(content+marker2.getPosition().toUrlValue(6));
+	  // zoom to the bounds
+	  // map.fitBounds(unionBounds);
+	  google.maps.event.addListener(marker2, 'click', function() {
+	    infowindow.open(map2,marker2);
+	  });
+	  google.maps.event.trigger(marker2, 'click');
+	}
+	showAddress(); 
+	
+	
+	
+	
 }
+
+
+
+
+
+
+
+
+
+
+
 
 google.maps.event.addDomListener(window, 'load', initialize);
 
@@ -473,25 +466,6 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 
 <%end%>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

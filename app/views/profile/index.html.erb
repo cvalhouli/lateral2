@@ -1,0 +1,125 @@
+<%- model_class = Property -%>
+
+<div class="page-header">
+  <h1 style="width:50;float:left">My Listings</h1>
+
+
+</div>
+
+
+
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+	<th></th>    
+	  <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @properties.each do |property| %>
+      <tr>
+      	<td><a href="/properties/<%=property.id%>"><%= image_tag property.photo.url(:thumb) %></a></td>
+		<td><b><%= property.address1 %><%if !property.address2.blank?%>,<%end%> &nbsp;<%= property.address2 %><br/><%= property.city %>, <%= property.state %> <%= property.zipcode %><%if !property.neighborhood.blank? %> (<%=property.neighborhood%>)<%end%></b><br/><%= property.property_type %>; <%= property.entry_type %><br/> 
+			
+			
+			<%if !property.property_fields.try(:first).try(:bedrooms).blank?%>
+				
+			    <% if property.property_fields.try(:first).bedrooms != "0" %>
+				<%= property.property_fields.try(:first).bedrooms %>BR
+				<%else%>
+				  Studio
+				<%end%>
+				
+				<%end%> <%if !property.property_fields.try(:first).try(:full_bath).blank?%> | <%= property.property_fields.try(:first).full_bath %> full<%end%> <%if !property.property_fields.try(:first).try(:half_bath).blank?%> | <%= property.property_fields.try(:first).half_bath %> half | <%elsif !property.property_fields.try(:first).try(:full_bath).blank? %> | <%end%> 
+			
+			
+			<%if !property.sqft.blank?%> <%= property.sqft %> <%if property.entry_type=="Commercial for lease" %>sq.ft., <%else%> sq. ft. <%end%><%end%> <%if property.entry_type=="Commercial for lease" %> sub-dividable 
+			<%end%>
+			<%if property.entry_type!="Assumable mortgage exchange" %>
+			<br><b>Asking price: 
+			
+			<%= property.Asking_Price %>
+			<%if property.entry_type=="Residential for rent" || property.entry_type=="Commercial for lease" || property.entry_type=="Cell tower leasing" %>/mo.
+				
+			<%end%>
+
+			</b>
+	
+	
+			<%end%>
+			</td>
+        <td>	<%if property.entry_type=="Assumable mortgage exchange" %>
+	
+	          <b>Approx. market value:</b> <%=property.try(:property_fields).try(:first).try(:marketvalue)%><br/>
+	          <b>Mortgage amount:</b> <%=property.try(:property_fields).try(:first).try(:mortgageamount)%><br/>
+	          <b>Mortgage APR:</b> <%=property.try(:property_fields).try(:first).try(:mortgageAPR)%><br/>
+	
+	          <b>Mortgage type:</b> <%=property.try(:property_fields).try(:first).try(:mortgagetype)%><br/>
+	
+	   <%end%>
+	
+		<%if property.entry_type=="Commercial for sale" && property.property_type!="Hydropower rights" %>
+	       	 <b> Gross revenue:</b> <%=property.try(:property_fields).try(:first).try(:gross_income)%><br/>
+	          <b>Cap. rate:</b> <%=property.try(:property_fields).try(:first).try(:Cap_Rate)%><br/>
+	          <b>GRM:</b> <%=property.try(:property_fields).try(:first).try(:GRM)%><br/>
+	    <%end%>
+	
+	   	<%if property.property_type=="Hydropower rights" %>
+	
+	          <b>KWatt hours annually:</b> <%=property.try(:property_fields).try(:first).try(:KWatt_Hours_Annually)%><br/>
+	          <b>Volume of water:</b> <%=property.try(:property_fields).try(:first).try(:Volume_Water)%><br/>
+	          <b>Height of drop:</b> <%=property.try(:property_fields).try(:first).try(:Height_Of_Drop)%><br/>
+	
+	          <b>Efficiency of hydroequipment:</b> <%=property.try(:property_fields).try(:first).try(:Efficiency_of_HydroEquipment)%><br/>
+	
+	   <%end%>
+	<%if property.entry_type=="Residential for rent" ||  property.entry_type=="Commercial for lease" || property.entry_type=="Pop-up shop"%>
+	
+	<b>Available date:</b> <%=property.try(:property_fields).try(:first).try(:available)%><br/>
+    <%if property.entry_type=="Residential for rent" %>
+	
+
+    <b>Pets:</b> <%=property.try(:property_fields).try(:first).try(:pets)%><br/>
+    <b>Smoking:</b> <%=property.try(:property_fields).try(:first).try(:smoking)%><br/>
+  <%end%>
+
+
+
+	<%end%>
+	
+	
+	
+	
+	
+		</td>
+        <td></td>
+        <td><br/></td>
+        <td></td>
+		<td></td>        
+		<td></td>
+        <td></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_property_path(property), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      property_path(property),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
