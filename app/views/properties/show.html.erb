@@ -93,9 +93,12 @@ Pets:<%= @property.property_fields.try(:first).try(:pets)%>
 
 <div style="font-size:10px;margin-top:5px;font-weight:bold;padding-top:20px;padding-bottom:15px;float:right;padding-right:203px;margin-top:-20px">
 	
-<span style="padding-right:2px"><%=link_to "FAVORITE"%></span> | <span style="padding-left:2px;padding-right:4px"><%=link_to "PRINT"%></span>|<span style="padding-left:4px;padding-right:4px"><%=link_to "SHARE"%></span>|<span style="padding-left:4px;padding-right:4px"><%=link_to "HIDE"%></span>|<span style="padding-left:4px;padding-right:4px"><%=link_to "REPORT AN ISSUE"%></span>
+<span style="padding-right:2px"><%=link_to "FAVORITE", :q=>'favorite' %></span> | <span style="padding-left:2px;padding-right:4px"><%=link_to "PRINT"%></span>|<span style="padding-left:4px;padding-right:4px"><%=link_to "SHARE"%></span>|<span style="padding-left:4px;padding-right:4px"><%=link_to "HIDE"%></span>|<span style="padding-left:4px;padding-right:4px"><%=link_to "REPORT AN ISSUE"%></span>
 </div>
 
+<%if params[:q]=='favorite' %>
+<% current_user.up_votes @property %> 
+<%end%>
 
 
 <div style="float:left;width:1200px">
@@ -169,9 +172,17 @@ Pets:<%= @property.property_fields.try(:first).try(:pets)%>
 	
 	<div id="map_canvas"></div>
     <div id="map_canvas2"></div>
-
-
-
+    <div style="margin-top:10px">
+	<b>Flood Zone:</b> <%=@property.property_fields.try(:first).try(:flood_zone) %> 
+	<% if @property.property_fields.try(:first).try(:flood_zone) =='A'%>
+	- High flood risk.
+	<% elsif @property.property_fields.try(:first).try(:flood_zone) =='B'%>
+	- Moderate flood risk.	
+	<% elsif @property.property_fields.try(:first).try(:flood_zone) =='C'%>
+	- Minimal flood risk.	
+	
+	<%end%>
+    </div>
 	
 </div>
 
@@ -181,10 +192,12 @@ Pets:<%= @property.property_fields.try(:first).try(:pets)%>
 	
 	<br/>
 	<br/>
-	<b>Nearby transit</b>
+	<b>Nearby transit:</b> <%=@property.nearby_transit %>(<%if @property.transit_distance%><%= '%.2f' % @property.transit_distance%><%end%> miles)
 	<br/>
-	<b>Local schools</b>
-	<b>Ownership costs</b> 
+	<b>Nearest Synagogue:</b> <%=@property.nearest_synagogue %>(<%if @property.synagogue_distance%><%= '%.2f' % @property.synagogue_distance%><%end%> miles)
+<br/>
+
+
 </div>
 
 
@@ -466,6 +479,3 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 
 <%end%>
-
-
-

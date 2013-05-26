@@ -24,6 +24,40 @@ $(function() {
     });
 });​
 </script>
+
+<%if params[:controller]=='property_fields' and params[:action]=='new' %>
+<script type="text/javascript">
+  function run_flood_zones() {
+
+    var encodedQuery = 'SELECT%20%27CAT1NNE%27%2C%20%27geometry%27%20%20FROM%2013uEi2dynsKzdVyegQvO7QH59OOOnjxjd3Ry9BEA%20WHERE%20ST_INTERSECTS%28%27geometry%27%2C%20CIRCLE%28LATLNG%28<%=@property.latitude%>%2C<%=@property.longitude%>%29%2C0.5%29%29%3B';
+
+    // Construct the URL
+    var url = ['https://www.googleapis.com/fusiontables/v1/query'];
+    url.push('?sql=' + encodedQuery);
+    url.push('&key=AIzaSyDZ2O1jph3LLKnnPBvTcMQX37LAcirkQKg');
+    url.push('&callback=?');
+
+
+
+
+    // Send the JSONP request using jQuery
+    $.ajax({
+      url: url.join(''),
+      dataType: 'jsonp',
+      success: function (data) {
+        var rows = data['rows'];
+        var ftData = document.getElementById('ft-data');
+        for (var i in rows) {
+          var zone = rows[i][0];
+            $("#property_field_flood_zone").val(zone);
+
+        }
+      }
+    });
+  }
+</script>
+<%end%>
+
 </head>
 <body>
 <div style="min-width:1080px">

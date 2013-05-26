@@ -1,5 +1,5 @@
 class Property < ActiveRecord::Base
-    attr_accessible :entry_type, :photo, :address1, :address2, :city, :sqft, :marketvalue, :mortgageAPR, :mortgageamount, :mortgagetype, :property_type, :state, :zipcode, :description,   :latitude, :longitude, :Annual_Real_Estate_Taxes, :Exposures, :Year_Built, :Zoning, :Floor, :Asking_Price, :Parking_Spaces, :salvage_type, :celltower_type,     :total_rooms, :hoa, :neighborhood,
+    attr_accessible :entry_type, :photo, :address1, :address2, :city, :sqft, :marketvalue, :mortgageAPR, :mortgageamount, :mortgagetype, :property_type, :state, :zipcode, :description,   :latitude, :longitude, :Annual_Real_Estate_Taxes, :Exposures, :Year_Built, :Zoning, :Floor, :Asking_Price, :Parking_Spaces, :salvage_type, :celltower_type,     :total_rooms, :hoa, :neighborhood, :nearby_transit, :flood_zone, :transit_distance, :nearest_synagogue, :synagogue_dustance,
     :bedrooms,
     :full_bath,
     :half_bath,
@@ -17,6 +17,7 @@ class Property < ActiveRecord::Base
     
     geocoded_by :full_address
     after_validation :geocode
+    acts_as_votable
 
     acts_as_gmappable
     

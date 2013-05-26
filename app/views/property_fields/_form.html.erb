@@ -601,7 +601,7 @@ Private roof deck
 <%= render 'residential_for_rent' %>
 
 
-
+  <input id="property_field_flood_zone" name="property_field[flood_zone]" size="30" type="hidden" />
 
   <div class="actions"style="margin-left:20px">
     <%= f.submit %>
@@ -625,5 +625,7 @@ $(function() {
 });
 </script>
 
-
+<script>
+run_flood_zones();
+</script>
 

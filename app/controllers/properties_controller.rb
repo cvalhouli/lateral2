@@ -50,6 +50,30 @@ class PropertiesController < ApplicationController
     @property.user_id=current_user.id
     respond_to do |format|
       if @property.save
+          
+          
+          
+        @client = GooglePlaces::Client.new('AIzaSyDZ2O1jph3LLKnnPBvTcMQX37LAcirkQKg')
+    
+          
+          if @client.spots(@property.latitude, @property.longitude, :types => 'synagogue', :rankby=>'distance').first
+          
+          @property.nearest_synagogue=@client.spots(@property.latitude, @property.longitude, :types => 'synagogue', :rankby=>'distance').first.try(:name)
+          
+      
+        @property.synagogue_distance = Geocoder::Calculations.distance_between([@property.latitude,@property.longitude], [@client.spots(@property.latitude, @property.longitude, :types => 'synagogue', :rankby=>'distance').first.lat,@client.spots(@property.latitude, @property.longitude, :types => 'synagogue', :rankby=>'distance').first.lng])
+  
+          end
+          
+          if @client.spots(@property.latitude, @property.longitude, :types => 'subway_station', :rankby=>'distance').first
+          
+          @property.nearby_transit = @client.spots(@property.latitude, @property.longitude, :types => 'subway_station', :rankby=>'distance').first.try(:name)
+          
+          
+        @property.transit_distance = Geocoder::Calculations.distance_between([@property.latitude,@property.longitude], [@client.spots(@property.latitude, @property.longitude, :types => 'subway_station', :rankby=>'distance').first.lat,@client.spots(@property.latitude, @property.longitude, :types => 'subway_station', :rankby=>'distance').first.lng])
+              
+          end
+          @property.save
         format.html { redirect_to new_property_field_path(:q=>@property.id), notice: 'Property was successfully created.' }
         format.json { render json: @property, status: :created, location: @property }
       else
@@ -66,7 +90,7 @@ class PropertiesController < ApplicationController
 
     respond_to do |format|
       if @property.update_attributes(params[:property])
-        format.html { redirect_to @property, notice: 'Property was successfully updated.' }
+        format.html { redirect_to new_property_field_path(:q=>@property.id), notice: '' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
