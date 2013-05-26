@@ -337,6 +337,22 @@ function initialize() {
 			}
 		}]
 	});
+	var neighborhoods = new google.maps.FusionTablesLayer({
+		query: {
+			select: 'geometry',
+			from: '1RLWudXuCLqpLmneVki-pdH9GJJOE1qc8ZMQlb0s'
+		},
+		clickable: 0,
+		styles: [{
+			polygonOptions: {
+				fillColor: "#FF0000",
+				fillOpacity: 0.45
+			}
+		}]
+	});
+
+
+
 
   var myLatlng = new google.maps.LatLng(<%=@property.latitude%>,<%=@property.longitude%>);
   var mapOptions = {
@@ -369,6 +385,7 @@ function initialize() {
 
 	zones.setMap(map2);
 	
+	neighborhoods.setMap(map);
 	
 
 	
