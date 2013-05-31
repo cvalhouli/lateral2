@@ -1,0 +1,25 @@
+<%= form_for(@early_pregnancy) do |f| %>
+  <% if @early_pregnancy.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@early_pregnancy.errors.count, "error") %> prohibited this early_pregnancy from being saved:</h2>
+
+      <ul>
+      <% @early_pregnancy.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :zip %><br />
+    <%= f.text_field :zip %>
+  </div>
+  <div class="field">
+    <%= f.label :teen_pregnancy %><br />
+    <%= f.text_field :teen_pregnancy %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

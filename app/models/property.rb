@@ -26,6 +26,8 @@ class Property < ActiveRecord::Base
          return self.address1 + self.city + self.state + self.zipcode
        end
     end
+    def state_abbreviation
+    end
     
     def cost_to_i
         self.delete('$,').to_i

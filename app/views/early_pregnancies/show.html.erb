@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Zip:</b>
+  <%= @early_pregnancy.zip %>
+</p>
+
+<p>
+  <b>Teen pregnancy:</b>
+  <%= @early_pregnancy.teen_pregnancy %>
+</p>
+
+
+<%= link_to 'Edit', edit_early_pregnancy_path(@early_pregnancy) %> |
+<%= link_to 'Back', early_pregnancies_path %>

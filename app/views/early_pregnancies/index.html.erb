@@ -1,0 +1,25 @@
+<h1>Listing early_pregnancies</h1>
+
+<table>
+  <tr>
+    <th style="width:140px;text-align:left">Zip</th>
+    <th>Teen pregnancy/1000</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @early_pregnancies.each do |early_pregnancy| %>
+  <tr>
+    <td style="width:140px"><%= early_pregnancy.zip %></td>
+    <td><%= early_pregnancy.teen_pregnancy %></td>
+    <td><%= link_to 'Show', early_pregnancy %></td>
+    <td><%= link_to 'Edit', edit_early_pregnancy_path(early_pregnancy) %></td>
+    <td><%= link_to 'Destroy', early_pregnancy, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Early pregnancy', new_early_pregnancy_path %>

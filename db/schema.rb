@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130526032944) do
+ActiveRecord::Schema.define(:version => 20130530165439) do
+
+  create_table "early_pregnancies", :force => true do |t|
+    t.string   "zip"
+    t.string   "teen_pregnancy"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
 
   create_table "manhattans", :force => true do |t|
     t.string   "name"

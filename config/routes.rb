@@ -1,4 +1,7 @@
 Mortgage::Application.routes.draw do
+  resources :early_pregnancies
+
+
   get "profile/index"
 
   resources :manhattans
