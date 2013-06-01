@@ -93,7 +93,7 @@ $("#zip").change(function() {
     <% @properties.each do |property| %>
       <tr>
       	<td><a href="/properties/<%=property.id%>"><%= image_tag property.photo.url(:thumb) %></a></td>
-		<td><b><%= property.address1 %><%if !property.address2.blank?%>,<%end%> &nbsp;<%= property.address2 %><br/><%= property.city %>, <%= property.state %> <%= property.zipcode %><%if !property.neighborhood.blank? %> (<%=property.neighborhood%>)<%end%></b><br/><%= property.property_type %>; <%= property.entry_type %><br/> 
+		<td><b><%= property.address1 %><%if !property.address2.blank?%>,<%end%> &nbsp;<%= property.address2 %><br/><%= property.city %>, <%= property.state_abbreviation %> <%= property.zipcode %><%if !property.neighborhood.blank? %> | <% @nhood = Neighborhood.find_by_name(property.neighborhood) %><% if @nhood != nil%><%=link_to property.neighborhood, @nhood %><%else%><%=property.neighborhood %><%end%> <%end%></b><br/><%= property.property_type %>  <%if property.property_fields.try(:first).try(:income_restriction) == '1' %> (Income restricted) <%end%>  |  <%= property.entry_type %><br/> 
 			
 			
 			<%if !property.property_fields.try(:first).try(:bedrooms).blank?%>
@@ -107,7 +107,7 @@ $("#zip").change(function() {
 				<%end%> <%if !property.property_fields.try(:first).try(:full_bath).blank?%> | <%= property.property_fields.try(:first).full_bath %> full<%end%> <%if !property.property_fields.try(:first).try(:half_bath).blank?%> | <%= property.property_fields.try(:first).half_bath %> half | <%elsif !property.property_fields.try(:first).try(:full_bath).blank? %> | <%end%> 
 			
 			
-			<%if !property.sqft.blank?%> <%= property.sqft %> <%if property.entry_type=="Commercial for lease" %>sq.ft., <%else%> sq. ft. <%end%><%end%> <%if property.entry_type=="Commercial for lease" %> sub-dividable 
+			<%if !property.sqft.blank?%> Approx. <%= property.sqft %> <%if property.entry_type=="Commercial for lease" %>sq.ft., <%else%> sq. ft. <%end%><%end%> <%if property.entry_type=="Commercial for lease" %> sub-dividable 
 			<%end%>
 			<%if property.entry_type!="Assumable mortgage exchange" %>
 			<br><b>Asking price: 
@@ -147,24 +147,16 @@ $("#zip").change(function() {
 	          <b>Efficiency of hydroequipment:</b> <%=property.try(:property_fields).try(:first).try(:Efficiency_of_HydroEquipment)%><br/>
 	
 	   <%end%>
-	<%if property.entry_type=="Residential for rent" ||  property.entry_type=="Commercial for lease" || property.entry_type=="Pop-up shop"%>
+  <%if property.entry_type=="Residential for rent" ||  property.entry_type=="Commercial for lease" || property.entry_type=="Pop-up shop"%>
 	
 	<b>Available date:</b> <%=property.try(:property_fields).try(:first).try(:available)%><br/>
     <%if property.entry_type=="Residential for rent" %>
-	
-
     <b>Pets:</b> <%=property.try(:property_fields).try(:first).try(:pets)%><br/>
     <b>Smoking:</b> <%=property.try(:property_fields).try(:first).try(:smoking)%><br/>
+   <%end%>
   <%end%>
 
-
-
-	<%end%>
-	
-	
-	
-	
-	
+<%if !property.property_fields.try(:first).try(:flood_zone).blank?%><b style="vertical-align:bottom">Flood Zone <%= property.property_fields.try(:first).try(:flood_zone) %></b> (<% if property.property_fields.try(:first).try(:flood_zone) =='A'%>High flood risk<% elsif property.property_fields.try(:first).try(:flood_zone) =='B'%>Moderate flood risk<% elsif property.property_fields.try(:first).try(:flood_zone) =='C'%>Minimal flood risk<%end%>)<%end%>
 		</td>
         <td></td>
         <td><br/></td>

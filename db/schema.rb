@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130530165439) do
+ActiveRecord::Schema.define(:version => 20130601000716) do
 
   create_table "early_pregnancies", :force => true do |t|
     t.string   "zip"
@@ -211,6 +211,7 @@ ActiveRecord::Schema.define(:version => 20130530165439) do
     t.string   "total_living_levels"
     t.string   "building_name"
     t.string   "flood_zone"
+    t.string   "income_restriction"
   end
 
   create_table "users", :force => true do |t|

@@ -14,12 +14,12 @@
 <div id="SmallText">
 
 <%= @property.city %>,
-<%= @property.state %>
+<%= @property.state_abbreviation %>
 <%= @property.zipcode %>
-<%if !@property.neighborhood.blank? %>(<% @nhood = Neighborhood.find_by_name(@property.neighborhood) %><% if @nhood != nil%><%=link_to @property.neighborhood, @nhood %><%else%><%=@property.neighborhood %><%end%>)<%end%>
+<%if !@property.neighborhood.blank? %> | <% @nhood = Neighborhood.find_by_name(@property.neighborhood)  %><% if @nhood != nil%><%=link_to @property.neighborhood, @nhood %><%else%><%=@property.neighborhood %><%end%>)<%end%>
 </div>
 <div id="SmallText">
-<%=@property.property_type%> | <%=@property.entry_type%>
+<%=@property.property_type%> <%if @property.property_fields.try(:first).try(:income_restriction) == '1' %> (Income restricted) <%end%> | <%=@property.entry_type%>
 <br/>
 <b>
 <%= @property.property_fields.try(:first).try(:total_rooms) %> rooms | 	
@@ -42,6 +42,13 @@ Studio
 <%end%>
 Partial BA
 <%end%>
+
+<%if !@property.Asking_Price.blank? && !@property.sqft.blank? %>
+ <b>Approx. <%=@property.sqft %>  sq.ft.</b>
+ 
+
+<%end%>
+
 </b>
 </div>
 
@@ -56,15 +63,15 @@ Partial BA
 </div>	
 
 <div style="font-size:13px;float:left;font-weight:none;width:250px">
-<%if !@property.Asking_Price.blank? && !@property.sqft.blank? %>
- <b>Approx. <%=@property.sqft %>  sq.ft.</b>
- (<span style="color:#91898C">$<%=(@property.Asking_Price.delete('$,').to_f/@property.sqft.delete('$,').to_f).round(2)%>/sq.ft.</span>) 
-
+	<% if @property.sqft.delete('$,').to_f.round(2) != 0.0%>
+$<%=(@property.Asking_Price.delete('$,').to_f/@property.sqft.delete('$,').to_f).round(2)%>/sq.ft.</span>
 <%end%>
-
-
 <div style="font-size:13px:float:left;width:250px">
-	
+	<% if @property.property_fields.try(:first).try(:flood_zone) %>
+	<b>Flood Zone <%=@property.property_fields.try(:first).try(:flood_zone) %> </b>    
+ 	(<% if @property.property_fields.try(:first).try(:flood_zone) =='A'%>High flood risk<% elsif @property.property_fields.try(:first).try(:flood_zone) =='B'%>Moderate flood risk<% elsif @property.property_fields.try(:first).try(:flood_zone) =='C'%>Minimal flood risk<%end%>)
+	<%end%>
+	<br/>
 	
 <%if @property.entry_type == "Residential for rent" %>	
 Smoking:  <%= @property.property_fields.try(:first).try(:smoking)%> 
@@ -78,15 +85,17 @@ Pets:<%= @property.property_fields.try(:first).try(:pets)%>
 <br/>
 <b>Common Charges:</b> <%if @property.property_fields.try(:first).try(:hoa) %> $<%= number_with_delimiter(@property.property_fields.try(:first).try(:hoa).try(:to_i), :delimiter => ',' ) %> <%end%>
 <%end%>
-</div>
 
 
 
 </div>
+
+
+
+</div>
 </div>
 
 </div>
-
 
 
 </div>
@@ -97,7 +106,9 @@ Pets:<%= @property.property_fields.try(:first).try(:pets)%>
 </div>
 
 <%if params[:q]=='favorite' %>
+
 <% current_user.up_votes @property %> 
+
 <%end%>
 
 

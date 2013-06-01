@@ -50,6 +50,11 @@
 <% end %>
 
 
+<% if (@property.entry_type=="Residential for rent" || @property.entry_type=="Residential for sale") && (@property.property_type="Single family house" && @property.property_type="Multifamily house") %>
+<div class="field">
+  <%= f.check_box :income_restriction %> Income restricted 
+</div>
+<% end %>
 
 
 
