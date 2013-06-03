@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130601000716) do
+ActiveRecord::Schema.define(:version => 20130603211029) do
 
   create_table "early_pregnancies", :force => true do |t|
     t.string   "zip"
@@ -55,8 +55,8 @@ ActiveRecord::Schema.define(:version => 20130601000716) do
   create_table "neighborhoods", :force => true do |t|
     t.string   "name"
     t.string   "zip_code"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
     t.string   "boundaries"
     t.string   "history"
     t.string   "notable_resident"
@@ -64,6 +64,22 @@ ActiveRecord::Schema.define(:version => 20130601000716) do
     t.string   "city"
     t.string   "housing_stock"
     t.string   "wikipedia_link"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.string   "area"
+    t.string   "population"
+    t.string   "population_density"
+    t.string   "average_income"
+    t.string   "percent_college"
+    t.string   "percent_graduate_degree"
+    t.string   "average_age_mother"
+    t.string   "residential_vacancy_rate"
+    t.string   "community_board"
+    t.string   "nypd_precinct"
+    t.string   "sperling_air"
+    t.string   "sperling_water"
   end
 
   create_table "pictures", :force => true do |t|
@@ -212,6 +228,7 @@ ActiveRecord::Schema.define(:version => 20130601000716) do
     t.string   "building_name"
     t.string   "flood_zone"
     t.string   "income_restriction"
+    t.string   "price_per_day"
   end
 
   create_table "users", :force => true do |t|

@@ -15,10 +15,10 @@
 
 <%= f.hidden_field :property_id, :value=>params[:q] %>
 
- <% @property=Property.find(params[:q]) %>
+
+<% @property=Property.find(params[:q]) %>
 
 <%if @property.property_type=="Hydropower rights"%>
-
  <div class="field">
   <%= f.label :KWatt_Hours_Annually %><br />
   <%= f.text_field :KWatt_Hours_Annually %>
@@ -58,7 +58,7 @@
 
 
 
-<% if @property.property_type="Single family house" %>
+<% if @property.property_type=="Single family house" %>
 
 <div class="medium_box">
  
@@ -148,15 +148,24 @@
 
 <%if (@property.property_type=="Condominium" or @property.property_type=="Co-op") and @property.entry_type!="Residential for rent" %>
   <div class="medium_box">
-   
+  
+<% if @property.property_type!="Co-op" %>
+ 
     <b>Annual Real Estate Tax</b>
     <%= f.text_field :Annual_real_estate_tax %>
-    <b>Homeowner association fee: </b>
 
+<%end%>
+    <b>Homeowner association fee: </b>
     <%= f.text_field :hoa %>
   </div>
 
 <%end%>
+
+
+<%if @property.entry_type=="Residential for rent" or @property.entry_type=="Residential for sale" or @property.entry_type=="Assumable mortgage"  %>
+ 
+
+
 <div style="width:100%">
 <div style="float:left;width:120px">
   <div class="box_width narrow_box">
@@ -193,7 +202,7 @@
  </div>
 <br/><br/><br/>
 </div>
-
+<%end%>
 
 <%if (@property.property_type=="Condominium" or @property.property_type=="Co-op") %>
 
@@ -337,6 +346,8 @@ Private roof deck
 </div>
 
 </div>
+
+
 
 
 
@@ -513,7 +524,7 @@ Private roof deck
 <%end%>
 
 
-<%if @property.entry_type=="Commercial for sale" or @property.entry_type=="Commercial for lease" or @property.entry_type=="Pop-up shop"%>
+<%if @property.entry_type=="Commercial for sale" or @property.entry_type=="Commercial for lease"%>
 
   <div class="field">
     <%= f.label :zoning %><br />
@@ -531,10 +542,7 @@ Private roof deck
     <%= f.label :price_per_sqft %><br />
     <%= f.text_field :price_per_sqft %>
   </div>
-  <div class="field">
-    <%= f.label :when_available %><br />
-    <%= f.text_field :when_available %>
-  </div>
+
   <div class="field">
     <%= f.label :Clear_Height %><br />
     <%= f.text_field :Clear_Height %>
@@ -556,6 +564,35 @@ Private roof deck
     <%= f.text_field :Loading_Docks %>
   </div>
 <%end%>
+
+
+<%if @property.entry_type=="Pop-up shop"%>
+<div class="field">
+  <%= f.label :price_per_day %><br />
+  <%= f.text_field :price_per_day %>
+</div>
+  <div class="field">
+    <%= f.label :Clear_Height %><br />
+    <%= f.text_field :Clear_Height %>
+  </div>
+<div class="field">
+  <%= f.label :Electrical_Service %><br />
+  <%= f.text_field :Electrical_Service %>
+</div>
+
+<div class="field">
+  <%= f.label :Load_Capacity %><br />
+  <%= f.text_field :Load_Capacity %>
+</div>
+<div class="field">
+  <%= f.label :Loading_Docks %><br />
+  <%= f.text_field :Loading_Docks %>
+</div>
+
+<%end%>
+
+
+
 
 <%if @property.entry_type=="Commercial for sale"%>
 

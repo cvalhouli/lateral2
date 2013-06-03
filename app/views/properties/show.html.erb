@@ -74,16 +74,19 @@ $<%=(@property.Asking_Price.delete('$,').to_f/@property.sqft.delete('$,').to_f).
 	<br/>
 	
 <%if @property.entry_type == "Residential for rent" %>	
-Smoking:  <%= @property.property_fields.try(:first).try(:smoking)%> 
+<b>Smoking:</b>  <%= @property.property_fields.try(:first).try(:smoking)%> 
 <br/>
 
-Pets:<%= @property.property_fields.try(:first).try(:pets)%> 
+<b>Pets:</b> <%= @property.property_fields.try(:first).try(:pets)%> 
 <br/>
-<%= @property.property_fields.try(:first).try(:pets)%> 
-<%else%>		
+<b>Laundry:</b> <%= @property.property_fields.try(:first).try(:laundry)%> 
+<%else%>
+<%if @property.property_fields.try(:first).try(:Annual_real_estate_tax)%>		
 <b>Real estate taxes:</b> <%if @property.property_fields.try(:first).try(:Annual_real_estate_tax)%>$<%= number_with_delimiter(@property.property_fields.try(:first).try(:Annual_real_estate_tax).try(:to_i), :delimiter => ',') %>/yr. ($<%= number_with_delimiter(@property.property_fields.try(:first).try(:Annual_real_estate_tax).try(:to_i)/12, :delimiter => ',') %>/mo.)  <%end%>
+<%end%>
 <br/>
-<b>Common Charges:</b> <%if @property.property_fields.try(:first).try(:hoa) %> $<%= number_with_delimiter(@property.property_fields.try(:first).try(:hoa).try(:to_i), :delimiter => ',' ) %> <%end%>
+<%if @property.property_fields.try(:first).try(:hoa) %>
+<b>Common Charges:</b> <%if @property.property_fields.try(:first).try(:hoa) %> $<%= number_with_delimiter(@property.property_fields.try(:first).try(:hoa).try(:to_i), :delimiter => ',' ) %> <%end%> <%end%>
 <%end%>
 
 
@@ -184,16 +187,18 @@ Pets:<%= @property.property_fields.try(:first).try(:pets)%>
 	<div id="map_canvas"></div>
     <div id="map_canvas2"></div>
     <div style="margin-top:10px">
-	<b>Flood Zone:</b> <%=@property.property_fields.try(:first).try(:flood_zone) %> 
-	<% if @property.property_fields.try(:first).try(:flood_zone) =='A'%>
-	- High flood risk.
-	<% elsif @property.property_fields.try(:first).try(:flood_zone) =='B'%>
-	- Moderate flood risk.	
-	<% elsif @property.property_fields.try(:first).try(:flood_zone) =='C'%>
-	- Minimal flood risk.	
 	
-	<%end%>
-    </div>
+<% if @property.property_fields.try(:first).try(:flood_zone)%>
+	
+<div style="float:left;background-color:#FF0000;width:16px;height:16px;margin-right:10px"></div><div style="float:left"> <b>Flood Zone A </b>  (High flood risk)</div><br/>
+<div style="float:left;background-color:#FF5C33;width:16px;height:16px;margin-right:10px"></div> <div style="float:left"><b>Flood Zone B </b>  (Moderate flood risk)</div><br/>
+<div style="float:left;background-color:#FFFF00;width:16px;height:16px;margin-right:10px"></div><div style="float:left"><b>Flood Zone C </b>   (Minimal flood risk)</div>
+
+
+
+	
+<%end%>
+	</div>
 	
 </div>
 
@@ -203,9 +208,11 @@ Pets:<%= @property.property_fields.try(:first).try(:pets)%>
 	
 	<br/>
 	<br/>
-	<b>Nearby transit:</b> <%=@property.nearby_transit %>(<%if @property.transit_distance%><%= '%.2f' % @property.transit_distance%><%end%> miles)
+	<b>Nearby transit:</b> <%=@property.nearby_transit %> (<%if @property.transit_distance%><%= '%.2f' % @property.transit_distance%><%end%> miles)
 	<br/>
-	<b>Nearest Synagogue:</b> <%=@property.nearest_synagogue %>(<%if @property.synagogue_distance%><%= '%.2f' % @property.synagogue_distance%><%end%> miles)
+	<%if @property.entry_type=="Residential for sale" or @property.entry_type=="Residential for rent"%>
+	     <b>Nearest Synagogue:</b> <%=@property.nearest_synagogue %> (<%if @property.synagogue_distance%><%= '%.2f' % @property.synagogue_distance%><%end%> miles)
+     <%end%>
 <br/>
 
 

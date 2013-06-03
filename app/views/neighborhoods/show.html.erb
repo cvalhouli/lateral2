@@ -1,18 +1,53 @@
 <p id="notice"><%= notice %></p>
 
+<div id="neighborhood">
+	<b>Area:</b> <%=@neighborhood.area %> | <b>Population:</b> <%=@neighborhood.population %> | <b>Population Density: </b> <%=@neighborhood.population_density %> |  <b>Average income: </b> <%=@neighborhood.average_income %> | <b> % with college degree: </b> <%=@neighborhood.percent_college %> | <b> % with graduate degree: </b> <%=@neighborhood.percent_graduate_degree %> | <b>Teen pregnancy_rate:</b> <%=@neighborhood.average_age_mother %> | <b> Residential vacancy rate: </b>  <%=@neighborhood.residential_vacancy_rate %><% if @neighborhood.city=="Manhattan" || @neighborhood.city=="Brooklyn" || @neighborhood.city=="Queens" || @neighborhood.city=="Bronx" || @neighborhood.city=="Staten Island" %> | <b> Community board: </b>  <%=@neighborhood.community_board %> | <b> NYPD precinct: </b> <%=@neighborhood.nypd_precinct %> <%end%>
+ </div>
+
+
+<h1>  <%= @neighborhood.name %> </h1>
+<div style="font-size:15px;margin-top:-14px;padding-bottom:20px"><%= @neighborhood.city %></div>
+
 <p>
-  <b>Name:</b>
-  <%= @neighborhood.name %>
+<%= image_tag @neighborhood.photo.url(:medium) %>
 </p>
 
+
+
+
+<table style="font-size:16px;margin-top:20px">
+	<th style="border: 1px solid black; padding: 15px 15px 15px 15px; background:#f0f0f0"> Area
+	</th>
+	
+	
+		<th style="border: 1px solid black; padding: 15px 15px 15px 15px; background:#f0f0f0"> Population
+	</th>
+	<th style="border: 1px solid black;padding: 15px 15px 15px 15px; background:#f0f0f0"> Population Density
+	</th>
+	
+	<th style="border: 1px solid black; padding: 15px 15px 15px 15px; background:#f0f0f0">Average income
+	</th>
+	
+		<th style="border: 1px solid black; padding: 15px 15px 15px 15px; background:#f0f0f0"> % with college/masters degree	</th>
+	<tr>
+		<td style="border: 1px solid black; padding: 15px 15px 15px 15px; background:#fff"><%=@neighborhood.area %> 
+		 </td>
+		<td style="border: 1px solid black; padding: 15px 15px 15px 15px; background:#fff"><%=@neighborhood.population %> 
+		 </td>
+			<td style="border: 1px solid black; padding: 15px 15px 15px 15px; background:#fff"><%=@neighborhood.population_density %> 
+		 </td>
+		<td style="border: 1px solid black; padding: 15px 15px 15px 15px; background:#fff"><%=@neighborhood.average_income %> 
+		 </td>
+			<td style="border: 1px solid black; padding: 15px 15px 15px 15px; background:#fff"><%=@neighborhood.percent_college%> <%if !@neighborhood.percent_graduate_degree.blank? %>/ <%=@neighborhood.percent_graduate_degree %><%end%>
+			 </td>
+		
+	</tr>
+	
+	
+</table>	
 <p>
   <b>Zip code:</b>
   <%= @neighborhood.zip_code %>
-</p>
-
-<p>
-  <b>City:</b>
-  <%= @neighborhood.city %>
 </p>
 
 <p>

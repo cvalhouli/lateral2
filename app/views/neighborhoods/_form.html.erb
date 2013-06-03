@@ -1,4 +1,4 @@
-<%= form_for(@neighborhood) do |f| %>
+<%= form_for @neighborhood, :html => { :multipart => true } do |f| %>
   <% if @neighborhood.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@neighborhood.errors.count, "error") %> prohibited this neighborhood from being saved:</h2>
@@ -10,7 +10,11 @@
       </ul>
     </div>
   <% end %>
+  <div class="field">
 
+<label>Upload photo </label>
+   <%=f.file_field :photo %>
+</div>
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
@@ -49,6 +53,76 @@
     <%= f.label :of_note %><br />
     <%= f.text_area :of_note %>
   </div>
+
+
+  <div class="field">
+    <%= f.label :area %><br />
+    <%= f.text_field :area %>
+  </div>
+
+
+
+
+  <div class="field">
+    <%= f.label :population %><br />
+    <%= f.text_field :population %>
+  </div>
+
+
+
+
+
+  <div class="field">
+    <%= f.label :population_density %><br />
+    <%= f.text_field :population_density %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :average_income %><br />
+    <%= f.text_field :average_income %>
+  </div>
+
+
+
+  <div class="field">
+     <label>% of people with college degree</lable><br />
+    <%= f.text_field :percent_college %>
+  </div>
+
+  <div class="field">
+     <label>% of people with graduate degree</lable><br />
+    <%= f.text_field :percent_graduate_degree %>
+  </div>
+
+
+  <div class="field">
+    <label>Teen pregnancy rates</lable><br />
+    <%= f.text_field :average_age_mother%>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :residential_vacancy_rate %><br />
+    <%= f.text_field :residential_vacancy_rate %>
+  </div>
+
+
+<div id="nyc">
+  <div class="field">
+    <%= f.label :community_board %><br />
+    <%= f.text_field :community_board %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :nypd_precinct %><br />
+    <%= f.text_field :nypd_precinct %>
+  </div>
+</div>
+
+
+
 
   <div class="actions">
     <%= f.submit %>
