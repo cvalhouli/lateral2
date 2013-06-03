@@ -1,12 +1,16 @@
 <p id="notice"><%= notice %></p>
 
 <div id="neighborhood">
-	<b>Area:</b> <%=@neighborhood.area %> | <b>Population:</b> <%=@neighborhood.population %> | <b>Population Density: </b> <%=@neighborhood.population_density %> |  <b>Average income: </b> <%=@neighborhood.average_income %> | <b> % with college degree: </b> <%=@neighborhood.percent_college %> | <b> % with graduate degree: </b> <%=@neighborhood.percent_graduate_degree %> | <b>Teen pregnancy_rate:</b> <%=@neighborhood.average_age_mother %> | <b> Residential vacancy rate: </b>  <%=@neighborhood.residential_vacancy_rate %><% if @neighborhood.city=="Manhattan" || @neighborhood.city=="Brooklyn" || @neighborhood.city=="Queens" || @neighborhood.city=="Bronx" || @neighborhood.city=="Staten Island" %> | <b> Community board: </b>  <%=@neighborhood.community_board %> | <b> NYPD precinct: </b> <%=@neighborhood.nypd_precinct %> <%end%>
+ <b>Teen pregnancy_rate:</b> <%=@neighborhood.average_age_mother %> | <b> Residential vacancy rate: </b>  <%=@neighborhood.residential_vacancy_rate %><% if @neighborhood.city=="Manhattan" || @neighborhood.city=="Brooklyn" || @neighborhood.city=="Queens" || @neighborhood.city=="Bronx" || @neighborhood.city=="Staten Island" %> | <b> Community board: </b>  <%=@neighborhood.community_board %> | <b> NYPD precinct: </b> <%=@neighborhood.nypd_precinct %> <%end%>
  </div>
 
 
 <h1>  <%= @neighborhood.name %> </h1>
-<div style="font-size:15px;margin-top:-14px;padding-bottom:20px"><%= @neighborhood.city %></div>
+<div style="font-size:15px;margin-top:-10px;padding-bottom:20px"><%= @neighborhood.city %>  | <b>Zip code(s):</b>
+ <%= @neighborhood.zip_code %>
+</div>
+
+
 
 <p>
 <%= image_tag @neighborhood.photo.url(:medium) %>
@@ -45,21 +49,10 @@
 	
 	
 </table>	
-<p>
-  <b>Zip code:</b>
-  <%= @neighborhood.zip_code %>
-</p>
 
-<p>
-  <b>Housing stock:</b>
-  <%= @neighborhood.housing_stock %>
-</p>
+<br/>
 
-<p>
-  <b>Wikipedia link:</b>
-  <%= @neighborhood.wikipedia_link %>
-</p>
-
+<div style="width:770px;overflow:hidden">
 
 
 <p>
@@ -69,15 +62,20 @@
 
 
 <p>
+  <b>Housing stock:</b>
+  <%= @neighborhood.housing_stock %>
+</p>
+
+
+
+
+
+
+<p>
   <b>History:</b>
   <%= @neighborhood.history %>
 </p>
 
-
-<p>
-  <b>Notable Resident:</b>
-  <%= @neighborhood.notable_resident %>
-</p>
 
 
 <p>
@@ -85,7 +83,7 @@
   <%= @neighborhood.of_note %>
 </p>
 
-
+</div>
 
 <%= link_to 'Edit', edit_neighborhood_path(@neighborhood) %> |
 <%= link_to 'Back to list of neighborhoods', neighborhoods_path %>
