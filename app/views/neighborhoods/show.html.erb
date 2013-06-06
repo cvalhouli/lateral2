@@ -22,8 +22,7 @@
 <table style="font-size:16px;margin-top:20px">
 	<th style="border: 1px solid black; padding: 15px 15px 15px 15px; background:#f0f0f0"> Area
 	</th>
-	
-	
+		
 		<th style="border: 1px solid black; padding: 15px 15px 15px 15px; background:#f0f0f0"> Population
 	</th>
 	<th style="border: 1px solid black;padding: 15px 15px 15px 15px; background:#f0f0f0"> Population Density
@@ -50,20 +49,131 @@
 	
 </table>	
 
+
+
+
+
 <br/>
+
+<div style="overflow:hidden">
+	<div style="width:42px;float:left">
+<div style="float:left;font-size:16px;margin-top:135px;width:32px;height:30px">	
+   Sale
+</div>
+
+<div style="float:left;font-size:16px;margin-top:20px;width:32px;height:30px">	
+   Rent
+</div>
+
+</div>
+
+
+<table style="font-size:16px;margin-top:20px;float:left">	
+	<th style="width:161px;border-top: 1px solid black; border-left: 1px solid black; border-right: 1px solid black; padding: 15px 15px 15px 15px; background:#f0f0f0"> 
+		Studio
+	</th>
+	<th style="width:160px;border-top: 1px solid black; border-left: 1px solid black; border-right: 1px solid black; padding: 15px 15px 15px 15px; background:#f0f0f0"> 
+		1BR
+	</th>
+	<th style="width:161px;border-top: 1px solid black; border-left: 1px solid black; border-right: 1px solid black; padding: 15px 15px 15px 15px; background:#f0f0f0"> 
+		2BR
+	</th>
+	<th style="width:166px;border-top: 1px solid black; border-left: 1px solid black; border-right: 1px solid black; padding: 15px 15px 15px 15px; background:#f0f0f0"> 
+		3BR
+	</th>
+</table>
+
+
+<table style="font-size:16px;width:773px;float:left">
+
+	<th style="border: 1px solid black; padding: 15px 15px 15px 15px; background:#f0f0f0"> 
+		Co-op
+	</th>
+	<th style="border: 1px solid black; padding: 15px 15px 15px 15px; background:#f0f0f0"> 
+		Condo
+	</th>
+	<th style="border: 1px solid black; padding: 15px 15px 15px 15px; background:#f0f0f0"> 
+		Co-op
+	</th>
+	<th style="border: 1px solid black; padding: 15px 15px 15px 15px; background:#f0f0f0"> 
+		Condo
+	</th>
+	<th style="border: 1px solid black; padding: 15px 15px 15px 15px; background:#f0f0f0"> 
+		Co-op
+	</th>
+	<th style="border: 1px solid black; padding: 15px 15px 15px 15px; background:#f0f0f0"> 
+		Condo
+	</th>
+	<th style="border: 1px solid black; padding: 15px 15px 15px 15px; background:#f0f0f0"> 
+		Co-op
+	</th>
+	<th style="border: 1px solid black; padding: 15px 15px 15px 15px; background:#f0f0f0"> 
+		Condo
+	</th>
+
+		
+
+	
+	<tr>
+		<td style="border: 1px solid black; padding: 15px 15px 15px 15px; background:#fff">Low:<%=@neighborhood.studio_low %><br/>High:<%=@neighborhood.studio_high_string %> <br/>
+			Median:<%=@neighborhood.studio_median %>
+		 </td>
+		<td style="border: 1px solid black; padding: 15px 15px 15px 15px; background:#fff"> 
+		 </td>
+			<td style="border: 1px solid black; padding: 15px 15px 15px 15px; background:#fff">Low:<%=@neighborhood.one_bedroom_low %><br/>High:<%=@neighborhood.one_bedroom_high %> <br/>
+				Median:<%=@neighborhood.one_bedroom_median %>
+		 </td>
+		<td style="border: 1px solid black; padding: 15px 15px 15px 15px; background:#fff"> 
+		 </td>
+			<td style="border: 1px solid black; padding: 15px 15px 15px 15px; background:#fff">Low:<%=@neighborhood.two_bedroom_low %><br/>High:<%=@neighborhood.two_bedroom_high %> <br/>
+				Median:<%=@neighborhood.two_bedroom_median %>
+			 </td>
+			<td style="border: 1px solid black; padding: 15px 15px 15px 15px; background:#fff">
+			 </td>
+			
+			<td style="border: 1px solid black; padding: 15px 15px 15px 15px; background:#fff">Low:<%=@neighborhood.three_bedroom_low %><br/>High:<%=@neighborhood.three_bedroom_high %> <br/>
+				Median:<%=@neighborhood.three_bedroom_median %> 
+			 </td>
+			<td style="border: 1px solid black; padding: 15px 15px 15px 15px; background:#fff"> 
+			 </td>
+	</tr>
+	
+	<tr>
+		<td style="border: 1px solid black; padding: 15px 15px 15px 15px; background:#fff"> 
+		 </td>
+		<td style="border: 1px solid black; padding: 15px 15px 15px 15px; background:#fff">
+		 </td>
+			<td style="border: 1px solid black; padding: 15px 15px 15px 15px; background:#fff">
+		 </td>
+		<td style="border: 1px solid black; padding: 15px 15px 15px 15px; background:#fff">
+		 </td>
+			<td style="border: 1px solid black; padding: 15px 15px 15px 15px; background:#fff"> 
+			 </td>
+			<td style="border: 1px solid black; padding: 15px 15px 15px 15px; background:#fff">
+			 </td>
+			
+			<td style="border: 1px solid black; padding: 15px 15px 15px 15px; background:#fff"> 
+			 </td>
+			<td style="border: 1px solid black; padding: 15px 15px 15px 15px; background:#fff"> 
+			 </td>
+	</tr>
+	
+</table>
+
+</div>
 
 <div style="width:770px;overflow:hidden">
 
 
 <p>
   <b>Boundaries:</b>
-  <%= @neighborhood.boundaries %>
+  <%= @neighborhood.boundaries.gsub(/\u000d|\u0009|\u000c|\u0085|\u2028|\u2029|\n/,"<br/>").html_safe  %>
 </p>
 
 
 <p>
   <b>Housing stock:</b>
-  <%= @neighborhood.housing_stock %>
+  <%= @neighborhood.housing_stock.gsub(/\u000d|\u0009|\u000c|\u0085|\u2028|\u2029|\n/,"<br/>").html_safe  %>
 </p>
 
 
@@ -73,14 +183,14 @@
 
 <p>
   <b>History:</b>
-  <%= @neighborhood.history %>
+  <%= @neighborhood.history.gsub(/\u000d|\u0009|\u000c|\u0085|\u2028|\u2029|\n/,"<br/>").html_safe  %>
 </p>
 
 
 
 <p>
   <b>Of note:</b>
-  <%= @neighborhood.of_note %>
+  <%= @neighborhood.of_note.gsub(/\u000d|\u0009|\u000c|\u0085|\u2028|\u2029|\n/,"<br/>").html_safe  %>
 </p>
 
 </div>

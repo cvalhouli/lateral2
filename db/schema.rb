@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130603211029) do
+ActiveRecord::Schema.define(:version => 20130606012139) do
 
   create_table "early_pregnancies", :force => true do |t|
     t.string   "zip"
@@ -55,8 +55,8 @@ ActiveRecord::Schema.define(:version => 20130603211029) do
   create_table "neighborhoods", :force => true do |t|
     t.string   "name"
     t.string   "zip_code"
-    t.datetime "created_at",               :null => false
-    t.datetime "updated_at",               :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
     t.string   "boundaries"
     t.string   "history"
     t.string   "notable_resident"
@@ -80,6 +80,30 @@ ActiveRecord::Schema.define(:version => 20130603211029) do
     t.string   "nypd_precinct"
     t.string   "sperling_air"
     t.string   "sperling_water"
+    t.string   "studio_low"
+    t.string   "studio_high_string"
+    t.string   "studio_median"
+    t.string   "one_bedroom_low"
+    t.string   "one_bedroom_high"
+    t.string   "one_bedroom_median"
+    t.string   "two_bedroom_low"
+    t.string   "two_bedroom_high"
+    t.string   "two_bedroom_median"
+    t.string   "three_bedroom_low"
+    t.string   "three_bedroom_high"
+    t.string   "three_bedroom_median"
+    t.string   "studio_low_rent"
+    t.string   "studio_high_rent_string"
+    t.string   "studio_median_rent"
+    t.string   "one_bedroom_low_rent"
+    t.string   "one_bedroom_high_rent"
+    t.string   "one_bedroom_median_rent"
+    t.string   "two_bedroom_low_rent"
+    t.string   "two_bedroom_high_rent"
+    t.string   "two_bedroom_median_rent"
+    t.string   "three_bedroom_low_rent"
+    t.string   "three_bedroom_high_rent"
+    t.string   "three_bedroom_median_rent"
   end
 
   create_table "pictures", :force => true do |t|
