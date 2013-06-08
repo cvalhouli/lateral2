@@ -95,8 +95,9 @@ $(function() {
 
 </div>
 <%if params[:action]=='show' and params[:controller]=='neighborhoods'%>
+<div style="overflow:hidden;height:350px;width:100%">
 <%= image_tag @neighborhood.photo.url, :width=>'100%' %>
-
+</div>
 <%end%>
 	<div class="container">
 	  <div class="row">
