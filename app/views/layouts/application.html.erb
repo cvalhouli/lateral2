@@ -110,7 +110,7 @@ div.bg-img {
     border: 0px solid #aaa;
     width: 100%;
     padding: 0px 0px 0px 0px;
-    height: 350px;
+    height: 500px;
     margin: 0px auto;
 }
 p, #data {
@@ -154,7 +154,7 @@ $(document).ready(function(){
                 y: start.y - (origin.y - e.clientY)
             };
         
-        data.value = 'X: ' + offset.x + ', Y: ' + offset.y;
+        data.value = 'X: ' + '0' + ', Y: ' + offset.y;
         
         inbounds.x = offset.x < 0 && (offset.x * -1) < bounds.w;
         inbounds.y = offset.y < 0 && (offset.y * -1) < bounds.h;
@@ -163,7 +163,7 @@ $(document).ready(function(){
             start.x = offset.x;
             start.y = offset.y;
             
-            $(this).css('background-position', start.x + 'px ' + start.y + 'px');
+            $(this).css('background-position', '0' + 'px ' + start.y + 'px');
         }
         
         origin.x = e.clientX;
