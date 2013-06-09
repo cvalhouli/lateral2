@@ -102,7 +102,11 @@ div.bg-img {
     background-image: url(<%=@neighborhood.photo.url%>);
     background-position: 0 0;
     background-repeat: no-repeat;
-    background-color: blue;
+    background-color: clear;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
     border: 0px solid #aaa;
     width: 100%;
     padding: 0px 0px 0px 0px;
