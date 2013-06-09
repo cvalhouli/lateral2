@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <div id="neighborhood">
- <b>Teen pregnancy_rate:</b> <%=@neighborhood.average_age_mother %> | <b> Residential vacancy rate: </b>  <%=@neighborhood.residential_vacancy_rate %><% if @neighborhood.city=="Manhattan" || @neighborhood.city=="Brooklyn" || @neighborhood.city=="Queens" || @neighborhood.city=="Bronx" || @neighborhood.city=="Staten Island" %> | <b> Community board: </b>  <%=@neighborhood.community_board %> | <b> NYPD precinct: </b> <%=@neighborhood.nypd_precinct %> <%end%>
+ <b>Teen pregnancy_rate:</b> <%=@neighborhood.average_age_mother %> | <b> Residential vacancy rate: </b>  <%=@neighborhood.residential_vacancy_rate %><% if @neighborhood.city=="Manhattan" || @neighborhood.city=="Brooklyn" || @neighborhood.city=="Queens" || @neighborhood.city=="Bronx" || @neighborhood.city=="Staten Island" %> | <b> Community board: </b>  <%=@neighborhood.community_board %> | <b> NYPD Precinct: </b> <%=@neighborhood.nypd_precinct %> <%end%>
  </div>
 
 
@@ -37,7 +37,12 @@
 		 </td>
 		<td style="border: 1px solid black; padding: 15px 15px 15px 15px; background:#fff"><%=@neighborhood.population %> 
 		 </td>
-			<td style="border: 1px solid black; padding: 15px 15px 15px 15px; background:#fff"><%=@neighborhood.population_density %> 
+			<td style="border: 1px solid black; padding: 15px 15px 15px 15px; background:#fff">
+			<%if !@neighborhood.area.blank? %>
+			
+			<%=@neighborhood.population_density=(@neighborhood.population.try(:to_f)/ @neighborhood.area.try(:to_f)).to_i%> 
+			
+			<%end%>
 		 </td>
 		<td style="border: 1px solid black; padding: 15px 15px 15px 15px; background:#fff"><%=@neighborhood.average_income %> 
 		 </td>
@@ -196,5 +201,31 @@
 </div>
 
 <%= link_to 'Edit', edit_neighborhood_path(@neighborhood) %> |
-<%= link_to 'Back to list of neighborhoods', neighborhoods_path %>
+<%= link_to 'Back to list of neighborhoods', neighborhoods_path %> | 
 <%= link_to 'Add new neighborhood', new_neighborhood_path %>
+
+
+<div id='map_canvas'></div>
+
+
+<script>
+function initialize() {
+  var myLatlng = new google.maps.LatLng(-74.002708,40.739552);
+  var mapOptions = {
+    zoom: 12,
+    center: myLatlng,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  }
+  var map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+  var marker = new google.maps.Marker({
+      position: myLatlng,
+      map: map,
+      title: 'Hello World!'
+  });
+		
+}
+google.maps.event.addDomListener(window, 'load', initialize);
+
+</script>
+
+
