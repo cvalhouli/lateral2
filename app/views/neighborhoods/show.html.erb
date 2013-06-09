@@ -38,9 +38,9 @@
 		<td style="border: 1px solid black; padding: 15px 15px 15px 15px; background:#fff"><%=@neighborhood.population %> 
 		 </td>
 			<td style="border: 1px solid black; padding: 15px 15px 15px 15px; background:#fff">
-			<%if !@neighborhood.area.blank? %>
+			<%if !@neighborhood.area.blank? and !@neighborhood.population.blank? %>
 			
-			<%='%.2f' % @neighborhood.population.try(:to_f)/ @neighborhood.area.try(:to_f)%> 
+			<%='%.2f' % (@neighborhood.population.try(:to_f)/ @neighborhood.area.try(:to_f))%> 
 			
 			<%end%>
 		 </td>
