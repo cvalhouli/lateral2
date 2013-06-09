@@ -94,13 +94,15 @@ $(function() {
 
 
 </div>
-<%if params[:action]=='show' and params[:controller]=='neighborhoods'%>
+<%if (params[:action]=='show' or params[:action]=='edit') and params[:controller]=='neighborhoods'%>
 <%#= image_tag @neighborhood.photo.url, :class=>'neighborhood' %>
 <%#= %>
 <style>
 div.bg-img {
     background-image: url(<%=@neighborhood.photo.url%>);
-    background-position: 0 0;
+
+    background-position: 0 <%=@neighborhood.y_position%>px;
+
     background-repeat: no-repeat;
     background-color: clear;
     -webkit-background-size: cover;
@@ -121,6 +123,7 @@ p, #data {
     font-weight: bold;
     color: white;
     padding: 5px;
+    display:none;
     font-size: 1.4em;
     border: 1px solid #ddd;
 }
@@ -155,7 +158,6 @@ $(document).ready(function(){
             };
         
         data.value = 'X: ' + '0' + ', Y: ' + offset.y;
-        
         inbounds.x = offset.x < 0 && (offset.x * -1) < bounds.w;
         inbounds.y = offset.y < 0 && (offset.y * -1) < bounds.h;
         
@@ -164,6 +166,8 @@ $(document).ready(function(){
             start.y = offset.y;
             
             $(this).css('background-position', '0' + 'px ' + start.y + 'px');
+            $('#neighborhood_y_position').val(start.y);
+	        
         }
         
         origin.x = e.clientX;
