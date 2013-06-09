@@ -40,7 +40,7 @@
 			<td style="border: 1px solid black; padding: 15px 15px 15px 15px; background:#fff">
 			<%if !@neighborhood.area.blank? and !@neighborhood.population.blank? %>
 			
-			<%=@neighborhood.population.gsub("/,/", '').try(:to_f)/ @neighborhood.area.try(:to_f)%> 
+			<%=@neighborhood.population.delete('$,').try(:to_f)/ @neighborhood.area.try(:to_f)%> 
 			
 			<%end%>
 		 </td>
