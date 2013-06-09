@@ -32,6 +32,7 @@
 	</th>
 	
 		<th style="border: 1px solid black; padding: 15px 15px 15px 15px; background:#f0f0f0"> % with college/masters degree	</th>
+		<th style="border: 1px solid black; padding: 15px 15px 15px 15px; background:#f0f0f0"> Political Affiliation	</th>
 	<tr>
 		<td style="border: 1px solid black; padding: 15px 15px 15px 15px; background:#fff"><%=@neighborhood.area %> 
 		 </td>
@@ -48,7 +49,8 @@
 		 </td>
 			<td style="border: 1px solid black; padding: 15px 15px 15px 15px; background:#fff"><%=@neighborhood.percent_college%> <%if !@neighborhood.percent_graduate_degree.blank? %>/ <%=@neighborhood.percent_graduate_degree %><%end%>
 			 </td>
-		
+			<td style="border: 1px solid black; padding: 15px 15px 15px 15px; background:#fff"><%=@neighborhood.political_affiliation %> 
+			 </td>
 	</tr>
 	
 	
