@@ -16,7 +16,7 @@
 <%= @property.city %>,
 <%= @property.state_abbreviation %>
 <%= @property.zipcode %>
-<%if !@property.neighborhood.blank? %> | <% @nhood = Neighborhood.find_by_name(@property.neighborhood)  %><% if @nhood != nil%><%=link_to @property.neighborhood, @nhood %><%else%><%=@property.neighborhood %><%end%>)<%end%>
+<%if !@property.neighborhood.blank? %> | <% @nhood = Neighborhood.find_by_name(@property.neighborhood)  %><% if @nhood != nil%><%=link_to @property.neighborhood, @nhood %><%else%><%=@property.neighborhood %><%end%><%end%>
 </div>
 <div id="SmallText">
 <%=@property.property_type%> <%if @property.property_fields.try(:first).try(:income_restriction) == '1' %> (Income restricted) <%end%> | <%=@property.entry_type%>

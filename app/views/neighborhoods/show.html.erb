@@ -40,7 +40,7 @@
 			<td style="border: 1px solid black; padding: 15px 15px 15px 15px; background:#fff">
 			<%if !@neighborhood.area.blank? %>
 			
-			<%=@neighborhood.population_density=(@neighborhood.population.try(:to_f)/ @neighborhood.area.try(:to_f)).to_i%> 
+			<%='%.2f' % @neighborhood.population.try(:to_f)/ @neighborhood.area.try(:to_f)%> 
 			
 			<%end%>
 		 </td>
