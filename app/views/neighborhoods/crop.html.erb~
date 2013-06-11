@@ -31,11 +31,11 @@ function update_crop(coords) {
 <%= image_tag @neighborhood.photo.url(:large), :id => "cropbox" %>
 
 <h4>Preview:</h4>
-<div style="width:100px; height:100px; overflow:hidden">
+<div style="width:100px; overflow:hidden">
   <%= image_tag @neighborhood.photo.url(:large), :id => "preview" %>
 </div>
 
-<% form_for @neighborhood do |f| %>
+<%= form_for @neighborhood do |f| %>
   <% for attribute in [:crop_x, :crop_y, :crop_w, :crop_h] %>
     <%= f.hidden_field attribute, :id => attribute %>
   <% end %>
