@@ -39,7 +39,7 @@ class NeighborhoodsController < ApplicationController
 
 
   def crop
-      @neighborhood = Neighborhood.find(params[:id])
+neighborhood = Neighborhood.find(params[:id])
   end
   # POST /neighborhoods
   # POST /neighborhoods.json
