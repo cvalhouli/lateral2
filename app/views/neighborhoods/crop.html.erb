@@ -5,7 +5,7 @@ $(function() {
   $('#cropbox').Jcrop({
     onChange: update_crop,
     onSelect: update_crop,
-    setSelect: [0, 0, 500, 500],
+    setSelect: [0, 0,600, 600],
     aspectRatio: 1
   });
 });
@@ -20,10 +20,10 @@ function update_crop(coords) {
     marginTop: '-' + Math.round(ry * coords.y) + 'px'
   });
   var ratio = <%= @neighborhood.photo_geometry(:original).width %> / <%= @neighborhood.photo_geometry(:large).width %>;
-  $("#crop_x").val(Math.round(coords.x * ratio));
-  $("#crop_y").val(Math.round(coords.y * ratio));
-  $("#crop_w").val(Math.round(coords.w * ratio));
-  $("#crop_h").val(Math.round(coords.h * ratio));
+  $("#crop_x").val(Math.round(coords.x ));
+  $("#crop_y").val(Math.round(coords.y ));
+  $("#crop_w").val(Math.round(coords.w ));
+  $("#crop_h").val(Math.round(coords.h ));
 }
 </script>
 
@@ -31,13 +31,13 @@ function update_crop(coords) {
 <%= image_tag @neighborhood.photo.url(:large), :id => "cropbox" %>
 
 <h4>Preview:</h4>
-<div style="width:100px; overflow:hidden">
+<div style="width:100px; height:100px;overflow:hidden">
   <%= image_tag @neighborhood.photo.url(:large), :id => "preview" %>
 </div>
 
 <%= form_for @neighborhood do |f| %>
   <% for attribute in [:crop_x, :crop_y, :crop_w, :crop_h] %>
-    <%= f.hidden_field attribute, :id => attribute %>
+    <%= f.text_field attribute, :id => attribute %>
   <% end %>
   <p><%= f.submit "Crop" %></p>
 <% end %>
