@@ -1,8 +1,5 @@
 <p id="notice"><%= notice %></p>
 <div style="text-align:left">
-<div id="neighborhood">
- <b>Teen pregnancy_rate:</b> <%=@neighborhood.average_age_mother %> | <b> Residential vacancy rate: </b>  <%=@neighborhood.residential_vacancy_rate %><% if @neighborhood.city=="Manhattan" || @neighborhood.city=="Brooklyn" || @neighborhood.city=="Queens" || @neighborhood.city=="Bronx" || @neighborhood.city=="Staten Island" %> | <b> Community board: </b>  <%=@neighborhood.community_board %> | <b> NYPD Precinct: </b> <%=@neighborhood.nypd_precinct %> <%end%>
- </div>
 
 
 <h1>  <%= @neighborhood.name %> </h1>
@@ -20,12 +17,12 @@
 
 
 <table style="font-size:16px;margin-top:20px">
-	<th style="border: 1px solid black; padding: 15px 15px 15px 15px; background:#f0f0f0"> Area sq. mi.
+	<th style="border: 1px solid black; padding: 15px 15px 15px 15px; background:#f0f0f0"> Area <br/> /sq. mi.
 	</th>
 		
 		<th style="border: 1px solid black; padding: 15px 15px 15px 15px; background:#f0f0f0"> Population
 	</th>
-	<th style="border: 1px solid black;padding: 15px 15px 15px 15px; background:#f0f0f0"> Population Density
+	<th style="border: 1px solid black;padding: 15px 15px 15px 15px; background:#f0f0f0"> Population Density<br/>/sq. mi.
 	</th>
 	
 	<th style="border: 1px solid black; padding: 15px 15px 15px 15px; background:#f0f0f0">Average income
@@ -41,7 +38,7 @@
 			<td style="border: 1px solid black; padding: 15px 15px 15px 15px; background:#fff">
 			<%if !@neighborhood.area.blank? and !@neighborhood.population.blank? %>
 			
-			<%=@neighborhood.population.delete('$,').try(:to_f)/ @neighborhood.area.try(:to_f)%> 
+			<%=number_with_delimiter((@neighborhood.population.delete('$,').try(:to_f)/ @neighborhood.area.try(:to_f)).to_i) %> 
 			
 			<%end%>
 		 </td>
@@ -58,6 +55,9 @@
 
 
 
+<div id="neighborhood">
+ <b>Teen pregnancy_rate:</b> <%=@neighborhood.average_age_mother %> | <b> Residential vacancy rate: </b>  <%=@neighborhood.residential_vacancy_rate %><% if @neighborhood.city=="Manhattan" || @neighborhood.city=="Brooklyn" || @neighborhood.city=="Queens" || @neighborhood.city=="Bronx" || @neighborhood.city=="Staten Island" %> | <b> Community board: </b>  <%=@neighborhood.community_board %> | <b> NYPD Precinct: </b> <%=@neighborhood.nypd_precinct %> <%end%>
+ </div>
 
 
 <br/>
@@ -190,13 +190,19 @@
 
 <p style="text-align:left">
   <b>Boundaries:</b>
+ <%if @neighborhood.boundaries%>
   <%= @neighborhood.boundaries.gsub(/\u000d|\u0009|\u000c|\u0085|\u2028|\u2029|\n/,"<br/>").html_safe  %>
+<%end%>
 </p>
 
 
 <p style="text-align:left">
   <b>Housing stock:</b>
+
+ <%if @neighborhood.housing_stock%>
+
   <%= @neighborhood.housing_stock.gsub(/\u000d|\u0009|\u000c|\u0085|\u2028|\u2029|\n/,"<br/>").html_safe  %>
+<%end%>
 </p>
 
 
@@ -206,14 +212,20 @@
 
 <p style="text-align:left">
   <b>History:</b>
+ <%if @neighborhood.history%>
+
   <%= @neighborhood.history.gsub(/\u000d|\u0009|\u000c|\u0085|\u2028|\u2029|\n/,"<br/>").html_safe  %>
+<%end%>
 </p>
 
 
 
 <p style="text-align:left">
   <b>Of note:</b>
+ <%if @neighborhood.of_note%>
+
   <%= @neighborhood.of_note.gsub(/\u000d|\u0009|\u000c|\u0085|\u2028|\u2029|\n/,"<br/>").html_safe  %>
+<%end%>
 </p>
 
 </div>

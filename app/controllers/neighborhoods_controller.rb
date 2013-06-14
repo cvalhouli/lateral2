@@ -2,7 +2,7 @@ class NeighborhoodsController < ApplicationController
   # GET /neighborhoods
   # GET /neighborhoods.json
   def index
-    @neighborhoods = Neighborhood.all
+      @neighborhoods = Neighborhood.all(:order=>'city, name')
 
     respond_to do |format|
       format.html # index.html.erb
@@ -66,7 +66,7 @@ class NeighborhoodsController < ApplicationController
     respond_to do |format|
       if @neighborhood.update_attributes(params[:neighborhood])
 
-          format.html { redirect_to @neighborhood, notice: 'Neighborhood was successfully created.' }
+          format.html { redirect_to @neighborhood, notice: 'Neighborhood was successfully updated.' }
           format.json { head :no_content }
 
       else
