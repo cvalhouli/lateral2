@@ -56,11 +56,15 @@ $(function() {
     });
   }
 </script>
+
+
+
+
 <%end%>
 
 </head>
 <body>
-<div style="min-width:1080px">
+<div style="min-width:1080px;overflow:hidden">
 <div id="header">
 <div style="margin-left:35px;float:right;margin-top:-12px">
 	      <a href="/"><img src="/Lateralmarket-logo-black.jpg" height="60px" width="224px" /></a>
@@ -94,14 +98,14 @@ $(function() {
 
 
 </div>
-<%if (params[:action]=='show' or params[:action]=='edit') and params[:controller]=='neighborhoods'%>
+<%if params[:action]=='show' and params[:controller]=='neighborhoods'%>
 <%#= image_tag @neighborhood.photo.url, :class=>'neighborhood' %>
 <%#= %>
 <style>
 div.bg-img {
-    background-image: url(<%=@neighborhood.photo.url%>);
+   /**** background-image: url(<%=@neighborhood.photo.url%>);
 
-    background-position: 0 <%=@neighborhood.y_position%>px;
+    background-position: <%=@neighborhood.crop_x%>px <%=@neighborhood.crop_y%>px;
 
     background-repeat: no-repeat;
     background-color: clear;
@@ -109,11 +113,15 @@ div.bg-img {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+****/
+    margin-left:-<%=@neighborhood.crop_x%>px;
+    margin-top:-<%=@neighborhood.crop_y%>px;
+
     border: 0px solid #aaa;
     width: 100%;
     padding: 0px 0px 0px 0px;
     height: 500px;
-    margin: 0px auto;
+    overflow:hidden;
 }
 p, #data {
     text-align: center;
@@ -129,83 +137,148 @@ p, #data {
 }
 
 </style>
-<div class="bg-img"></div>
-<p>
-    <input type="text" id="data"/>
-</p>
+<div class="bg-img"><img src="<%=@neighborhood.photo.url(:original)%>"/></div>
 
-
-
-<script>
-
-$(document).ready(function(){
-    var $bg = $('.bg-img'),
-        data = $('#data')[0],
-        elbounds = {
-            w: parseInt($bg.width()), 
-            h: parseInt($bg.height())
-        },
-        bounds = {w: 2350 - elbounds.w, h: 1750 - elbounds.h},
-        origin = {x: 0, y: 0},
-        start = {x: 0, y: 0},
-        movecontinue = false;
-    
-    function move (e){
-        var inbounds = {x: false, y: false},
-            offset = {
-                x: start.x - (origin.x - e.clientX), 
-                y: start.y - (origin.y - e.clientY)
-            };
-        
-        data.value = 'X: ' + '0' + ', Y: ' + offset.y;
-        inbounds.x = offset.x < 0 && (offset.x * -1) < bounds.w;
-        inbounds.y = offset.y < 0 && (offset.y * -1) < bounds.h;
-        
-        if (movecontinue && inbounds.x && inbounds.y) {
-            start.x = offset.x;
-            start.y = offset.y;
-            
-            $(this).css('background-position', '0' + 'px ' + start.y + 'px');
-            $('#neighborhood_y_position').val(start.y);
-	        
-        }
-        
-        origin.x = e.clientX;
-        origin.y = e.clientY;
-        
-        e.stopPropagation();
-        return false;
-    }
-    
-    function handle (e){
-        movecontinue = false;
-        $bg.unbind('mousemove', move);
-        
-        if (e.type == 'mousedown') {
-            origin.x = e.clientX;
-            origin.y = e.clientY;
-            movecontinue = true;
-            $bg.bind('mousemove', move);
-        } else {
-            $(document.body).focus();
-        }
-        
-        e.stopPropagation();
-        return false;
-    }
-    
-    function reset (){
-        start = {x: 0, y: 0};
-        $(this).css('backgroundPosition', '0 0');
-    }
-    
-    $bg.bind('mousedown mouseup mouseleave', handle);
-    $bg.bind('dblclick', reset);
-});
-</script>
 
 
 <%end%>
+
+
+<%if params[:action]=='edit' and params[:controller]=='neighborhoods'%>
+
+
+
+<script type="text/javascript">
+  jQuery(function($){
+
+    // Create variables (in this scope) to hold the API and image size
+    var jcrop_api,
+        boundx,
+        boundy,
+
+        // Grab some information about the preview pane
+        $preview = $('#preview-pane'),
+        $pcnt = $('#preview-pane .preview-container'),
+        $pimg = $('#preview-pane .preview-container img'),
+
+        xsize = $pcnt.width(),
+        ysize = $pcnt.height();
+    
+    console.log('init',[xsize,ysize]);
+    $('#target').Jcrop({
+      onChange: updatePreview,
+      onSelect: updatePreview,
+      setSelect: [0, 0, 350, 170],
+      aspectRatio: xsize / ysize
+    },function(){
+      // Use the API to get the real image size
+      var bounds = this.getBounds();
+      boundx = bounds[0];
+      boundy = bounds[1];
+      // Store the API in the jcrop_api variable
+      jcrop_api = this;
+
+      // Move the preview into the jcrop container for css positioning
+      $preview.appendTo(jcrop_api.ui.holder);
+    });
+
+    function updatePreview(c)
+    {
+      if (parseInt(c.w) > 0)
+      {
+        var rx = xsize / c.w;
+        var ry = ysize / c.h;
+
+        $pimg.css({
+          width: Math.round(rx * boundx) + 'px',
+          height: Math.round(ry * boundy) + 'px',
+          marginLeft: '-' + Math.round(rx * c.x) + 'px',
+          marginTop: '-' + Math.round(ry * c.y) + 'px'
+        });
+      $("#crop_x").val(Math.round(c.x ));
+	  $("#crop_y").val(Math.round(c.y ));
+	  $("#crop_w").val(Math.round(c.w ));
+	  $("#crop_h").val(Math.round(c.h ));
+
+      }
+    };
+
+  });
+
+
+</script>
+
+
+
+<style type="text/css">
+
+/* Apply these styles only when #preview-pane has
+   been placed within the Jcrop widget */
+.jcrop-holder #preview-pane {
+  display: block;
+  position: absolute;
+  z-index: 2000;
+  top: 10px;
+  right: -390px;
+  padding: 6px;
+  border: 1px rgba(0,0,0,.4) solid;
+  background-color: white;
+
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+
+  -webkit-box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* The Javascript code will set the aspect ratio of the crop
+   area based on the size of the thumbnail preview,
+   specified here */
+#preview-pane .preview-container {
+  width: 350px;
+  height: 170px;
+  overflow: hidden;
+}
+
+</style>
+
+<div class="jc-demo-box">
+
+	<%= image_tag @neighborhood.photo.url(:original), :width=>'500px', :id => "target" %>
+
+
+ 	<div id="preview-pane">
+	   <div class="preview-container">
+			<%#= image_tag @neighborhood.photo.url(:original), :id => "target" %>
+
+	     <img src="<%=@neighborhood.photo.url(:original)%>" class="jcrop-preview" alt="Preview" />
+	   </div>
+	 </div>
+
+<div class="clearfix"></div>
+
+</div>
+
+
+
+
+<%if 1==2%>
+
+<%= form_for @neighborhood do |f| %>
+  <% for attribute in [:crop_x, :crop_y, :crop_w, :crop_h] %>
+    <%= f.text_field attribute, :id => attribute %>
+  <% end %>
+  <p><%= f.submit "Crop" %></p>
+<% end %>
+<%end%>
+
+<%end%>
+
+
+
+
 	<div class="container">
 	  <div class="row">
 	    <div class="span12">

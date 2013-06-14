@@ -48,13 +48,10 @@ class NeighborhoodsController < ApplicationController
 
     respond_to do |format|
       if @neighborhood.save
-      if params[:neighborhood][:photo].blank?
-      redirect_to @neighborhood
-    else
-      render :action => "crop"
-    end
-
-      else
+          format.html { redirect_to @neighborhood, notice: 'Neighborhood was successfully created.' }
+          format.json { render json: @neighborhood, status: :created, location: @neighborhood }
+          
+        else
         format.html { render action: "new" }
         format.json { render json: @neighborhood.errors, status: :unprocessable_entity }
       end
@@ -69,12 +66,8 @@ class NeighborhoodsController < ApplicationController
     respond_to do |format|
       if @neighborhood.update_attributes(params[:neighborhood])
 
-     if params[:neighborhood][:photo].blank?
-      flash[:notice] = "Successfully created user."
-      redirect_to @neighborhood
-    else
-      render :action => "crop"
-    end
+          format.html { redirect_to @neighborhood, notice: 'Neighborhood was successfully created.' }
+          format.json { head :no_content }
 
       else
         format.html { render action: "edit" }
