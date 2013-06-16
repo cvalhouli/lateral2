@@ -10,7 +10,9 @@ class PropertiesController < ApplicationController
       if params[:zone_a]
           za=PropertyField.where(:flood_zone=>'A')
           for a in za
+            if a.property.property_fields.first.flood_zone=='A'
               flood_zone_a<<a.property
+            end
           end
       end
       
@@ -19,7 +21,11 @@ class PropertiesController < ApplicationController
       if params[:zone_b]
           zb=PropertyField.where(:flood_zone=>'B')
           for b in zb
+              if b.property.property_fields.first.flood_zone=='B'
+
               flood_zone_b<<b.property
+                  
+            end
           end
           
       end
@@ -29,7 +35,11 @@ class PropertiesController < ApplicationController
       if params[:zone_c]
           zc=PropertyField.where(:flood_zone=>'C')
           for c in zc
+              if c.property.property_fields.first.flood_zone=='C'
+
               flood_zone_c<<c.property
+                  
+              end
           end
           
       end
