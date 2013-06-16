@@ -103,7 +103,7 @@ $(function() {
 <%#= %>
 <style>
 div.bg-img {
-   /**** background-image: url(<%=@neighborhood.photo.url%>);
+   background-image: url(<%=@neighborhood.photo.url%>);
 
     background-position: <%=@neighborhood.crop_x%>px <%=@neighborhood.crop_y%>px;
 
@@ -113,10 +113,7 @@ div.bg-img {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-****/
-    margin-left:-<%=@neighborhood.crop_x%>px;
-    margin-top:-<%=@neighborhood.crop_y%>px;
-
+  
     border: 0px solid #aaa;
     width: 100%;
     padding: 0px 0px 0px 0px;
