@@ -283,6 +283,19 @@ p, #data {
 
     </div>
   </div>
+<% if params[:controller]=='properties'%>
+<% if params[:action]=='show' or params[:action]=='index'%>
+<div class="row">
+<div class="span12">
+	<div style="font-size:10px">
+	All information regarding property for sale, rental, exchange, or financing, as well as data regarding neighborhoods and analytics, is from sources deemed reliable but is subject to errors, omissions, changes in price, prior sale, rental, or withdrawal without notice. Please see Terms of Service for additional restrictions. All dimensions are approximate. For exact dimensions, you must retain the services of an architect or engineer. The number of rooms and bedrooms listed should not be considered a legal conclusion. Each person should consult with his/her own attorney, architect or zoning expert to make a determination as to the number of rooms in the unit that may be legally used as a bedroom. Customer should consult with its counsel regarding closing costs. Nothing herein shall constitute an offer or solicitation with respect to the purchase or sale of any property in any jurisdiction in which such offer or solicitation is not authorized or to any person to whom it would be unlawful to make an offer or solicitation. 
+	</div>
+</div>
+</div>
+<%end%>
+<% end %>
+
+
 </div>
 
 
