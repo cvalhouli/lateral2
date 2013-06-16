@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130613225258) do
+ActiveRecord::Schema.define(:version => 20130615002257) do
 
   create_table "early_pregnancies", :force => true do |t|
     t.string   "zip"
@@ -134,6 +134,7 @@ ActiveRecord::Schema.define(:version => 20130613225258) do
     t.string   "crop_y"
     t.string   "crop_w"
     t.string   "crop_h"
+    t.string   "photo_text"
   end
 
   create_table "pictures", :force => true do |t|

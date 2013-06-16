@@ -1,0 +1,1144 @@
+
+
+<link href="https://a2.muscache.com/airbnb/nabelove/locations/assets/application-0f085583ed84dda88c9f437a2f9d43f0.css" media="all" rel="stylesheet" type="text/css" />
+  <link href="https://a2.muscache.com/airbnb/nabelove/locations/assets/genome/cities-18feaa36b9b7e107ef9316f579da933a.css" media="screen" rel="stylesheet" type="text/css" />
+
+
+
+<div class="container " id="neighborhood_tiles" style="margin-top:50px">
+      <ul class="neighborhoods">
+    
+
+
+<% for neighborhood in Neighborhood.find_all_by_city("Manhattan")%>
+
+      <li class="tile " data-neighborhood-id="<%=neighborhood.id%>" data-neighborhood-permalink="<%=neighborhood.name%>" style="">
+        <div class="photo">
+  <h3><a href="/neighborhoods/<%=neighborhood.id%>" class=""><%=neighborhood.name%></a></h3>
+  <a href="/neighborhoods/<%=neighborhood.id%>" class=""><img alt="Pixel" src="<%=neighborhood.photo.url(:original)%>" height="210" width="315" /></a>
+</div>
+  <div class="blurb">
+    <p>Default text</p>
+    <ul class="tags">
+        <li>tags</li>
+        <li>tags</li>
+        <li>tags</li>
+        <li>tags</li>
+    </ul>
+  </div>
+<div class="sub friends" style="display: none;">
+  <ul>
+  </ul>
+  <p>
+  </p>
+</div>
+
+      </li>
+<% end %>
+
+<%if 1==2%>
+      <li class="tile " data-neighborhood-id="426" data-neighborhood-permalink="battery-park-city" style="display: none;">
+        <div class="photo">
+  <h3><a href="/locations/new-york/battery-park-city" class="">Battery Park City</a></h3>
+  <a href="/locations/new-york/battery-park-city" class=""><img alt="Pixel" src="https://a1.muscache.com/locations/uploads/neighborhood/hero/426/0_4200_0_2800_tile_BatteryParkCity_Tam_45.jpg" height="210" src="https://a2.muscache.com/airbnb/nabelove/locations/assets/pixel-eb5bdbd61cca8b5bf7c5991c7d247eab.png" width="315" /></a>
+</div>
+  <div class="blurb">
+    <p>Behold, it’s the Statue of Liberty from your high-rise’s rooftop.</p>
+    <ul class="tags">
+        <li>parks</li>
+        <li>waterfront</li>
+        <li>high-rise</li>
+        <li>kid-friendly</li>
+    </ul>
+  </div>
+<div class="sub friends" style="display: none;">
+  <ul>
+  </ul>
+  <p>
+  </p>
+</div>
+
+      </li>
+      <li class="tile " data-neighborhood-id="1124" data-neighborhood-permalink="bedford-stuyvesant" style="display: none;">
+        <div class="photo">
+  <h3><a href="/locations/new-york/bedford-stuyvesant" class="">Bedford-Stuyvesant</a></h3>
+  <a href="/locations/new-york/bedford-stuyvesant" class=""><img alt="Pixel" src="https://a1.muscache.com/locations/uploads/neighborhood/hero/1124/35_4165_0_2753_tile_USA_NYC_BedStuy_CameronBlaylock_7.jpg" height="210" src="https://a2.muscache.com/airbnb/nabelove/locations/assets/pixel-eb5bdbd61cca8b5bf7c5991c7d247eab.png" width="315" /></a>
+</div>
+  <div class="blurb">
+    <p>Unpretentious and unpredictable.</p>
+    <ul class="tags">
+        <li>diverse</li>
+        <li>brownstones</li>
+        <li>historic</li>
+        <li>a train</li>
+    </ul>
+  </div>
+<div class="sub friends" style="display: none;">
+  <ul>
+  </ul>
+  <p>
+  </p>
+</div>
+
+      </li>
+      <li class="tile " data-neighborhood-id="1213" data-neighborhood-permalink="boerum-hill" style="">
+        <div class="photo">
+  <h3><a href="/locations/new-york/boerum-hill" class="">Boerum Hill</a></h3>
+  <a href="/locations/new-york/boerum-hill" class=""><img alt="Pixel" src="https://a1.muscache.com/locations/uploads/neighborhood/hero/1213/0_4200_0_2800_tile_USA_NYC_BOERUMHILL_0042_JBK.jpg" height="210" src="https://a2.muscache.com/airbnb/nabelove/locations/assets/pixel-eb5bdbd61cca8b5bf7c5991c7d247eab.png" width="315" /></a>
+</div>
+  <div class="blurb">
+    <p>A well-balanced Brooklyn neighborhood.</p>
+    <ul class="tags">
+        <li>quaint</li>
+        <li>gentrified</li>
+        <li>family friendly</li>
+        <li>quiet</li>
+    </ul>
+  </div>
+<div class="sub friends" style="display: none;">
+  <ul>
+  </ul>
+  <p>
+  </p>
+</div>
+
+      </li>
+      <li class="tile " data-neighborhood-id="1211" data-neighborhood-permalink="brooklyn-heights" style="">
+        <div class="photo">
+  <h3><a href="/locations/new-york/brooklyn-heights" class="">Brooklyn Heights</a></h3>
+  <a href="/locations/new-york/brooklyn-heights" class=""><img alt="Pixel" src="https://a1.muscache.com/locations/uploads/neighborhood/hero/1211/0_4200_0_2800_tile_USA_NYC_BKHEIGHTS_036_JR.jpg" height="210" src="https://a2.muscache.com/airbnb/nabelove/locations/assets/pixel-eb5bdbd61cca8b5bf7c5991c7d247eab.png" width="315" /></a>
+</div>
+  <div class="blurb">
+    <p>Well-tailored. Well-tended.</p>
+    <ul class="tags">
+        <li>brownstones</li>
+        <li>affluent</li>
+        <li>promenade</li>
+        <li>posh</li>
+    </ul>
+  </div>
+<div class="sub friends" style="display: none;">
+  <ul>
+  </ul>
+  <p>
+  </p>
+</div>
+
+      </li>
+      <li class="tile " data-neighborhood-id="1120" data-neighborhood-permalink="bushwick" style="display: none;">
+        <div class="photo">
+  <h3><a href="/locations/new-york/bushwick" class="">Bushwick</a></h3>
+  <a href="/locations/new-york/bushwick" class=""><img alt="Pixel" src="https://a3.muscache.com/locations/uploads/neighborhood/hero/1120/0_4200_0_2800_tile_Bushwick_Tam_60.jpg" height="210" src="https://a2.muscache.com/airbnb/nabelove/locations/assets/pixel-eb5bdbd61cca8b5bf7c5991c7d247eab.png" width="315" /></a>
+</div>
+  <div class="blurb">
+    <p>The current landing pad for NYC’s Great Artistic Migration.</p>
+    <ul class="tags">
+        <li>gritty</li>
+        <li>latin</li>
+        <li>artsy</li>
+        <li>cheap</li>
+    </ul>
+  </div>
+<div class="sub friends" style="display: none;">
+  <ul>
+  </ul>
+  <p>
+  </p>
+</div>
+
+      </li>
+      <li class="tile " data-neighborhood-id="1257" data-neighborhood-permalink="carroll-gardens" style="">
+        <div class="photo">
+  <h3><a href="/locations/new-york/carroll-gardens" class="">Carroll Gardens</a></h3>
+  <a href="/locations/new-york/carroll-gardens" class=""><img alt="Pixel" src="https://a1.muscache.com/locations/uploads/neighborhood/hero/1257/0_4200_0_2800_tile_USA_NYC_CARROLGARDENS_0217_JBK.jpg" height="210" src="https://a2.muscache.com/airbnb/nabelove/locations/assets/pixel-eb5bdbd61cca8b5bf7c5991c7d247eab.png" width="315" /></a>
+</div>
+  <div class="blurb">
+    <p>Unassumingly delightful in Brooklyn.</p>
+    <ul class="tags">
+        <li>beautiful</li>
+        <li>sought-after</li>
+        <li>gentrified</li>
+        <li>quiet</li>
+    </ul>
+  </div>
+<div class="sub friends" style="display: none;">
+  <ul>
+  </ul>
+  <p>
+  </p>
+</div>
+
+      </li>
+      <li class="tile " data-neighborhood-id="593" data-neighborhood-permalink="chelsea" style="">
+        <div class="photo">
+  <h3><a href="/locations/new-york/chelsea" class="">Chelsea</a></h3>
+  <a href="/locations/new-york/chelsea" class=""><img alt="Pixel" src="https://a3.muscache.com/locations/uploads/neighborhood/hero/593/1_4199_0_2799_tile_USA_NYC_Chelsea_026_JR.jpg" height="210" src="https://a2.muscache.com/airbnb/nabelove/locations/assets/pixel-eb5bdbd61cca8b5bf7c5991c7d247eab.png" width="315" /></a>
+</div>
+  <div class="blurb">
+    <p>High class, high fashion, and high speed.</p>
+    <ul class="tags">
+        <li>gay</li>
+        <li>art galleries</li>
+        <li>high line</li>
+        <li>nightlife</li>
+    </ul>
+  </div>
+<div class="sub friends" style="display: none;">
+  <ul>
+  </ul>
+  <p>
+  </p>
+</div>
+
+      </li>
+      <li class="tile " data-neighborhood-id="474" data-neighborhood-permalink="chinatown" style="display: none;">
+        <div class="photo">
+  <h3><a href="/locations/new-york/chinatown" class="">Chinatown</a></h3>
+  <a href="/locations/new-york/chinatown" class=""><img alt="Pixel" src="https://a1.muscache.com/locations/uploads/neighborhood/hero/474/0_4200_0_2800_tile_Chinatown_Tam_48.jpg" height="210" src="https://a2.muscache.com/airbnb/nabelove/locations/assets/pixel-eb5bdbd61cca8b5bf7c5991c7d247eab.png" width="315" /></a>
+</div>
+  <div class="blurb">
+    <p>Dim Sum? Yes please.</p>
+    <ul class="tags">
+        <li>good location</li>
+        <li>chinese food</li>
+        <li>good food</li>
+        <li>residential/commercial</li>
+    </ul>
+  </div>
+<div class="sub friends" style="display: none;">
+  <ul>
+  </ul>
+  <p>
+  </p>
+</div>
+
+      </li>
+      <li class="tile " data-neighborhood-id="489" data-neighborhood-permalink="civic-center" style="display: none;">
+        <div class="photo">
+  <h3><a href="/locations/new-york/civic-center" class="">Civic Center</a></h3>
+  <a href="/locations/new-york/civic-center" class=""><img alt="Pixel" src="https://a0.muscache.com/locations/uploads/neighborhood/hero/489/0_4200_0_2800_tile_USA_CivicCenter_CameronBlaylock7.jpg" height="210" src="https://a2.muscache.com/airbnb/nabelove/locations/assets/pixel-eb5bdbd61cca8b5bf7c5991c7d247eab.png" width="315" /></a>
+</div>
+  <div class="blurb">
+    <p>Marble buildings and government business.</p>
+    <ul class="tags">
+        <li>non-residential</li>
+        <li>government</li>
+        <li>historic</li>
+        <li>civic center</li>
+    </ul>
+  </div>
+<div class="sub friends" style="display: none;">
+  <ul>
+  </ul>
+  <p>
+  </p>
+</div>
+
+      </li>
+      <li class="tile " data-neighborhood-id="1150" data-neighborhood-permalink="clinton-hill" style="">
+        <div class="photo">
+  <h3><a href="/locations/new-york/clinton-hill" class="">Clinton Hill</a></h3>
+  <a href="/locations/new-york/clinton-hill" class=""><img alt="Pixel" src="https://a1.muscache.com/locations/uploads/neighborhood/hero/1150/0_4200_0_2800_tile_USA_NYC_ClintonHill_004_JR.jpg" height="210" src="https://a2.muscache.com/airbnb/nabelove/locations/assets/pixel-eb5bdbd61cca8b5bf7c5991c7d247eab.png" width="315" /></a>
+</div>
+  <div class="blurb">
+    <p>Artsy but not over-the-top.</p>
+    <ul class="tags">
+        <li>artsy</li>
+        <li>students</li>
+        <li>foodies</li>
+        <li>bars</li>
+    </ul>
+  </div>
+<div class="sub friends" style="display: none;">
+  <ul>
+  </ul>
+  <p>
+  </p>
+</div>
+
+      </li>
+      <li class="tile " data-neighborhood-id="1260" data-neighborhood-permalink="cobble-hill" style="">
+        <div class="photo">
+  <h3><a href="/locations/new-york/cobble-hill" class="">Cobble Hill</a></h3>
+  <a href="/locations/new-york/cobble-hill" class=""><img alt="Pixel" src="https://a3.muscache.com/locations/uploads/neighborhood/hero/1260/0_3544_0_2363_tile_USA_NYC_COBBLEHILL_0344_JBK.jpg" height="210" src="https://a2.muscache.com/airbnb/nabelove/locations/assets/pixel-eb5bdbd61cca8b5bf7c5991c7d247eab.png" width="315" /></a>
+</div>
+  <div class="blurb">
+    <p>Cute shops and cuter babies.</p>
+    <ul class="tags">
+        <li>restaurants/bars</li>
+        <li>families</li>
+        <li>italian</li>
+        <li>brownstones</li>
+    </ul>
+  </div>
+<div class="sub friends" style="display: none;">
+  <ul>
+  </ul>
+  <p>
+  </p>
+</div>
+
+      </li>
+      <li class="tile " data-neighborhood-id="1156" data-neighborhood-permalink="dumbo" style="">
+        <div class="photo">
+  <h3><a href="/locations/new-york/dumbo" class="">DUMBO</a></h3>
+  <a href="/locations/new-york/dumbo" class=""><img alt="Pixel" src="https://a1.muscache.com/locations/uploads/neighborhood/hero/1156/0_4200_0_2800_tile_USA_NYC_DUMBO_020_JBK.jpg" height="210" src="https://a2.muscache.com/airbnb/nabelove/locations/assets/pixel-eb5bdbd61cca8b5bf7c5991c7d247eab.png" width="315" /></a>
+</div>
+  <div class="blurb">
+    <p>Warehouses turned into ware-homes.</p>
+    <ul class="tags">
+        <li>creative agencies</li>
+        <li>views</li>
+        <li>accessible</li>
+        <li>lofts</li>
+    </ul>
+  </div>
+<div class="sub friends" style="display: none;">
+  <ul>
+  </ul>
+  <p>
+  </p>
+</div>
+
+      </li>
+      <li class="tile " data-neighborhood-id="1159" data-neighborhood-permalink="downtown-brooklyn" style="display: none;">
+        <div class="photo">
+  <h3><a href="/locations/new-york/downtown-brooklyn" class="">Downtown Brooklyn</a></h3>
+  <a href="/locations/new-york/downtown-brooklyn" class=""><img alt="Pixel" src="https://a1.muscache.com/locations/uploads/neighborhood/hero/1159/0_4200_10_2810_tile_USA_NYC_DowntownBrooklyn_CameronBlaylock18.jpg" height="210" src="https://a2.muscache.com/airbnb/nabelove/locations/assets/pixel-eb5bdbd61cca8b5bf7c5991c7d247eab.png" width="315" /></a>
+</div>
+  <div class="blurb">
+    <p>Operating during normal business hours.</p>
+    <ul class="tags">
+        <li>pricey</li>
+        <li>professional</li>
+        <li>gentrified</li>
+        <li>restaurants</li>
+    </ul>
+  </div>
+<div class="sub friends" style="display: none;">
+  <ul>
+  </ul>
+  <p>
+  </p>
+</div>
+
+      </li>
+      <li class="tile " data-neighborhood-id="747" data-neighborhood-permalink="east-harlem" style="display: none;">
+        <div class="photo">
+  <h3><a href="/locations/new-york/east-harlem" class="">East Harlem</a></h3>
+  <a href="/locations/new-york/east-harlem" class=""><img alt="Pixel" src="https://a0.muscache.com/locations/uploads/neighborhood/hero/747/0_4200_0_2800_tile_USA_EastHarlem_CameronBlaylock2.jpg" height="210" src="https://a2.muscache.com/airbnb/nabelove/locations/assets/pixel-eb5bdbd61cca8b5bf7c5991c7d247eab.png" width="315" /></a>
+</div>
+  <div class="blurb">
+    <p>Spanish flavors. iQue rico!</p>
+    <ul class="tags">
+        <li>gentrification</li>
+        <li>vibrant community</li>
+        <li>good food</li>
+        <li>latin</li>
+    </ul>
+  </div>
+<div class="sub friends" style="display: none;">
+  <ul>
+  </ul>
+  <p>
+  </p>
+</div>
+
+      </li>
+      <li class="tile " data-neighborhood-id="491" data-neighborhood-permalink="east-village" style="">
+        <div class="photo">
+  <h3><a href="/locations/new-york/east-village" class="">East Village</a></h3>
+  <a href="/locations/new-york/east-village" class=""><img alt="Pixel" src="https://a0.muscache.com/locations/uploads/neighborhood/hero/491/703_3472_65_1911_tile_EastVillage_Tam_24.jpg" height="210" src="https://a2.muscache.com/airbnb/nabelove/locations/assets/pixel-eb5bdbd61cca8b5bf7c5991c7d247eab.png" width="315" /></a>
+</div>
+  <div class="blurb">
+    <p>Cool like Steve McQueen.</p>
+    <ul class="tags">
+        <li>cool</li>
+        <li>bars</li>
+        <li>nightlife</li>
+        <li>nyu</li>
+    </ul>
+  </div>
+<div class="sub friends" style="display: none;">
+  <ul>
+  </ul>
+  <p>
+  </p>
+</div>
+
+      </li>
+      <li class="tile " data-neighborhood-id="425" data-neighborhood-permalink="financial-district" style="display: none;">
+        <div class="photo">
+  <h3><a href="/locations/new-york/financial-district" class="">Financial District</a></h3>
+  <a href="/locations/new-york/financial-district" class=""><img alt="Pixel" src="https://a1.muscache.com/locations/uploads/neighborhood/hero/425/0_4200_0_2800_tile_FinancialDistrict_Tam_13.jpg" height="210" src="https://a2.muscache.com/airbnb/nabelove/locations/assets/pixel-eb5bdbd61cca8b5bf7c5991c7d247eab.png" width="315" /></a>
+</div>
+  <div class="blurb">
+    <p>High-rises. High prices. High blood pressure.</p>
+    <ul class="tags">
+        <li>wall street</li>
+        <li>bankers</li>
+        <li>tourists</li>
+        <li>historic</li>
+    </ul>
+  </div>
+<div class="sub friends" style="display: none;">
+  <ul>
+  </ul>
+  <p>
+  </p>
+</div>
+
+      </li>
+      <li class="tile " data-neighborhood-id="531" data-neighborhood-permalink="flatiron-district" style="display: none;">
+        <div class="photo">
+  <h3><a href="/locations/new-york/flatiron-district" class="">Flatiron District</a></h3>
+  <a href="/locations/new-york/flatiron-district" class=""><img alt="Pixel" src="https://a1.muscache.com/locations/uploads/neighborhood/hero/531/0_4200_0_2800_tile_USA_NYC_FLATIRON_071_JBK.jpg" height="210" src="https://a2.muscache.com/airbnb/nabelove/locations/assets/pixel-eb5bdbd61cca8b5bf7c5991c7d247eab.png" width="315" /></a>
+</div>
+  <div class="blurb">
+    <p>Bustling big-city streets.</p>
+    <ul class="tags">
+        <li>congested</li>
+        <li>convenient</li>
+        <li>busy</li>
+        <li>business</li>
+    </ul>
+  </div>
+<div class="sub friends" style="display: none;">
+  <ul>
+  </ul>
+  <p>
+  </p>
+</div>
+
+      </li>
+      <li class="tile " data-neighborhood-id="1438" data-neighborhood-permalink="flushing" style="">
+        <div class="photo">
+  <h3><a href="/locations/new-york/flushing" class="">Flushing</a></h3>
+  <a href="/locations/new-york/flushing" class=""><img alt="Pixel" src="https://a3.muscache.com/locations/uploads/neighborhood/hero/1438/27_4173_0_2764_tile_NYC_Flushing_CameronBlaylock19.jpg" height="210" src="https://a2.muscache.com/airbnb/nabelove/locations/assets/pixel-eb5bdbd61cca8b5bf7c5991c7d247eab.png" width="315" /></a>
+</div>
+  <div class="blurb">
+    <p>A top-notch community under the radar.</p>
+    <ul class="tags">
+        <li>cheap</li>
+        <li>diverse</li>
+        <li>great food</li>
+        <li>historic</li>
+    </ul>
+  </div>
+<div class="sub friends" style="display: none;">
+  <ul>
+  </ul>
+  <p>
+  </p>
+</div>
+
+      </li>
+      <li class="tile " data-neighborhood-id="1149" data-neighborhood-permalink="fort-greene" style="">
+        <div class="photo">
+  <h3><a href="/locations/new-york/fort-greene" class="">Fort Greene</a></h3>
+  <a href="/locations/new-york/fort-greene" class=""><img alt="Pixel" src="https://a3.muscache.com/locations/uploads/neighborhood/hero/1149/1_4199_0_2798_tile_USA_NYC_WESTVILLAGE_020_JR.jpg" height="210" src="https://a2.muscache.com/airbnb/nabelove/locations/assets/pixel-eb5bdbd61cca8b5bf7c5991c7d247eab.png" width="315" /></a>
+</div>
+  <div class="blurb">
+    <p>Neon leggings, yoga pants, and reusable grocery bags.</p>
+    <ul class="tags">
+        <li>boutique shopping</li>
+        <li>flea market</li>
+        <li>gay friendly</li>
+        <li>gentrifying</li>
+    </ul>
+  </div>
+<div class="sub friends" style="display: none;">
+  <ul>
+  </ul>
+  <p>
+  </p>
+</div>
+
+      </li>
+      <li class="tile " data-neighborhood-id="1298" data-neighborhood-permalink="gowanus" style="display: none;">
+        <div class="photo">
+  <h3><a href="/locations/new-york/gowanus" class="">Gowanus</a></h3>
+  <a href="/locations/new-york/gowanus" class=""><img alt="Pixel" src="https://a2.muscache.com/locations/uploads/neighborhood/hero/1298/0_4200_0_2800_tile_USA_NewYork_Gowanus_CameronBlaylock35.jpg" height="210" src="https://a2.muscache.com/airbnb/nabelove/locations/assets/pixel-eb5bdbd61cca8b5bf7c5991c7d247eab.png" width="315" /></a>
+</div>
+  <div class="blurb">
+    <p>Artistically industrial. Or, just industrial.</p>
+    <ul class="tags">
+        <li>up-and-coming</li>
+        <li>development</li>
+        <li>industrial</li>
+        <li>hipster</li>
+    </ul>
+  </div>
+<div class="sub friends" style="display: none;">
+  <ul>
+  </ul>
+  <p>
+  </p>
+</div>
+
+      </li>
+      <li class="tile " data-neighborhood-id="540" data-neighborhood-permalink="gramercy-park" style="">
+        <div class="photo">
+  <h3><a href="/locations/new-york/gramercy-park" class="">Gramercy Park</a></h3>
+  <a href="/locations/new-york/gramercy-park" class=""><img alt="Pixel" src="https://a0.muscache.com/locations/uploads/neighborhood/hero/540/0_4200_0_2800_tile_USA_NYC_GRAMERCY_223_JBK.jpg" height="210" src="https://a2.muscache.com/airbnb/nabelove/locations/assets/pixel-eb5bdbd61cca8b5bf7c5991c7d247eab.png" width="315" /></a>
+</div>
+  <div class="blurb">
+    <p>Hey, can you get me into Gramercy Park?</p>
+    <ul class="tags">
+        <li>charming</li>
+        <li>expensive</li>
+        <li>townhouses</li>
+        <li>wealthy</li>
+    </ul>
+  </div>
+<div class="sub friends" style="display: none;">
+  <ul>
+  </ul>
+  <p>
+  </p>
+</div>
+
+      </li>
+      <li class="tile " data-neighborhood-id="834" data-neighborhood-permalink="greenpoint" style="">
+        <div class="photo">
+  <h3><a href="/locations/new-york/greenpoint" class="">Greenpoint</a></h3>
+  <a href="/locations/new-york/greenpoint" class=""><img alt="Pixel" src="https://a1.muscache.com/locations/uploads/neighborhood/hero/834/0_4200_0_2800_tile_USA_Brooklyn_Greenpoint_122_EO.jpg" height="210" src="https://a2.muscache.com/airbnb/nabelove/locations/assets/pixel-eb5bdbd61cca8b5bf7c5991c7d247eab.png" width="315" /></a>
+</div>
+  <div class="blurb">
+    <p>Familiar faces and Polish places.</p>
+    <ul class="tags">
+        <li>polish</li>
+        <li>developing</li>
+        <li>young people</li>
+        <li>former williamsburgers</li>
+    </ul>
+  </div>
+<div class="sub friends" style="display: none;">
+  <ul>
+  </ul>
+  <p>
+  </p>
+</div>
+
+      </li>
+      <li class="tile " data-neighborhood-id="509" data-neighborhood-permalink="greenwich-village" style="">
+        <div class="photo">
+  <h3><a href="/locations/new-york/greenwich-village" class="">Greenwich Village</a></h3>
+  <a href="/locations/new-york/greenwich-village" class=""><img alt="Pixel" src="https://a0.muscache.com/locations/uploads/neighborhood/hero/509/0_4200_0_2800_tile_USA_GreenwichVillage_CameronBlaylock39.jpg" height="210" src="https://a2.muscache.com/airbnb/nabelove/locations/assets/pixel-eb5bdbd61cca8b5bf7c5991c7d247eab.png" width="315" /></a>
+</div>
+  <div class="blurb">
+    <p>Sporting a Village vibe in the big city.</p>
+    <ul class="tags">
+        <li>nyu</li>
+        <li>washington square park</li>
+        <li>students</li>
+        <li>touristy</li>
+    </ul>
+  </div>
+<div class="sub friends" style="display: none;">
+  <ul>
+  </ul>
+  <p>
+  </p>
+</div>
+
+      </li>
+      <li class="tile " data-neighborhood-id="750" data-neighborhood-permalink="harlem" style="">
+        <div class="photo">
+  <h3><a href="/locations/new-york/harlem" class="">Harlem</a></h3>
+  <a href="/locations/new-york/harlem" class=""><img alt="Pixel" src="https://a0.muscache.com/locations/uploads/neighborhood/hero/750/0_4200_0_2800_tile_NYC_Harlem_CameronBlaylock16.jpg" height="210" src="https://a2.muscache.com/airbnb/nabelove/locations/assets/pixel-eb5bdbd61cca8b5bf7c5991c7d247eab.png" width="315" /></a>
+</div>
+  <div class="blurb">
+    <p>Creative culture rooted in rhythm.</p>
+    <ul class="tags">
+        <li>gentrifying</li>
+        <li>up and coming</li>
+        <li>african american heritage</li>
+        <li>apollo theater</li>
+    </ul>
+  </div>
+<div class="sub friends" style="display: none;">
+  <ul>
+  </ul>
+  <p>
+  </p>
+</div>
+
+      </li>
+      <li class="tile " data-neighborhood-id="662" data-neighborhood-permalink="hell-s-kitchen" style="">
+        <div class="photo">
+  <h3><a href="/locations/new-york/hell-s-kitchen" class="">Hell's Kitchen</a></h3>
+  <a href="/locations/new-york/hell-s-kitchen" class=""><img alt="Pixel" src="https://a2.muscache.com/locations/uploads/neighborhood/hero/662/0_4199_0_2800_tile_USA_NYC_hellskitchen_001_JR.jpg" height="210" src="https://a2.muscache.com/airbnb/nabelove/locations/assets/pixel-eb5bdbd61cca8b5bf7c5991c7d247eab.png" width="315" /></a>
+</div>
+  <div class="blurb">
+    <p>If you can’t stand the heat…</p>
+    <ul class="tags">
+        <li>convenient location</li>
+        <li>affordable</li>
+        <li>young</li>
+        <li>great food</li>
+    </ul>
+  </div>
+<div class="sub friends" style="display: none;">
+  <ul>
+  </ul>
+  <p>
+  </p>
+</div>
+
+      </li>
+      <li class="tile " data-neighborhood-id="466" data-neighborhood-permalink="hudson-square" style="display: none;">
+        <div class="photo">
+  <h3><a href="/locations/new-york/hudson-square" class="">Hudson Square</a></h3>
+  <a href="/locations/new-york/hudson-square" class=""><img alt="Pixel" src="https://a1.muscache.com/locations/uploads/neighborhood/hero/466/0_4200_0_2800_tile_HudsonSquare_Tam_06.jpg" height="210" src="https://a2.muscache.com/airbnb/nabelove/locations/assets/pixel-eb5bdbd61cca8b5bf7c5991c7d247eab.png" width="315" /></a>
+</div>
+  <div class="blurb">
+    <p>Daytime rush. Nighttime hush.</p>
+    <ul class="tags">
+        <li>on the water</li>
+        <li>tech centric</li>
+        <li>expensive</li>
+        <li>high and low rise</li>
+    </ul>
+  </div>
+<div class="sub friends" style="display: none;">
+  <ul>
+  </ul>
+  <p>
+  </p>
+</div>
+
+      </li>
+      <li class="tile " data-neighborhood-id="758" data-neighborhood-permalink="inwood" style="display: none;">
+        <div class="photo">
+  <h3><a href="/locations/new-york/inwood" class="">Inwood</a></h3>
+  <a href="/locations/new-york/inwood" class=""><img alt="Pixel" src="https://a0.muscache.com/locations/uploads/neighborhood/hero/758/567_3001_0_1622_tile_Inwood_Tam_03.jpg" height="210" src="https://a2.muscache.com/airbnb/nabelove/locations/assets/pixel-eb5bdbd61cca8b5bf7c5991c7d247eab.png" width="315" /></a>
+</div>
+  <div class="blurb">
+    <p>Silence amid the noise.</p>
+    <ul class="tags">
+        <li>residential</li>
+        <li>green</li>
+        <li>dominican culture</li>
+        <li>pretty</li>
+    </ul>
+  </div>
+<div class="sub friends" style="display: none;">
+  <ul>
+  </ul>
+  <p>
+  </p>
+</div>
+
+      </li>
+      <li class="tile " data-neighborhood-id="1516" data-neighborhood-permalink="jackson-heights" style="display: none;">
+        <div class="photo">
+  <h3><a href="/locations/new-york/jackson-heights" class="">Jackson Heights</a></h3>
+  <a href="/locations/new-york/jackson-heights" class=""><img alt="Pixel" src="https://a0.muscache.com/locations/uploads/neighborhood/hero/1516/0_4200_0_2800_tile_USA_NYC_JacksonHeights_028_JH.jpg" height="210" src="https://a2.muscache.com/airbnb/nabelove/locations/assets/pixel-eb5bdbd61cca8b5bf7c5991c7d247eab.png" width="315" /></a>
+</div>
+  <div class="blurb">
+    <p>A hidden gem in Queens’ crown.</p>
+    <ul class="tags">
+        <li>multicultural</li>
+        <li>gay friendly</li>
+        <li>indian culture</li>
+        <li>diverse</li>
+    </ul>
+  </div>
+<div class="sub friends" style="display: none;">
+  <ul>
+  </ul>
+  <p>
+  </p>
+</div>
+
+      </li>
+      <li class="tile " data-neighborhood-id="483" data-neighborhood-permalink="little-italy" style="display: none;">
+        <div class="photo">
+  <h3><a href="/locations/new-york/little-italy" class="">Little Italy</a></h3>
+  <a href="/locations/new-york/little-italy" class=""><img alt="Pixel" src="https://a0.muscache.com/locations/uploads/neighborhood/hero/483/0_5616_0_3744_tile_LittleItaly_Tam_18.jpg" height="210" src="https://a2.muscache.com/airbnb/nabelove/locations/assets/pixel-eb5bdbd61cca8b5bf7c5991c7d247eab.png" width="315" /></a>
+</div>
+  <div class="blurb">
+    <p>Garlic. Bread. Pasta. That’s amore.</p>
+    <ul class="tags">
+        <li>tourists</li>
+        <li>restaurants</li>
+        <li>touristy</li>
+        <li>crowded</li>
+    </ul>
+  </div>
+<div class="sub friends" style="display: none;">
+  <ul>
+  </ul>
+  <p>
+  </p>
+</div>
+
+      </li>
+      <li class="tile " data-neighborhood-id="1495" data-neighborhood-permalink="long-island-city" style="display: none;">
+        <div class="photo">
+  <h3><a href="/locations/new-york/long-island-city" class="">Long Island City</a></h3>
+  <a href="/locations/new-york/long-island-city" class=""><img alt="Pixel" src="https://a1.muscache.com/locations/uploads/neighborhood/hero/1495/0_4200_0_2800_tile_USA_NYC_LongIslandCity_007_JH.jpg" height="210" src="https://a2.muscache.com/airbnb/nabelove/locations/assets/pixel-eb5bdbd61cca8b5bf7c5991c7d247eab.png" width="315" /></a>
+</div>
+  <div class="blurb">
+    <p>Big buildings are big canvases for creative minds.</p>
+    <ul class="tags">
+        <li>waterfront</li>
+        <li>industrial</li>
+        <li>up and coming</li>
+        <li>gentrification</li>
+    </ul>
+  </div>
+<div class="sub friends" style="display: none;">
+  <ul>
+  </ul>
+  <p>
+  </p>
+</div>
+
+      </li>
+      <li class="tile " data-neighborhood-id="482" data-neighborhood-permalink="lower-east-side" style="">
+        <div class="photo">
+  <h3><a href="/locations/new-york/lower-east-side" class="">Lower East Side</a></h3>
+  <a href="/locations/new-york/lower-east-side" class=""><img alt="Pixel" src="https://a1.muscache.com/locations/uploads/neighborhood/hero/482/0_4200_0_2800_tile_USA_NYC_LES_182_JBK.jpg" height="210" src="https://a2.muscache.com/airbnb/nabelove/locations/assets/pixel-eb5bdbd61cca8b5bf7c5991c7d247eab.png" width="315" /></a>
+</div>
+  <div class="blurb">
+    <p>Up early and out late.</p>
+    <ul class="tags">
+        <li>artsy</li>
+        <li>party</li>
+        <li>trendy</li>
+        <li>hipster</li>
+    </ul>
+  </div>
+<div class="sub friends" style="display: none;">
+  <ul>
+  </ul>
+  <p>
+  </p>
+</div>
+
+      </li>
+      <li class="tile " data-neighborhood-id="624" data-neighborhood-permalink="meatpacking-district" style="display: none;">
+        <div class="photo">
+  <h3><a href="/locations/new-york/meatpacking-district" class="">Meatpacking District</a></h3>
+  <a href="/locations/new-york/meatpacking-district" class=""><img alt="Pixel" src="https://a0.muscache.com/locations/uploads/neighborhood/hero/624/0_4200_0_2800_tile_USA_NYC_WESTVILLAGE_016_JR.jpg" height="210" src="https://a2.muscache.com/airbnb/nabelove/locations/assets/pixel-eb5bdbd61cca8b5bf7c5991c7d247eab.png" width="315" /></a>
+</div>
+  <div class="blurb">
+    <p>Bouncers and red-velvet ropes.</p>
+    <ul class="tags">
+        <li>clubs</li>
+        <li>night-life</li>
+        <li>cool</li>
+        <li>meat market</li>
+    </ul>
+  </div>
+<div class="sub friends" style="display: none;">
+  <ul>
+  </ul>
+  <p>
+  </p>
+</div>
+
+      </li>
+      <li class="tile " data-neighborhood-id="602" data-neighborhood-permalink="midtown" style="display: none;">
+        <div class="photo">
+  <h3><a href="/locations/new-york/midtown" class="">Midtown</a></h3>
+  <a href="/locations/new-york/midtown" class=""><img alt="Pixel" src="https://a3.muscache.com/locations/uploads/neighborhood/hero/602/0_4200_0_2800_tile_USA_NYC_MIDTOWN_182_JBK.jpg" height="210" src="https://a2.muscache.com/airbnb/nabelove/locations/assets/pixel-eb5bdbd61cca8b5bf7c5991c7d247eab.png" width="315" /></a>
+</div>
+  <div class="blurb">
+    <p>Taxi cabs and tall, tall buildings.</p>
+    <ul class="tags">
+        <li>busy</li>
+        <li>touristy</li>
+        <li>empire state building</li>
+        <li>hectic</li>
+    </ul>
+  </div>
+<div class="sub friends" style="display: none;">
+  <ul>
+  </ul>
+  <p>
+  </p>
+</div>
+
+      </li>
+      <li class="tile " data-neighborhood-id="663" data-neighborhood-permalink="midtown-east" style="display: none;">
+        <div class="photo">
+  <h3><a href="/locations/new-york/midtown-east" class="">Midtown East</a></h3>
+  <a href="/locations/new-york/midtown-east" class=""><img alt="Pixel" src="https://a0.muscache.com/locations/uploads/neighborhood/hero/663/0_4200_0_2800_tile_USA_NYC_MIDTOWNEAST_341_JBK.jpg" height="210" src="https://a2.muscache.com/airbnb/nabelove/locations/assets/pixel-eb5bdbd61cca8b5bf7c5991c7d247eab.png" width="315" /></a>
+</div>
+  <div class="blurb">
+    <p>Ascend the corporate ladder two rungs at a time.</p>
+    <ul class="tags">
+        <li>tourists</li>
+        <li>all business</li>
+        <li>wall st. folk</li>
+        <li>united nations</li>
+    </ul>
+  </div>
+<div class="sub friends" style="display: none;">
+  <ul>
+  </ul>
+  <p>
+  </p>
+</div>
+
+      </li>
+      <li class="tile " data-neighborhood-id="595" data-neighborhood-permalink="murray-hill" style="display: none;">
+        <div class="photo">
+  <h3><a href="/locations/new-york/murray-hill" class="">Murray Hill</a></h3>
+  <a href="/locations/new-york/murray-hill" class=""><img alt="Pixel" src="https://a2.muscache.com/locations/uploads/neighborhood/hero/595/0_4200_0_2800_tile_MurrayHill_Tam_17.jpg" height="210" src="https://a2.muscache.com/airbnb/nabelove/locations/assets/pixel-eb5bdbd61cca8b5bf7c5991c7d247eab.png" width="315" /></a>
+</div>
+  <div class="blurb">
+    <p>Post-college party animals.</p>
+    <ul class="tags">
+        <li>curry hill</li>
+        <li>indian food!</li>
+        <li>bars</li>
+        <li>hoboken of manhattan</li>
+    </ul>
+  </div>
+<div class="sub friends" style="display: none;">
+  <ul>
+  </ul>
+  <p>
+  </p>
+</div>
+
+      </li>
+      <li class="tile " data-neighborhood-id="503" data-neighborhood-permalink="noho" style="">
+        <div class="photo">
+  <h3><a href="/locations/new-york/noho" class="">Noho</a></h3>
+  <a href="/locations/new-york/noho" class=""><img alt="Pixel" src="https://a3.muscache.com/locations/uploads/neighborhood/hero/503/0_4200_0_2799_tile_USA_NYC_NOHO_0019_YP.jpg" height="210" src="https://a2.muscache.com/airbnb/nabelove/locations/assets/pixel-eb5bdbd61cca8b5bf7c5991c7d247eab.png" width="315" /></a>
+</div>
+  <div class="blurb">
+    <p>Hand-crafted cocktails. Hand-crafted character.</p>
+    <ul class="tags">
+        <li>young</li>
+        <li>lofts</li>
+        <li>funky</li>
+        <li>expensive</li>
+    </ul>
+  </div>
+<div class="sub friends" style="display: none;">
+  <ul>
+  </ul>
+  <p>
+  </p>
+</div>
+
+      </li>
+      <li class="tile " data-neighborhood-id="486" data-neighborhood-permalink="nolita" style="display: none;">
+        <div class="photo">
+  <h3><a href="/locations/new-york/nolita" class="">Nolita</a></h3>
+  <a href="/locations/new-york/nolita" class=""><img alt="Pixel" src="https://a0.muscache.com/locations/uploads/neighborhood/hero/486/5_1004_0_666_tile_USA_NYC_Nolita_CameronBlaylock32.jpg" height="210" src="https://a2.muscache.com/airbnb/nabelove/locations/assets/pixel-eb5bdbd61cca8b5bf7c5991c7d247eab.png" width="315" /></a>
+</div>
+  <div class="blurb">
+    <p>Sophisticated simplicity in NYC.</p>
+    <ul class="tags">
+        <li>europeans</li>
+        <li>boutiques</li>
+        <li>trendy</li>
+        <li>cool</li>
+    </ul>
+  </div>
+<div class="sub friends" style="display: none;">
+  <ul>
+  </ul>
+  <p>
+  </p>
+</div>
+
+      </li>
+      <li class="tile " data-neighborhood-id="1262" data-neighborhood-permalink="park-slope" style="">
+        <div class="photo">
+  <h3><a href="/locations/new-york/park-slope" class="">Park Slope</a></h3>
+  <a href="/locations/new-york/park-slope" class=""><img alt="Pixel" src="https://a3.muscache.com/locations/uploads/neighborhood/hero/1262/0_5616_0_3744_tile_SusieCushner_New_York_Brooklyn_Slope_Side_162.jpg" height="210" src="https://a2.muscache.com/airbnb/nabelove/locations/assets/pixel-eb5bdbd61cca8b5bf7c5991c7d247eab.png" width="315" /></a>
+</div>
+  <div class="blurb">
+    <p>Well-behaved children and immaculate park spaces.</p>
+    <ul class="tags">
+        <li>strollers</li>
+        <li>brownstone</li>
+        <li>family-friendly</li>
+        <li>lesbian friendly</li>
+    </ul>
+  </div>
+<div class="sub friends" style="display: none;">
+  <ul>
+  </ul>
+  <p>
+  </p>
+</div>
+
+      </li>
+      <li class="tile " data-neighborhood-id="1214" data-neighborhood-permalink="prospect-heights" style="">
+        <div class="photo">
+  <h3><a href="/locations/new-york/prospect-heights" class="">Prospect Heights</a></h3>
+  <a href="/locations/new-york/prospect-heights" class=""><img alt="Pixel" src="https://a1.muscache.com/locations/uploads/neighborhood/hero/1214/0_4200_0_2800_tile_prospectheights_brooklyn_cushner_IMG_9996.jpg" height="210" src="https://a2.muscache.com/airbnb/nabelove/locations/assets/pixel-eb5bdbd61cca8b5bf7c5991c7d247eab.png" width="315" /></a>
+</div>
+  <div class="blurb">
+    <p>Prospects look good in this polite neighborhood.</p>
+    <ul class="tags">
+        <li>brownstones</li>
+        <li>good food</li>
+        <li>up and coming</li>
+        <li>hipster</li>
+    </ul>
+  </div>
+<div class="sub friends" style="display: none;">
+  <ul>
+  </ul>
+  <p>
+  </p>
+</div>
+
+      </li>
+      <li class="tile " data-neighborhood-id="1301" data-neighborhood-permalink="red-hook" style="">
+        <div class="photo">
+  <h3><a href="/locations/new-york/red-hook" class="">Red Hook</a></h3>
+  <a href="/locations/new-york/red-hook" class=""><img alt="Pixel" src="https://a2.muscache.com/locations/uploads/neighborhood/hero/1301/0_4200_4_2804_tile_USA_RedHook_CameronBlaylock34.jpg" height="210" src="https://a2.muscache.com/airbnb/nabelove/locations/assets/pixel-eb5bdbd61cca8b5bf7c5991c7d247eab.png" width="315" /></a>
+</div>
+  <div class="blurb">
+    <p>Artists fall for this neighborhood- hook, line, and sinker.</p>
+    <ul class="tags">
+        <li>residustrial</li>
+        <li>underrated</li>
+        <li>no subway</li>
+        <li>waterfront</li>
+    </ul>
+  </div>
+<div class="sub friends" style="display: none;">
+  <ul>
+  </ul>
+  <p>
+  </p>
+</div>
+
+      </li>
+      <li class="tile " data-neighborhood-id="464" data-neighborhood-permalink="soho" style="">
+        <div class="photo">
+  <h3><a href="/locations/new-york/soho" class="">Soho</a></h3>
+  <a href="/locations/new-york/soho" class=""><img alt="Pixel" src="https://a0.muscache.com/locations/uploads/neighborhood/hero/464/0_4200_0_2800_tile_SoHo_Tam_48.jpg" height="210" src="https://a2.muscache.com/airbnb/nabelove/locations/assets/pixel-eb5bdbd61cca8b5bf7c5991c7d247eab.png" width="315" /></a>
+</div>
+  <div class="blurb">
+    <p>Retail therapy is less expensive than real therapy.</p>
+    <ul class="tags">
+        <li>boutiques</li>
+        <li>expensive</li>
+        <li>trendy</li>
+        <li>artsy</li>
+    </ul>
+  </div>
+<div class="sub friends" style="display: none;">
+  <ul>
+  </ul>
+  <p>
+  </p>
+</div>
+
+      </li>
+      <li class="tile " data-neighborhood-id="461" data-neighborhood-permalink="south-street-seaport" style="display: none;">
+        <div class="photo">
+  <h3><a href="/locations/new-york/south-street-seaport" class="">South Street Seaport</a></h3>
+  <a href="/locations/new-york/south-street-seaport" class=""><img alt="Pixel" src="https://a2.muscache.com/locations/uploads/neighborhood/hero/461/0_3700_57_2524_tile_SouthStreetSeaport_Tam_20.jpg" height="210" src="https://a2.muscache.com/airbnb/nabelove/locations/assets/pixel-eb5bdbd61cca8b5bf7c5991c7d247eab.png" width="315" /></a>
+</div>
+  <div class="blurb">
+    <p>Sea shanties and shopping malls.</p>
+    <ul class="tags">
+        <li>bankers on lunch</li>
+        <li>tourists</li>
+        <li>shopping</li>
+        <li>chain stores</li>
+    </ul>
+  </div>
+<div class="sub friends" style="display: none;">
+  <ul>
+  </ul>
+  <p>
+  </p>
+</div>
+
+      </li>
+      <li class="tile " data-neighborhood-id="661" data-neighborhood-permalink="times-square-theatre-district" style="display: none;">
+        <div class="photo">
+  <h3><a href="/locations/new-york/times-square-theatre-district" class="">Times Square/Theatre District</a></h3>
+  <a href="/locations/new-york/times-square-theatre-district" class=""><img alt="Pixel" src="https://a1.muscache.com/locations/uploads/neighborhood/hero/661/0_4200_0_2800_tile_USA_NYC_TIMESSQUARE_256_JBK.jpg" height="210" src="https://a2.muscache.com/airbnb/nabelove/locations/assets/pixel-eb5bdbd61cca8b5bf7c5991c7d247eab.png" width="315" /></a>
+</div>
+  <div class="blurb">
+    <p>The biggest, brightest billboards you ever saw.</p>
+    <ul class="tags">
+        <li>touristy</li>
+        <li>crowded</li>
+        <li>so loud</li>
+        <li>tourists</li>
+    </ul>
+  </div>
+<div class="sub friends" style="display: none;">
+  <ul>
+  </ul>
+  <p>
+  </p>
+</div>
+
+      </li>
+      <li class="tile " data-neighborhood-id="429" data-neighborhood-permalink="tribeca" style="">
+        <div class="photo">
+  <h3><a href="/locations/new-york/tribeca" class="">Tribeca</a></h3>
+  <a href="/locations/new-york/tribeca" class=""><img alt="Pixel" src="https://a1.muscache.com/locations/uploads/neighborhood/hero/429/0_4200_0_2800_tile_TriBeCa_Tam_23.jpg" height="210" src="https://a2.muscache.com/airbnb/nabelove/locations/assets/pixel-eb5bdbd61cca8b5bf7c5991c7d247eab.png" width="315" /></a>
+</div>
+  <div class="blurb">
+    <p>Are you on the guest list?</p>
+    <ul class="tags">
+        <li>trendy</li>
+        <li>expensive</li>
+        <li>lofts</li>
+        <li>residential</li>
+    </ul>
+  </div>
+<div class="sub friends" style="display: none;">
+  <ul>
+  </ul>
+  <p>
+  </p>
+</div>
+
+      </li>
+      <li class="tile " data-neighborhood-id="591" data-neighborhood-permalink="union-square" style="">
+        <div class="photo">
+  <h3><a href="/locations/new-york/union-square" class="">Union Square</a></h3>
+  <a href="/locations/new-york/union-square" class=""><img alt="Pixel" src="https://a1.muscache.com/locations/uploads/neighborhood/hero/591/0_4200_0_2800_tile_USA_NYC_UnionSquare_023_JR.jpg" height="210" src="https://a2.muscache.com/airbnb/nabelove/locations/assets/pixel-eb5bdbd61cca8b5bf7c5991c7d247eab.png" width="315" /></a>
+</div>
+  <div class="blurb">
+    <p>It's hip to be (Union) square.</p>
+    <ul class="tags">
+        <li>people watching</li>
+        <li>funky</li>
+        <li>convenient</li>
+        <li>farmers market</li>
+    </ul>
+  </div>
+<div class="sub friends" style="display: none;">
+  <ul>
+  </ul>
+  <p>
+  </p>
+</div>
+
+      </li>
+      <li class="tile " data-neighborhood-id="669" data-neighborhood-permalink="upper-east-side" style="">
+        <div class="photo">
+  <h3><a href="/locations/new-york/upper-east-side" class="">Upper East Side</a></h3>
+  <a href="/locations/new-york/upper-east-side" class=""><img alt="Pixel" src="https://a1.muscache.com/locations/uploads/neighborhood/hero/669/0_4200_0_2800_tile_uppereastside_ny_cushner_IMG_1988.jpg" height="210" src="https://a2.muscache.com/airbnb/nabelove/locations/assets/pixel-eb5bdbd61cca8b5bf7c5991c7d247eab.png" width="315" /></a>
+</div>
+  <div class="blurb">
+    <p>Nannies. Doormen. Chauffeurs.</p>
+    <ul class="tags">
+        <li>shopping</li>
+        <li>conservative</li>
+        <li>family-friendly</li>
+        <li>4/5/6/ train</li>
+    </ul>
+  </div>
+<div class="sub friends" style="display: none;">
+  <ul>
+  </ul>
+  <p>
+  </p>
+</div>
+
+      </li>
+      <li class="tile " data-neighborhood-id="671" data-neighborhood-permalink="upper-west-side" style="">
+        <div class="photo">
+  <h3><a href="/locations/new-york/upper-west-side" class="">Upper West Side</a></h3>
+  <a href="/locations/new-york/upper-west-side" class=""><img alt="Pixel" src="https://a2.muscache.com/locations/uploads/neighborhood/hero/671/0_4200_0_2800_tile_USA_NYC_UpperWestSide_025_JR.jpg" height="210" src="https://a2.muscache.com/airbnb/nabelove/locations/assets/pixel-eb5bdbd61cca8b5bf7c5991c7d247eab.png" width="315" /></a>
+</div>
+  <div class="blurb">
+    <p>Impeccable. Immaculate. Inimitable.</p>
+    <ul class="tags">
+        <li>beautiful</li>
+        <li>upscale</li>
+        <li>historical</li>
+        <li>central park</li>
+    </ul>
+  </div>
+<div class="sub friends" style="display: none;">
+  <ul>
+  </ul>
+  <p>
+  </p>
+</div>
+
+      </li>
+      <li class="tile " data-neighborhood-id="757" data-neighborhood-permalink="washington-heights" style="display: none;">
+        <div class="photo">
+  <h3><a href="/locations/new-york/washington-heights" class="">Washington Heights</a></h3>
+  <a href="/locations/new-york/washington-heights" class=""><img alt="Pixel" src="https://a0.muscache.com/locations/uploads/neighborhood/hero/757/0_4200_7_2807_tile_USA_WashingtonHeights_CameronBlaylock35.jpg" height="210" src="https://a2.muscache.com/airbnb/nabelove/locations/assets/pixel-eb5bdbd61cca8b5bf7c5991c7d247eab.png" width="315" /></a>
+</div>
+  <div class="blurb">
+    <p>A no-frills neighborhood with Dominican flavor. Buen provecho.</p>
+    <ul class="tags">
+        <li>roomy</li>
+        <li>low rent</li>
+        <li>uptown</li>
+        <li>low-rise</li>
+    </ul>
+  </div>
+<div class="sub friends" style="display: none;">
+  <ul>
+  </ul>
+  <p>
+  </p>
+</div>
+
+      </li>
+      <li class="tile " data-neighborhood-id="520" data-neighborhood-permalink="west-village" style="">
+        <div class="photo">
+  <h3><a href="/locations/new-york/west-village" class="">West Village</a></h3>
+  <a href="/locations/new-york/west-village" class=""><img alt="Pixel" src="https://a2.muscache.com/locations/uploads/neighborhood/hero/520/590_4200_107_2513_tile_USA_NYC_WESTVILLAGE_030_JR.jpg" height="210" src="https://a2.muscache.com/airbnb/nabelove/locations/assets/pixel-eb5bdbd61cca8b5bf7c5991c7d247eab.png" width="315" /></a>
+</div>
+  <div class="blurb">
+    <p>Small-town neighborhood with a celebrity following.</p>
+    <ul class="tags">
+        <li>brownstone</li>
+        <li>quaint</li>
+        <li>nightlife</li>
+        <li>trendy</li>
+    </ul>
+  </div>
+<div class="sub friends" style="display: none;">
+  <ul>
+  </ul>
+  <p>
+  </p>
+</div>
+
+      </li>
+      <li class="tile " data-neighborhood-id="961" data-neighborhood-permalink="williamsburg" style="">
+        <div class="photo">
+  <h3><a href="/locations/new-york/williamsburg" class="">Williamsburg</a></h3>
+  <a href="/locations/new-york/williamsburg" class=""><img alt="Pixel" src="https://a3.muscache.com/locations/uploads/neighborhood/hero/961/0_4200_0_2800_tile_USA_NYC_NORTHWILLIAMSBURG_0025_YP.JPG" height="210" src="https://a2.muscache.com/airbnb/nabelove/locations/assets/pixel-eb5bdbd61cca8b5bf7c5991c7d247eab.png" width="315" /></a>
+</div>
+  <div class="blurb">
+    <p>DIY bikes and secret rooftop parties.</p>
+    <ul class="tags">
+        <li>pbr</li>
+        <li>dives</li>
+        <li>indie</li>
+        <li>hipster</li>
+    </ul>
+  </div>
+<div class="sub friends" style="display: none;">
+  <ul>
+  </ul>
+  <p>
+  </p>
+</div>
+
+      </li>
+
+<%end%>
+</ul>
+
+  </div>

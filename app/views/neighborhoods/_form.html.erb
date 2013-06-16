@@ -15,7 +15,10 @@
 <label>Upload photo </label>
    <%=f.file_field :photo %>
 </div>
-
+<div class="field">
+  <%= f.label :photo_text %><br />
+  <%= f.text_field :photo_text %>
+</div>
 <%#=f.text_field :y_position %>
 
 <input id="neighborhood_y_position" type="hidden" size="30" name="neighborhood[y_position]"></input>

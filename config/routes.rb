@@ -1,4 +1,6 @@
 Mortgage::Application.routes.draw do
+  get "city/index"
+
   resources :early_pregnancies
 
 
