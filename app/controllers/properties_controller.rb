@@ -4,13 +4,52 @@ class PropertiesController < ApplicationController
     before_filter :authenticate_user!
   def index
       @title="Lateralmarket"
+       flood_zone_a = []
+       flood_zone_b = []
+       flood_zone_c = []
+      if params[:zone_a]
+          za=PropertyField.where(:flood_zone=>'A')
+          for a in za
+              flood_zone_a<<a.property
+          end
+      end
+      
+      
+      
+      if params[:zone_b]
+          zb=PropertyField.where(:flood_zone=>'B')
+          for b in zb
+              flood_zone_b<<b.property
+          end
+          
+      end
+      
+      
+      
+      if params[:zone_c]
+          zc=PropertyField.where(:flood_zone=>'C')
+          for c in zc
+              flood_zone_c<<c.property
+          end
+          
+      end
+      
+      
+      
       if params[:search]==nil
          @properties = Property.all
         else
-          if params[:temp_search].to_s!='All'
-          @properties = Property.where("entry_type LIKE ?", params[:temp_search].to_s).near(params[:search], params[:zip])
-           else
-          @properties = Property.all.near(params[:search], params[:zip])
+          if params[:temp_search].to_s=='All'
+              @properties = Property.near(params[:search], params[:zip]) - flood_zone_a -  flood_zone_b -  flood_zone_c
+
+              
+              
+              else
+              @properties = Property.where("entry_type LIKE ?", params[:temp_search].to_s).near(params[:search], params[:zip])  - flood_zone_a -  flood_zone_b -  flood_zone_c
+
+  
+              
+              
           end
               
               
