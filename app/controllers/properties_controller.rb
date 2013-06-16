@@ -7,7 +7,14 @@ class PropertiesController < ApplicationController
       if params[:search]==nil
          @properties = Property.all
         else
+          if params[:temp_search].to_s!='All'
           @properties = Property.where("entry_type LIKE ?", params[:temp_search].to_s).near(params[:search], params[:zip])
+           else
+          @properties = Property.all.near(params[:search], params[:zip])
+          end
+              
+              
+              
       end
 
     respond_to do |format|
